@@ -1,5 +1,5 @@
 {
-  "name": "@example/blog",
+  "name": "riffingonsoftware",
   "type": "module",
   "version": "0.0.1",
   "private": true,
@@ -14,6 +14,10 @@
     "astro": "^1.7.2",
     "@astrojs/mdx": "^0.13.0",
     "@astrojs/rss": "^1.2.1",
-    "@astrojs/sitemap": "^1.0.0"
+    "@astrojs/sitemap": "^1.0.0",
+    "@astrojs/tailwind": "^2.1.3"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
   }
 }
