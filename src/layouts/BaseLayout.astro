@@ -4,13 +4,13 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import SideBar from "../components/SideBar.astro";
 
-import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import { POSTS_GLOB, SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
 const { image, title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en" data-theme="lofi">
+<html lang="en" data-theme="night">
   <head>
     <BaseHead title={title} description={description} image={image} />
   </head>
