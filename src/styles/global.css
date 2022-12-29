@@ -1,3 +1,13 @@
-.time-line-container>div:last-child .education__time>.education__line {
-    display: none;
+@tailwind base;
+
+/* @layer base {
+    blockquote attribution {
+        @apply text-right;
+    }
+} */
+
+.prose :where(blockquote):not(:where([class~="not-prose"] *)) {
+    margin-bottom: 4em;
+    margin-top: 4em;
+    quotes: none;
 }
