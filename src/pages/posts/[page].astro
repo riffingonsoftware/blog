@@ -20,7 +20,7 @@ const { page } = Astro.props;
      <HorizontalCard
         title={post.frontmatter.title}
         img={post.frontmatter.heroImage}
-        imgAlt={post.parseFrontmatter.heroImageAlt}
+        imgAlt={post.frontmatter.heroImageAlt}
         desc={post.frontmatter.description}
         url={post.url}
 		target="_self"
