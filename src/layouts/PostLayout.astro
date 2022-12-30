@@ -8,18 +8,32 @@ export interface Props {
     pubDate?: string;
     updatedDate?: string;
     heroImage?: string;
+    heroImageAlt?: string;
+    tags?: string[];
   };
 }
 
 const {
-  content: { title, description, pubDate, updatedDate, heroImage, heroImageAlt }
+  content: {
+    title,
+    description,
+    pubDate,
+    updatedDate,
+    heroImage,
+    heroImageAlt,
+    tags,
+  },
 } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} image={heroImage}>
   <main class="md:flex md:justify-center">
     <article class="prose prose-lg max-w-[750px] prose-img:mx-auto">
-      {heroImage && <img src={heroImage} alt={heroImageAlt} class="w-full mb-6" />}
+      {
+        heroImage && (
+          <img src={heroImage} alt={heroImageAlt} class="w-full mb-6" />
+        )
+      }
       <h1 class="title my-2 text-4xl font-bold">{title}</h1>
       {pubDate && <time>{pubDate}</time>}
       {
@@ -31,7 +45,25 @@ const {
         )
       }
       <div class="divider my-2"></div>
-        <slot />
+      <slot />
     </article>
   </main>
+  {
+    tags && (
+      <div class="tags">
+        {" "}
+        Tags:{" "}
+        {tags.map((tag) => (
+          <a href={`/posts/${tag}/1`}>
+            <div
+              class="badge badge-outline ease-in-out hover:scale-[110%] hover:shadow-xl transition"
+              style="margin-right: 0.5em;"
+            >
+              {tag}
+            </div>
+          </a>
+        ))}{" "}
+      </div>
+    )
+  }
 </BaseLayout>

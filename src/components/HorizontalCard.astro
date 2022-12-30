@@ -12,10 +12,10 @@ const { title, img, imgAlt, desc, url, badge, tags, target = '_blank' } = Astro.
           {badge && <div class="badge badge-secondary mx-2">{badge}</div>}
         </h1>
         <p class="py-1 text-1xl">{desc}</p>
-        <div class="card-actions justify-end">
-          {tags && tags.map((tag) => <div class="badge badge-outline">{tag}</div>)}
-        </div>
       </div>
     </div>
   </a>
+</div>
+<div class="card-actions justify-end">
+  {tags && tags.map((tag: string) => <a href={`/posts/${tag}/1`}><div class="badge badge-outline rounded-lg bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[105%]">{tag}</div></a>)}
 </div>
