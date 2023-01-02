@@ -25,16 +25,16 @@ const {
     <!--List the array of astronaut info-->
     {page.data.map(( post ) => (
      <HorizontalCard
+        pubDate={post.frontmatter.pubDate}
         title={post.frontmatter.title}
         img={post.frontmatter.heroImage}
         imgAlt={post.frontmatter.heroImageAlt}
         desc={post.frontmatter.description}
         url={post.url}
         tags={post.frontmatter.tags}
-		    target="_self"
+        target="_self"
       />
-	  <div class="divider my-0"></div>
-
+     <div class="divider my-0"></div>
     ))}
   </ul>
 
