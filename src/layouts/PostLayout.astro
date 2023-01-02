@@ -50,9 +50,8 @@ const {
   </main>
   {
     tags && (
-      <div class="tags">
-        {" "}
-        Tags:{" "}
+      <div class="tags" style="margin-top: 2em;">
+        Tags:
         {tags.map((tag) => (
           <a href={`/posts/${tag}/1`}>
             <div
@@ -62,7 +61,7 @@ const {
               {tag}
             </div>
           </a>
-        ))}{" "}
+        ))}
       </div>
     )
   }

@@ -1,15 +1,24 @@
 ---
+const { description } = Astro.props;
 const today = new Date();
 ---
 
 <footer class="footer footer-center block mb-5 pt-10">
+  <div class="italic">
+    {description}
+  </div>
   <div class="pb-2">
     &copy; {today.getFullYear()} Ricardo Torres
   </div>
   <div class="inline opacity-75">
-    <!-- Thanks for using this template. Please keep this line to support my work :) -->
-    <p>Based on the wonderful</p><a href="https://github.com/manuelernestog/astro-modern-personal-website" target="_blank" class="font-bold">Astro Modern Personal Website Template</a> developed by
-    <a href="https://manuelernestog.github.io" target="_blank" class="font-bold">Manuel Ernesto ⚡️</a>
+    <p>Based on the wonderful</p><a
+      href="https://github.com/manuelernestog/astro-modern-personal-website"
+      target="_blank"
+      class="font-bold">Astro Modern Personal Website Template</a
+    > by
+    <a href="https://manuelernestog.github.io" target="_blank" class="font-bold"
+      >Manuel Ernesto ⚡️</a
+    >
   </div>
 </footer>
 <style>
