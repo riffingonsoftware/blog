@@ -2,10 +2,16 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="404 Not Found" description="This is not the page you're looking for.">
+<BaseLayout
+  title="404 Not Found"
+  description="This is not the page you're looking for."
+>
   <div class="content-center text-center">
-  <video autoplay controls playsinline src="/404.mp4"></video>
-  <div class="text-5xl font-bold">That's a negative Ghost Rider</div>
-  <p style="margin-top: 1em;">Sorry, I couldn't find the page you were looking for. Maybe try going <a class="text-lg underline" href="/">Home</a>?</p>
-</div>
+    <video autoplay controls playsinline src="/404.mp4"></video>
+    <div class="text-5xl font-bold">That's a negative, Ghost Rider</div>
+    <p style="margin-top: 1em;">
+      Sorry, I couldn't find the page you were looking for.
+    </p>
+    <p>Maybe try going <a class="text-lg underline" href="/">Home</a>?</p>
+  </div>
 </BaseLayout>
