@@ -9,4 +9,4 @@ heroImageAlt: "Astro Modern Personal Website template in multiple color themes f
 tags: ["astro", "javascript", "typescript"]
 ---
 
-> FIXME
+> Always focus on goals first. Technology is only the tool that we use to achieve them. &mdash;  Dave Farley

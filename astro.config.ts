@@ -7,12 +7,13 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  markdown: {
+	markdown: {
 		extendDefaultPlugins: true,
 		remarkPlugins: [
 			codeTitle,
 		],
 	},
-  integrations: [compress(), mdx(), sitemap(), tailwind()],
-  site: 'https://riffingonsoftware.com',
+	// compress should be last
+	integrations: [mdx(), sitemap(), tailwind(), compress(),],
+	site: 'https://riffingonsoftware.com',
 });
