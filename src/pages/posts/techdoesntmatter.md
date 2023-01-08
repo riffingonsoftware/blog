@@ -2,7 +2,7 @@
 layout: "../../layouts/PostLayout.astro"
 title: "The Tech Doesn't Matter"
 description: "The tech doesn't matter, unless it matters to you."
-draft: false
+draft: true
 pubDate: "2023.01.07"
 heroImage: "/images/vs.png"
 heroImageAlt: "Astro Modern Personal Website template in multiple color themes fanned out."
