@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import Comments from "../components/Comments";
 
 export interface Props {
   content: {
@@ -47,22 +48,23 @@ const {
       <div class="divider my-2"></div>
       <slot />
     </article>
+    {
+      tags && (
+        <div class="tags" style="margin-top: 2em;">
+          Tags:
+          {tags.map((tag) => (
+            <a href={`/posts/${tag}/1`}>
+              <div
+                class="badge badge-outline ease-in-out hover:scale-[110%] hover:shadow-xl transition"
+                style="margin-right: 0.5em;"
+              >
+                {tag}
+              </div>
+            </a>
+          ))}
+        </div>
+      )
+    }
+    <Comments client:visible></Comments>
   </main>
-  {
-    tags && (
-      <div class="tags" style="margin-top: 2em;">
-        Tags:
-        {tags.map((tag) => (
-          <a href={`/posts/${tag}/1`}>
-            <div
-              class="badge badge-outline ease-in-out hover:scale-[110%] hover:shadow-xl transition"
-              style="margin-right: 0.5em;"
-            >
-              {tag}
-            </div>
-          </a>
-        ))}
-      </div>
-    )
-  }
 </BaseLayout>
