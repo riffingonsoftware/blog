@@ -1,5 +1,10 @@
 import { onMount } from "solid-js";
 
+export default function Comments() {
+  return (
+    <div id="giscus" />
+  );
+}
 onMount(() => {
   const script = document.createElement("script");
   const tag = document.getElementById('giscus');
@@ -18,4 +23,5 @@ onMount(() => {
   script.setAttribute("data-loading", "lazy");
   script.setAttribute("crossorigin", "anonymous");
   script.setAttribute("async", "true");
+  tag?.appendChild(script);
 });
