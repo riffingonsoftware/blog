@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/PostLayout.astro"
 title: "Open Source Software Sustainability"
 description: "Is open source software a sustainable model?"
 draft: true

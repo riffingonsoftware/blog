@@ -1,19 +1,29 @@
 ---
 import PostListingLayout from "../../../layouts/PostListingLayout.astro";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths({ paginate }) {
-  const sortedNonDraftPosts = (await Astro.glob("../**/*.{md,mdx}")).filter((post) => post.frontmatter.draft !== true).sort(
-    (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+  const posts = (
+    await getCollection("posts", ({ data }) => {
+      return data.draft !== true;
+    })
+  ).sort(
+    (a, b) =>
+      new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
   );
-  const tags = sortedNonDraftPosts.map((post) => post.frontmatter.tags).flat();
+  const tags = posts.map((post) => post.data.tags).flat();
 
   return tags.map((tag) => {
-    const taggedPosts = sortedNonDraftPosts.filter((post) => post.frontmatter.tags.includes(tag));
-    return paginate(taggedPosts, { params: { tag }, pageSize: 10});
+    const taggedPosts = posts.filter((post) => post.data.tags.includes(tag));
+    return paginate(taggedPosts, { params: { tag }, pageSize: 10 });
   });
 }
-const { page, } = Astro.props;
+const { page } = Astro.props;
 const params = Astro.params;
 ---
 
-<PostListingLayout page={page} tag={params.tag} title={`Posts tagged ${params.tag}`} />
+<PostListingLayout
+  page={page}
+  tag={params.tag}
+  title={`Posts tagged ${params.tag}`}
+/>

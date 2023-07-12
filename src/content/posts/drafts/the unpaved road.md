@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/PostLayout.astro"
 title: "The Unpaved Road"
 description: "Doing things the hard way for fun and profit."
 draft: true

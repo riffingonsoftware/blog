@@ -9,7 +9,7 @@ const {
 } = Astro.props;
 ---
 
-<BaseLayout title = {title}>
+<BaseLayout title = {title} sideBarActiveItemID="posts">
   {tag &&(
     <div>
       <div class="text-3xl w-full font-bold mb-5 mt-10">Posts tagged "{tag}"</div>
@@ -22,18 +22,8 @@ const {
     )}
 
   <ul>
-    <!--List the array of astronaut info-->
-    {page.data.map(( post ) => (
-     <HorizontalCard
-        pubDate={post.frontmatter.pubDate}
-        title={post.frontmatter.title}
-        img={post.frontmatter.heroImage}
-        imgAlt={post.frontmatter.heroImageAlt}
-        desc={post.frontmatter.description}
-        url={post.url}
-        tags={post.frontmatter.tags}
-        target="_self"
-      />
+    {page.data.map(( post: PostSchema ) => (
+     <HorizontalCard pubDate={post.data.pubDate} title={post.data.title} img={post.data.heroImage} imgAlt={post.data.heroImageAlt} desc={post.data.description} url={"/posts/" + post.slug} tags={post.data.tags} target="_self" />
      <div class="divider my-0"></div>
     ))}
   </ul>

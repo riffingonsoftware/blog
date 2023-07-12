@@ -1,21 +1,12 @@
 ---
+import { PostSchema } from "../content/config";
 import BaseLayout from "./BaseLayout.astro";
 import Comments from "../components/Comments";
+import { Image } from "@astrojs/image/components";
 
-export interface Props {
-  content: {
-    title: string;
-    description: string;
-    pubDate?: string;
-    updatedDate?: string;
-    heroImage?: string;
-    heroImageAlt?: string;
-    tags?: string[];
-  };
-}
+export interface Props extends PostSchema{}
 
 const {
-  content: {
     title,
     description,
     pubDate,
@@ -23,7 +14,6 @@ const {
     heroImage,
     heroImageAlt,
     tags,
-  },
 } = Astro.props;
 ---
 
@@ -32,7 +22,17 @@ const {
     <article class="prose prose-lg max-w-[750px] prose-img:mx-auto">
       {
         heroImage && (
-          <img src={heroImage} alt={heroImageAlt} class="w-full mb-6" />
+        <Image
+            aspectRatio={"16:9"}
+            background="rgba(0,0,0,0)"
+            width={500}
+            height={250}
+            fit="contain"
+            format="webp"
+            src={heroImage}
+            alt={heroImageAlt}
+            class="w-full mb-6"
+          />
         )
       }
       <h1 class="title my-2 text-4xl font-bold">{title}</h1>

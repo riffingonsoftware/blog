@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/PostLayout.astro"
 title: "Adventures in Wasmland"
 description: "Let's see how deep this rabbit hole goes."
 draft: true

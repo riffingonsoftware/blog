@@ -168,4 +168,8 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+.astro
+
 # End of .gitignore from Astro template
+
+.cache
