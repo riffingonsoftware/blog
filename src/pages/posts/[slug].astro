@@ -1,6 +1,6 @@
 ---
 import { CollectionEntry, getCollection } from "astro:content";
-import { PostSchema } from "../../content/config";
+import type { PostSchema } from "../../content/posts/config";
 import PostLayout from "../../layouts/PostLayout.astro";
 
 export async function getStaticPaths() {

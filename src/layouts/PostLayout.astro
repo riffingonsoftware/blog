@@ -1,5 +1,5 @@
 ---
-import { PostSchema } from "../content/config";
+import type { PostSchema } from "../content/posts/config";
 import BaseLayout from "./BaseLayout.astro";
 import Comments from "../components/Comments";
 import { Image } from "@astrojs/image/components";
@@ -30,7 +30,7 @@ const {
             fit="contain"
             format="webp"
             src={heroImage}
-            alt={heroImageAlt}
+            alt={heroImageAlt ?? title}
             class="w-full mb-6"
           />
         )

@@ -1,6 +1,6 @@
 ---
 import PostListingLayout from "../../../layouts/PostListingLayout.astro";
-import { getCollection } from "astro:content";
+import { CollectionEntry, getCollection } from "astro:content";
 
 export async function getStaticPaths({ paginate }) {
   const posts = (
@@ -8,7 +8,7 @@ export async function getStaticPaths({ paginate }) {
       return data.draft !== true;
     })
   ).sort(
-    (a, b) =>
+    (a: CollectionEntry<"posts">, b: CollectionEntry<"posts">) =>
       new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
   );
   const tags = posts.map((post) => post.data.tags).flat();

@@ -1,14 +1,13 @@
 ---
 import PostListingLayout from "../../layouts/PostListingLayout.astro";
-import { getCollection } from "astro:content";
-import { PostSchema } from "../../content/config";
+import { CollectionEntry, getCollection } from "astro:content";
 
 export async function getStaticPaths({ paginate }) {
   const posts = await getCollection("posts", ({ data }) => {
     return data.draft !== true;
   });
   posts.sort(
-    (a: PostSchema, b: PostSchema) =>
+    (a: CollectionEntry<"posts">, b: CollectionEntry<"posts">) =>
       new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
   );
   return paginate(posts, { pageSize: 10 });
