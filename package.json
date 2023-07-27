@@ -21,7 +21,7 @@
     "@fontsource/fira-code": "^5.0.5",
     "@tailwindcss/typography": "^0.5.9",
     "astro": "^2.8.2",
-    "astro-compress": "1.1.49",
+    "astro-compress": "1.1.50",
     "daisyui": "^3.2.1",
     "remark-code-title": "^0.2.5",
     "sharp": "^0.32.2",
