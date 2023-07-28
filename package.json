@@ -20,9 +20,9 @@
     "@babel/core": "^7.22.9",
     "@fontsource/fira-code": "^5.0.5",
     "@tailwindcss/typography": "^0.5.9",
-    "astro": "^2.9.3",
+    "astro": "^2.9.6",
     "astro-compress": "1.1.49",
-    "daisyui": "^3.4.0",
+    "daisyui": "^3.5.0",
     "remark-code-title": "^0.2.5",
     "sharp": "^0.32.4",
     "solid-js": "^1.7.8"
