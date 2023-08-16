@@ -36,8 +36,8 @@ devDependencies:
     specifier: ^2.10.3
     version: 2.10.3(sharp@0.32.4)
   astro-compress:
-    specifier: 2.0.11
-    version: 2.0.11
+    specifier: 2.0.12
+    version: 2.0.12
   daisyui:
     specifier: ^3.5.1
     version: 3.5.1
@@ -1120,7 +1120,7 @@ packages:
   /@types/sax@1.2.4:
     resolution: {integrity: sha512-pSAff4IAxJjfAXUG6tFkO7dsSbTmf8CtUpfhhZ5VhkRpC4628tJhh3+V6H1E+/Gs9piSzYKT5yzHO5M4GG9jkw==}
     dependencies:
-      '@types/node': 17.0.45
+      '@types/node': 20.5.0
     dev: true
 
   /@types/unist@2.0.7:
@@ -1233,15 +1233,15 @@ packages:
     hasBin: true
     dev: true
 
-  /astro-compress@2.0.11:
-    resolution: {integrity: sha512-8Is/MWWBjxn0ilizJ61rDX8cnTZ4z/k2adXgu45yzy5VXoSPGduv90O1e27uHH81sd7GSRGtbsq811IqyXs4gQ==}
+  /astro-compress@2.0.12:
+    resolution: {integrity: sha512-De5XPeVbfexO0wIoZrO3222fv1e74BoDylc6GL0AWPqasdDKXbfC3wyhmGhcEpWR6HRMi8WjdEtE6MtM5rnCaA==}
     dependencies:
       '@types/csso': 5.0.0
       '@types/html-minifier-terser': 7.0.0
       csso: 5.0.5
       files-pipe: 2.0.15
       html-minifier-terser: 7.2.0
-      sharp: 0.32.4
+      sharp: 0.32.5
       svgo: 3.0.2
       terser: 5.19.2
     dev: true
@@ -4091,6 +4091,21 @@ packages:
 
   /sharp@0.32.4:
     resolution: {integrity: sha512-exUnZewqVZC6UXqXuQ8fyJJv0M968feBi04jb9GcUHrWtkRoAKnbJt8IfwT4NJs7FskArbJ14JAFGVuooszoGg==}
+    engines: {node: '>=14.15.0'}
+    requiresBuild: true
+    dependencies:
+      color: 4.2.3
+      detect-libc: 2.0.2
+      node-addon-api: 6.1.0
+      prebuild-install: 7.1.1
+      semver: 7.5.4
+      simple-get: 4.0.1
+      tar-fs: 3.0.4
+      tunnel-agent: 0.6.0
+    dev: true
+
+  /sharp@0.32.5:
+    resolution: {integrity: sha512-0dap3iysgDkNaPOaOL4X/0akdu0ma62GcdC2NBQ+93eqpePdDdr2/LM0sFdDSMmN7yS+odyZtPsb7tx/cYBKnQ==}
     engines: {node: '>=14.15.0'}
     requiresBuild: true
     dependencies:
