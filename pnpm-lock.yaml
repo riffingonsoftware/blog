@@ -36,8 +36,8 @@ devDependencies:
     specifier: ^2.10.3
     version: 2.10.3(sharp@0.32.4)
   astro-compress:
-    specifier: 2.0.12
-    version: 2.0.12
+    specifier: 2.0.14
+    version: 2.0.14
   daisyui:
     specifier: ^3.5.1
     version: 3.5.1
@@ -1233,13 +1233,13 @@ packages:
     hasBin: true
     dev: true
 
-  /astro-compress@2.0.12:
-    resolution: {integrity: sha512-De5XPeVbfexO0wIoZrO3222fv1e74BoDylc6GL0AWPqasdDKXbfC3wyhmGhcEpWR6HRMi8WjdEtE6MtM5rnCaA==}
+  /astro-compress@2.0.14:
+    resolution: {integrity: sha512-kpUfZA7Nm9WccqAGaTnS5fcH1MbRRKWUearIhy/hXWvNWkYQ8ytFuWDAvTe0grRbqLFKWAxD5ArGBWyA/VDHGg==}
     dependencies:
       '@types/csso': 5.0.0
       '@types/html-minifier-terser': 7.0.0
       csso: 5.0.5
-      files-pipe: 2.0.15
+      files-pipe: 2.0.16
       html-minifier-terser: 7.2.0
       sharp: 0.32.5
       svgo: 3.0.2
@@ -2162,8 +2162,8 @@ packages:
       format: 0.2.2
     dev: true
 
-  /files-pipe@2.0.15:
-    resolution: {integrity: sha512-82lnXCqBO3o/iyxZrHhU7ksy1LfRBw0JxbbUKo8+/8SwAFRTj6FPJKekMVINQXMf3dKXgJh5o7YjApLyeSTayw==}
+  /files-pipe@2.0.16:
+    resolution: {integrity: sha512-jHFoRG9R1XgtOil6mo5/zhIQhBp87khu7LydI0G4dmqI5ZjI8kXK1amG5v5FxqL6k2cuRQ/e28zzs6AOZNP4gA==}
     dependencies:
       '@types/node': 20.5.0
       deepmerge-ts: 5.1.0
