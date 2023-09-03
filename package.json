@@ -16,7 +16,7 @@
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.0",
     "@astrojs/solid-js": "^3.0.0",
-    "@astrojs/tailwind": "^4.0.0",
+    "@astrojs/tailwind": "^5.0.0",
     "@babel/core": "^7.22.10",
     "@fontsource/fira-code": "^5.0.8",
     "@tailwindcss/typography": "^0.5.9",
