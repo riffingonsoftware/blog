@@ -2,7 +2,7 @@
 import type { PostSchema } from "../content/posts/config";
 import BaseLayout from "./BaseLayout.astro";
 import Comments from "../components/Comments";
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 
 export interface Props extends PostSchema{}
 
@@ -23,7 +23,6 @@ const {
       {
         heroImage && (
         <Image
-            aspectRatio={"16:9"}
             background="rgba(0,0,0,0)"
             width={500}
             height={250}
@@ -31,7 +30,7 @@ const {
             format="webp"
             src={heroImage}
             alt={heroImageAlt ?? title}
-            class="w-full mb-6"
+            class="max-w-full rounded-lg"
           />
         )
       }

@@ -9,7 +9,8 @@ export interface Props {
 	image?: string;
 }
 
-const { title, description, image = '/profile.png' } = Astro.props;
+import profileImage from '../profile.png';
+const { title, description, image = profileImage } = Astro.props;
 ---
 
 <!-- Global Metadata -->
