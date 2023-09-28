@@ -14,4 +14,4 @@ Recently, I was reflecting on how I've been approaching learning new tech. It's 
 
 I like taking the unpaved road.
 
-<img alt="Bing, powered by DALL-E, generated image with the prompt: well worn path through a bad cyberpunk neighborhood" src="/well-worn-path.jpg">
+![Bing, powered by DALL-E, generated image with the prompt: well worn path through a bad cyberpunk neighborhood](/images/well-worn-path.jpg)
