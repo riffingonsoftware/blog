@@ -14,7 +14,6 @@ export interface Props {
 
 import profileImage from '../images/profile.png';
 const {author, title, description, image = profileImage, pubDate} = Astro.props;
-const ogUrl = '../images/' + (Astro.url.pathname.startsWith("/") ? Astro.url.pathname.slice(1) : Astro.url.pathname).replaceAll("/", "-") + ".webp";
 ---
 
 <!-- Global Metadata -->
@@ -34,12 +33,7 @@ const ogUrl = '../images/' + (Astro.url.pathname.startsWith("/") ? Astro.url.pat
 <meta property="og:url" content={Astro.url}/>
 <meta property="og:title" content={title}/>
 <meta property="og:description" content={description}/>
-{ image && console.log("image", image)}
-{ image && console.log("url", Astro.url)}
-{ ogUrl && console.log("ogUrl", ogUrl)}
-{image === profileImage ?
-<meta property="og:image" content={new URL(image, Astro.url)}/> :
-<meta property="og:image" content={new URL(ogUrl, Astro.url)}/>}
+<meta property="og:image" content={new URL(image, Astro.url)}/>
 {pubDate &&
 <meta property="og:publish_date" content={pubDate}/>}
 
