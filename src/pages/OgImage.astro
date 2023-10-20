@@ -1,0 +1,25 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+
+import {SITE_TITLE, SITE_DESCRIPTION} from "../config";
+
+const {
+    author,
+    image,
+    title = SITE_TITLE,
+    description = SITE_DESCRIPTION,
+    pubDate,
+    includeSidebar = false,
+    sideBarActiveItemID,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" data-theme="night">
+<head>
+  <BaseHead author={author} title={title} description={description} image={image} pubDate={pubDate}/>
+</head>
+<body>
+<img src="/favicon.svg" alt="Really, you shouldn't be seeing this. It's just a hack so I can get an Open Graph image that reflects the site's theme." class="align-middle fill-current h-screen"/>
+</body>
+</html>
