@@ -33,7 +33,7 @@ const {author, title, description, image = profileImage, pubDate} = Astro.props;
 <meta property="og:url" content={Astro.url}/>
 <meta property="og:title" content={title}/>
 <meta property="og:description" content={description}/>
-<meta property="og:image" content={new URL('../images/riffingonsoftware-og.webp', Astro.url)}/>
+<meta property="og:image" content={new URL('../../images/riffingonsoftware-og.webp', Astro.url)}/>
 {pubDate &&
 <meta property="og:publish_date" content={pubDate}/>}
 
