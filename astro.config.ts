@@ -12,7 +12,9 @@ import ogImage from "./src/integrations/OgImage.ts";
 export default defineConfig({
     markdown: {
         remarkPlugins: [codeTitle],
-    }, // compress should be last
-    integrations: [mdx(), sitemap(), solidJs(), tailwind(), ogImage(), compress(),],
+    },
+    // ogImage doesn't work on Netlify. Don't feel like troubleshooting, just copied the output from a previous run into images. Could regenerate locally.
+    // compress should be last
+    integrations: [mdx(), sitemap(), solidJs(), tailwind(), /*ogImage(),*/ compress(),],
     site: "https://riffingonsoftware.com",
 });
