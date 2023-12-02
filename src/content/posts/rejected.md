@@ -10,14 +10,15 @@ tags: ["failure"]
 
 Yet another failure. Actually, let me own that. I failed again.
 
-I recently applied to a masters program, and I was rejected. I'm not even a little surprised. I'm disappointed, but I'm not surprised. Why? It all started...
+I recently applied to a masters program, and I was rejected. I'm not even a little surprised. I'm a little disappointed, but I'm not surprised. Why?
 
-Let's go over some of my academic origin story. Like many in my field, I was a smart kid. Through high school, education came easy to me. Bragging about high school never felt right, and it feels less right the longer I've been out of it. Suffice it to say, I was a decorated student who couldn't be bothered to try for a perfect grade or GPA because it was boring to me. Again, I don't expect that's unique for a fair number of folks in software.
+1. My undergrad GPA is bad (2.7). (I'd say "was," but I guess it'll always be with me.)
+2. I used to be good at math...
+  1. Turns out, at least for me, math is definitely a use it or lose it kind of skill. I'm confident I could get it back, but...
+  2. I rushed into the GRE and scored poorly on the math section (157 or 52nd percentile).
 
-Now when it came to my senior year, early in the year, I'd been awarded a scholarship that was essentially a full ride, but it was going to require a lot of extracurricular effort on my part (a story for another time). As such, I opted to not take one [AP](https://en.wikipedia.org/wiki/Advanced_Placement) class (history), and while the rest of my classes were AP, I opted to not take the tests which would have granted college credit. Why? Well, I thought with all of the extracurriculars, it would be good for me to have some ease as I transition. That was the plan.
+So, why am I sharing all of that?
 
-> [...]&#10;No plan survives initial contact with the enemy. (Paraphrased) &mdash;  [Helmuth von Moltke](https://quoteinvestigator.com/2021/05/04/no-plan/)
+I don't want your pity or condolences. I'm good.
 
-Well, a funny thing happened. Nearing the end of my senior year, my scholarship was revoked. By the time I got all the paperwork together to show the revocation had been done due to bad information, I'd needed to make other plans.
-
-I got a small scholarship to a smaller school. My plans were in shambles. My father had told me not to "put all my eggs in one basket." Maybe you were better at listening to your father, but I wasn't great. So, no college credits from AP classes, no extracurriculars, and no plan. 
+Really, I just wanted to share some failure. Going on social media it's easy to think everyone else is winning all the time. We're not. Think you're having a bad day? You're not alone. There are plenty of people out there having a much worse day. After all, you have time to read this stupid blog post!
