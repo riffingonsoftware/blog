@@ -15,8 +15,8 @@ devDependencies:
     specifier: ^3.0.3
     version: 3.0.3
   '@astrojs/solid-js':
-    specifier: ^3.0.2
-    version: 3.0.2(solid-js@1.8.7)(vite@4.5.1)
+    specifier: ^4.0.0
+    version: 4.0.0(solid-js@1.8.7)(vite@4.5.1)
   '@astrojs/tailwind':
     specifier: ^5.0.3
     version: 5.0.3(astro@4.0.3)(tailwindcss@3.3.6)
@@ -151,11 +151,11 @@ packages:
       zod: 3.22.4
     dev: true
 
-  /@astrojs/solid-js@3.0.2(solid-js@1.8.7)(vite@4.5.1):
-    resolution: {integrity: sha512-BGTtS/ygAlcopELdjgTURHnxS2AoDRKjpu3Dgp12TOcArBMCiI/rYdHtlB+ligMm9Bbvar8qdzXsT1zlrxK5jQ==}
+  /@astrojs/solid-js@4.0.0(solid-js@1.8.7)(vite@4.5.1):
+    resolution: {integrity: sha512-b7295Z/z0Db28kyd/v5vQqXbsoZM+Gjz7BEWNQNb+0QRb/+2HCvB8T83LFtrVYHzj6V6NOup+vhf59yNRtZu/w==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
-      solid-js: ^1.4.3
+      solid-js: ^1.8.5
     dependencies:
       solid-js: 1.8.7
       vite-plugin-solid: 2.7.2(solid-js@1.8.7)(vite@4.5.1)
