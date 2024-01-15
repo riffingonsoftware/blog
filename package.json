@@ -21,7 +21,7 @@
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^20.10.3",
     "astro": "^4.0.3",
-    "astro-compress": "2.2.7",
+    "astro-compress": "2.2.8",
     "daisyui": "^4.4.19",
     "puppeteer": "^21.6.0",
     "remark-code-title": "^0.2.5",
