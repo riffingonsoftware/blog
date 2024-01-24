@@ -1,44 +1,60 @@
 ---
-import type {PostSchema} from "../content/posts/config";
+import type { PostSchema } from "../content/posts/config";
 import BaseLayout from "./BaseLayout.astro";
 import Comments from "../components/Comments";
-import {Image} from "astro:assets";
+import { Image } from "astro:assets";
 
-export interface Props extends PostSchema{}
+export interface Props extends PostSchema {}
 
 const {
-    author, title, description, pubDate, updatedDate, heroImage, heroImageAlt, tags,
+  author,
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  heroImage,
+  heroImageAlt,
+  tags,
 } = Astro.props;
 ---
 
-<BaseLayout author={author} title={title} description={description} image={heroImage} pubDate={pubDate}>
+<BaseLayout
+  author={author}
+  title={title}
+  description={description}
+  image={heroImage}
+  pubDate={pubDate}
+>
   <main class="md:flex md:justify-center">
     <article class="prose prose-lg max-w-[750px] prose-img:mx-auto">
       {
         heroImage && (
-              <Image
-                  height={250}
-                  width={500}
-                  fit="contain"
-                  format="webp"
-                  src={heroImage}
-                  alt={heroImageAlt ?? title}
-                  class="max-w-full rounded-lg"
-                  transition:name={heroImage} />
+          <Image
+            height={250}
+            width={500}
+            fit="contain"
+            format="webp"
+            src={heroImage}
+            alt={heroImageAlt ?? title}
+            class="max-w-full rounded-lg"
+            transition:name={heroImage}
+          />
         )
       }
-      <h1 class="title my-2 text-4xl font-bold" transition:name={title}>{title}</h1>
+      <h1 class="title my-2 text-4xl font-bold" transition:name={title}>
+        {title}
+      </h1>
       {pubDate && <time>{pubDate}</time>}
       {
         updatedDate && (
           <div>
-              {" "}
+            {" "}
             Last updated on <time>{updatedDate}</time>{" "}
           </div>
         )
       }
       <div class="divider my-2"></div>
-      <slot/>
+      <slot />
     </article>
   </main>
   {
@@ -47,16 +63,16 @@ const {
         Tags:
         {tags.map((tag) => (
           <a href={`/posts/${tag}/1`}>
-              <div
-                class="badge badge-outline ease-in-out hover:scale-[110%] hover:shadow-xl transition"
-                style="margin-right: 0.5em;"
-              >
-                  {tag}
-              </div>
+            <div
+              class="badge badge-outline ease-in-out hover:scale-[110%] hover:shadow-xl transition"
+              style="margin-right: 0.5em;"
+            >
+              {tag}
+            </div>
           </a>
         ))}
       </div>
     )
   }
-  <Comments client:visible/>
+  <Comments client:idle />
 </BaseLayout>
