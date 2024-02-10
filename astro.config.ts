@@ -13,6 +13,7 @@ export default defineConfig({
     markdown: {
         remarkPlugins: [codeTitle],
     },
-    integrations: [mdx(), sitemap(), solidJs(), tailwind(), ogImage(), compress(),],
+    // Can't seem to get ogImage to work, so I'm disabling it for now.
+    integrations: [mdx(), sitemap(), solidJs(), tailwind(), /*ogImage(),*/ compress(),],
     site: "https://riffingonsoftware.com",
 });
