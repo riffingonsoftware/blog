@@ -7,7 +7,7 @@ settings:
 devDependencies:
   '@astrojs/mdx':
     specifier: ^2.1.1
-    version: 2.2.0(astro@4.5.2)
+    version: 2.2.0(astro@4.5.3)
   '@astrojs/rss':
     specifier: ^4.0.5
     version: 4.0.5
@@ -19,7 +19,7 @@ devDependencies:
     version: 4.0.1(solid-js@1.8.15)(vite@5.1.6)
   '@astrojs/tailwind':
     specifier: ^5.1.0
-    version: 5.1.0(astro@4.5.2)(tailwindcss@3.4.1)
+    version: 5.1.0(astro@4.5.3)(tailwindcss@3.4.1)
   '@babel/core':
     specifier: ^7.23.9
     version: 7.24.0
@@ -34,7 +34,7 @@ devDependencies:
     version: 20.11.27
   astro:
     specifier: ^4.3.5
-    version: 4.5.2(@types/node@20.11.27)
+    version: 4.5.3(@types/node@20.11.27)
   astro-compress:
     specifier: 2.2.14
     version: 2.2.14
@@ -105,7 +105,7 @@ packages:
       - supports-color
     dev: true
 
-  /@astrojs/mdx@2.2.0(astro@4.5.2):
+  /@astrojs/mdx@2.2.0(astro@4.5.3):
     resolution: {integrity: sha512-EkcCniYdGwsh9k5LknqRrz/UyOnMNXdRk7fgDAw/zUDKnm7zgQAG8hIx0FxG1L2IINxLfu7IcjgZb3f5TFpxKw==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
@@ -114,7 +114,7 @@ packages:
       '@astrojs/markdown-remark': 4.3.0
       '@mdx-js/mdx': 3.0.1
       acorn: 8.11.3
-      astro: 4.5.2(@types/node@20.11.27)
+      astro: 4.5.3(@types/node@20.11.27)
       es-module-lexer: 1.4.1
       estree-util-visit: 2.0.0
       github-slugger: 2.0.0
@@ -166,13 +166,13 @@ packages:
       - vite
     dev: true
 
-  /@astrojs/tailwind@5.1.0(astro@4.5.2)(tailwindcss@3.4.1):
+  /@astrojs/tailwind@5.1.0(astro@4.5.3)(tailwindcss@3.4.1):
     resolution: {integrity: sha512-BJoCDKuWhU9FT2qYg+fr6Nfb3qP4ShtyjXGHKA/4mHN94z7BGcmauQK23iy+YH5qWvTnhqkd6mQPQ1yTZTe9Ig==}
     peerDependencies:
       astro: ^3.0.0 || ^4.0.0
       tailwindcss: ^3.0.24
     dependencies:
-      astro: 4.5.2(@types/node@20.11.27)
+      astro: 4.5.3(@types/node@20.11.27)
       autoprefixer: 10.4.17(postcss@8.4.35)
       postcss: 8.4.35
       postcss-load-config: 4.0.2(postcss@8.4.35)
@@ -1344,8 +1344,8 @@ packages:
       terser: 5.29.1
     dev: true
 
-  /astro@4.5.2(@types/node@20.11.27):
-    resolution: {integrity: sha512-Nq3GojlwXJ3XD047khraCWu/6aqGFfcyq7Q0blpTBSZnCz2s4Zri04PHvUkbKF7TK2UljkFuTXKP0CE4ZuJi9Q==}
+  /astro@4.5.3(@types/node@20.11.27):
+    resolution: {integrity: sha512-MEiLeAr3+THeadTZCQ4U+DI9VTTUZdYrPEPedSKmQwqnkiPkLjpLgx4yOcyH7Yp4t57+SWiC6W0rt7lPGM36Fg==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
     dependencies:
@@ -1359,7 +1359,6 @@ packages:
       '@babel/plugin-transform-react-jsx': 7.23.4(@babel/core@7.24.0)
       '@babel/traverse': 7.24.0
       '@babel/types': 7.24.0
-      '@shikijs/core': 1.1.7
       '@types/babel__core': 7.20.5
       acorn: 8.11.3
       aria-query: 5.3.0
@@ -1390,7 +1389,6 @@ packages:
       js-yaml: 4.1.0
       kleur: 4.1.5
       magic-string: 0.30.8
-      mdast-util-to-hast: 13.0.2
       mime: 3.0.0
       ora: 7.0.1
       p-limit: 5.0.0
@@ -1495,14 +1493,14 @@ packages:
     requiresBuild: true
     dependencies:
       bare-events: 2.2.1
-      bare-os: 2.2.0
+      bare-os: 2.2.1
       bare-path: 2.1.0
       streamx: 2.16.1
     dev: true
     optional: true
 
-  /bare-os@2.2.0:
-    resolution: {integrity: sha512-hD0rOPfYWOMpVirTACt4/nK8mC55La12K5fY1ij8HAdfQakD62M+H4o4tpfKzVGLgRDTuk3vjA4GqGXXCeFbag==}
+  /bare-os@2.2.1:
+    resolution: {integrity: sha512-OwPyHgBBMkhC29Hl3O4/YfxW9n7mdTr2+SsO29XBWKKJsbgj3mnorDB80r5TiCQgQstgE5ga1qNYrpes6NvX2w==}
     requiresBuild: true
     dev: true
     optional: true
@@ -1511,7 +1509,7 @@ packages:
     resolution: {integrity: sha512-DIIg7ts8bdRKwJRJrUMy/PICEaQZaPGZ26lsSx9MJSwIhSrcdHn7/C8W+XmnG/rKi6BaRcz+JO00CjZteybDtw==}
     requiresBuild: true
     dependencies:
-      bare-os: 2.2.0
+      bare-os: 2.2.1
     dev: true
     optional: true
 
@@ -3361,19 +3359,6 @@ packages:
     dependencies:
       '@types/mdast': 4.0.3
       unist-util-is: 6.0.0
-    dev: true
-
-  /mdast-util-to-hast@13.0.2:
-    resolution: {integrity: sha512-U5I+500EOOw9e3ZrclN3Is3fRpw8c19SMyNZlZ2IS+7vLsNzb2Om11VpIVOR+/0137GhZsFEF6YiKD5+0Hr2Og==}
-    dependencies:
-      '@types/hast': 3.0.4
-      '@types/mdast': 4.0.3
-      '@ungap/structured-clone': 1.2.0
-      devlop: 1.1.0
-      micromark-util-sanitize-uri: 2.0.0
-      trim-lines: 3.0.1
-      unist-util-position: 5.0.0
-      unist-util-visit: 5.0.0
     dev: true
 
   /mdast-util-to-hast@13.1.0:
