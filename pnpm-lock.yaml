@@ -36,8 +36,8 @@ devDependencies:
     specifier: ^4.3.5
     version: 4.5.8(@types/node@20.11.30)
   astro-compress:
-    specifier: 2.2.16
-    version: 2.2.16
+    specifier: 2.2.17
+    version: 2.2.17
   daisyui:
     specifier: ^4.6.2
     version: 4.7.3(postcss@8.4.38)
@@ -1541,8 +1541,8 @@ packages:
     hasBin: true
     dev: true
 
-  /astro-compress@2.2.16:
-    resolution: {integrity: sha512-U9fq0sE25XViCjgNnWMFwjXA02VPemLS0/bPTnSj3FvJxB4LI12Wbu2zpvBY3qXQeYlzo/Dd813zFVwzrcCCug==}
+  /astro-compress@2.2.17:
+    resolution: {integrity: sha512-nqwLZApVtoMyRjvvsWIyBkzj31YSHtzWPOCLdZZLSu94ieWxIzoapa0jD7Vt+K6Mzc+KfXPdB9dK+hDcJCy9wQ==}
     dependencies:
       '@types/csso': 5.0.4
       '@types/html-minifier-terser': 7.0.2
