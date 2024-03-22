@@ -7,7 +7,7 @@ settings:
 devDependencies:
   '@astrojs/mdx':
     specifier: ^2.1.1
-    version: 2.2.1(astro@4.5.8)
+    version: 2.2.1(astro@4.5.9)
   '@astrojs/rss':
     specifier: ^4.0.5
     version: 4.0.5
@@ -16,10 +16,10 @@ devDependencies:
     version: 3.1.1
   '@astrojs/solid-js':
     specifier: ^4.0.1
-    version: 4.0.1(solid-js@1.8.16)(vite@5.2.2)
+    version: 4.0.1(solid-js@1.8.16)(vite@5.2.3)
   '@astrojs/tailwind':
     specifier: ^5.1.0
-    version: 5.1.0(astro@4.5.8)(tailwindcss@3.4.1)
+    version: 5.1.0(astro@4.5.9)(tailwindcss@3.4.1)
   '@babel/core':
     specifier: ^7.23.9
     version: 7.24.3
@@ -34,7 +34,7 @@ devDependencies:
     version: 20.11.30
   astro:
     specifier: ^4.3.5
-    version: 4.5.8(@types/node@20.11.30)
+    version: 4.5.9(@types/node@20.11.30)
   astro-compress:
     specifier: 2.2.17
     version: 2.2.17
@@ -105,7 +105,7 @@ packages:
       - supports-color
     dev: true
 
-  /@astrojs/mdx@2.2.1(astro@4.5.8):
+  /@astrojs/mdx@2.2.1(astro@4.5.9):
     resolution: {integrity: sha512-bSr/AkvGieD9Pc5ZzMnAk7IHnw0vyt/aOujuYUmYT+NHiWahAUy/+ywNNMhTMmea0irdMYnBVC1AEKMQ/oXxow==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
@@ -114,7 +114,7 @@ packages:
       '@astrojs/markdown-remark': 4.3.1
       '@mdx-js/mdx': 3.0.1
       acorn: 8.11.3
-      astro: 4.5.8(@types/node@20.11.30)
+      astro: 4.5.9(@types/node@20.11.30)
       es-module-lexer: 1.4.2
       estree-util-visit: 2.0.0
       github-slugger: 2.0.0
@@ -152,27 +152,27 @@ packages:
       zod: 3.22.4
     dev: true
 
-  /@astrojs/solid-js@4.0.1(solid-js@1.8.16)(vite@5.2.2):
+  /@astrojs/solid-js@4.0.1(solid-js@1.8.16)(vite@5.2.3):
     resolution: {integrity: sha512-XjViecwQDEO/e3OWCCORPYtYLS7MUNWvAWGVvNkzhAyVYZbM2fzckp94WkhX/qPu1rPUyNxSMXnN6IXkiVRTwA==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       solid-js: ^1.8.5
     dependencies:
       solid-js: 1.8.16
-      vite-plugin-solid: 2.9.1(solid-js@1.8.16)(vite@5.2.2)
+      vite-plugin-solid: 2.9.1(solid-js@1.8.16)(vite@5.2.3)
     transitivePeerDependencies:
       - '@testing-library/jest-dom'
       - supports-color
       - vite
     dev: true
 
-  /@astrojs/tailwind@5.1.0(astro@4.5.8)(tailwindcss@3.4.1):
+  /@astrojs/tailwind@5.1.0(astro@4.5.9)(tailwindcss@3.4.1):
     resolution: {integrity: sha512-BJoCDKuWhU9FT2qYg+fr6Nfb3qP4ShtyjXGHKA/4mHN94z7BGcmauQK23iy+YH5qWvTnhqkd6mQPQ1yTZTe9Ig==}
     peerDependencies:
       astro: ^3.0.0 || ^4.0.0
       tailwindcss: ^3.0.24
     dependencies:
-      astro: 4.5.8(@types/node@20.11.30)
+      astro: 4.5.9(@types/node@20.11.30)
       autoprefixer: 10.4.17(postcss@8.4.35)
       postcss: 8.4.35
       postcss-load-config: 4.0.2(postcss@8.4.35)
@@ -1556,8 +1556,8 @@ packages:
       terser: 5.29.2
     dev: true
 
-  /astro@4.5.8(@types/node@20.11.30):
-    resolution: {integrity: sha512-bhKsoZQWT6LW8aYMvTGglZTPa3rYRbcdc2buiJyFPCvSWOOyZmxqpp6vtQ+x6fXxD8P1NecM/c4g5GaPi+MokQ==}
+  /astro@4.5.9(@types/node@20.11.30):
+    resolution: {integrity: sha512-GheU72Goz7dYQNKaqTxB2H49cNvHfahGSbNkTvMXk+gyHf/g633qadqlO2ZQbTUacoUWmDzvS5fhMZt2/w4naQ==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
     dependencies:
@@ -1617,12 +1617,12 @@ packages:
       tsconfck: 3.0.3
       unist-util-visit: 5.0.0
       vfile: 6.0.1
-      vite: 5.2.2(@types/node@20.11.30)
-      vitefu: 0.2.5(vite@5.2.2)
+      vite: 5.2.3(@types/node@20.11.30)
+      vitefu: 0.2.5(vite@5.2.3)
       which-pm: 2.1.1
       yargs-parser: 21.1.1
       zod: 3.22.4
-      zod-to-json-schema: 3.22.4(zod@3.22.4)
+      zod-to-json-schema: 3.22.5(zod@3.22.4)
     optionalDependencies:
       sharp: 0.32.6
     transitivePeerDependencies:
@@ -5604,7 +5604,7 @@ packages:
       vfile-message: 4.0.2
     dev: true
 
-  /vite-plugin-solid@2.9.1(solid-js@1.8.16)(vite@5.2.2):
+  /vite-plugin-solid@2.9.1(solid-js@1.8.16)(vite@5.2.3):
     resolution: {integrity: sha512-RC4hj+lbvljw57BbMGDApvEOPEh14lwrr/GeXRLNQLcR1qnOdzOwwTSFy13Gj/6FNIZpBEl0bWPU+VYFawrqUw==}
     peerDependencies:
       '@testing-library/jest-dom': ^5.16.6 || ^5.17.0 || ^6.*
@@ -5620,14 +5620,14 @@ packages:
       merge-anything: 5.1.7
       solid-js: 1.8.16
       solid-refresh: 0.6.3(solid-js@1.8.16)
-      vite: 5.2.2(@types/node@20.11.30)
-      vitefu: 0.2.5(vite@5.2.2)
+      vite: 5.2.3(@types/node@20.11.30)
+      vitefu: 0.2.5(vite@5.2.3)
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite@5.2.2(@types/node@20.11.30):
-    resolution: {integrity: sha512-FWZbz0oSdLq5snUI0b6sULbz58iXFXdvkZfZWR/F0ZJuKTSPO7v72QPXt6KqYeMFb0yytNp6kZosxJ96Nr/wDQ==}
+  /vite@5.2.3(@types/node@20.11.30):
+    resolution: {integrity: sha512-+i1oagbvkVIhEy9TnEV+fgXsng13nZM90JQbrcPrf6DvW2mXARlz+DK7DLiDP+qeKoD1FCVx/1SpFL1CLq9Mhw==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -5662,7 +5662,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitefu@0.2.5(vite@5.2.2):
+  /vitefu@0.2.5(vite@5.2.3):
     resolution: {integrity: sha512-SgHtMLoqaeeGnd2evZ849ZbACbnwQCIwRH57t18FxcXoZop0uQu0uzlIhJBlF/eWVzuce0sHeqPcDo+evVcg8Q==}
     peerDependencies:
       vite: ^3.0.0 || ^4.0.0 || ^5.0.0
@@ -5670,7 +5670,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 5.2.2(@types/node@20.11.30)
+      vite: 5.2.3(@types/node@20.11.30)
     dev: true
 
   /web-namespaces@2.0.1:
@@ -5802,8 +5802,8 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  /zod-to-json-schema@3.22.4(zod@3.22.4):
-    resolution: {integrity: sha512-2Ed5dJ+n/O3cU383xSY28cuVi0BCQhF8nYqWU5paEpl7fVdqdAmiLdqLyfblbNdfOFwFfi/mqU4O1pwc60iBhQ==}
+  /zod-to-json-schema@3.22.5(zod@3.22.4):
+    resolution: {integrity: sha512-+akaPo6a0zpVCCseDed504KBJUQpEW5QZw7RMneNmKw+fGaML1Z9tUNLnHHAC8x6dzVRO1eB2oEMyZRnuBZg7Q==}
     peerDependencies:
       zod: ^3.22.4
     dependencies:
