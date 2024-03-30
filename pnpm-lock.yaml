@@ -31,10 +31,10 @@ devDependencies:
     version: 0.5.12(tailwindcss@3.4.3)
   '@types/node':
     specifier: ^20.11.17
-    version: 20.12.1
+    version: 20.12.2
   astro:
     specifier: ^4.3.5
-    version: 4.5.12(@types/node@20.12.1)
+    version: 4.5.12(@types/node@20.12.2)
   astro-compress:
     specifier: 2.2.20
     version: 2.2.20
@@ -114,7 +114,7 @@ packages:
       '@astrojs/markdown-remark': 4.3.2
       '@mdx-js/mdx': 3.0.1
       acorn: 8.11.3
-      astro: 4.5.12(@types/node@20.12.1)
+      astro: 4.5.12(@types/node@20.12.2)
       es-module-lexer: 1.5.0
       estree-util-visit: 2.0.0
       github-slugger: 2.0.0
@@ -172,7 +172,7 @@ packages:
       astro: ^3.0.0 || ^4.0.0
       tailwindcss: ^3.0.24
     dependencies:
-      astro: 4.5.12(@types/node@20.12.1)
+      astro: 4.5.12(@types/node@20.12.2)
       autoprefixer: 10.4.17(postcss@8.4.35)
       postcss: 8.4.35
       postcss-load-config: 4.0.2(postcss@8.4.35)
@@ -1425,8 +1425,8 @@ packages:
       undici-types: 5.26.5
     dev: true
 
-  /@types/node@20.12.1:
-    resolution: {integrity: sha512-5lcxgB72hlSF7ZS9ZzX1RCLc9+BovxjL17T00xSmj3c0ygZFjPdNnN0RchfGpot/yniVMkWnyO6aR9Dr1q9qrg==}
+  /@types/node@20.12.2:
+    resolution: {integrity: sha512-zQ0NYO87hyN6Xrclcqp7f8ZbXNbRfoGWNcMvHTPQp9UUrwI0mI7XBz+cu7/W6/VClYo2g63B0cjull/srU7LgQ==}
     dependencies:
       undici-types: 5.26.5
     dev: true
@@ -1434,7 +1434,7 @@ packages:
   /@types/sax@1.2.7:
     resolution: {integrity: sha512-rO73L89PJxeYM3s3pPPjiPgVVcymqU490g0YO5n5By0k2Erzj6tay/4lr1CHAAU4JyOWd1rpQ8bCf6cZfHU96A==}
     dependencies:
-      '@types/node': 20.12.1
+      '@types/node': 20.12.2
     dev: true
 
   /@types/unist@2.0.10:
@@ -1449,7 +1449,7 @@ packages:
     resolution: {integrity: sha512-oJoftv0LSuaDZE3Le4DbKX+KS9G36NzOeSap90UIK0yMA/NhKJhqlSGtNDORNRaIbQfzjXDrQa0ytJ6mNRGz/Q==}
     requiresBuild: true
     dependencies:
-      '@types/node': 20.12.1
+      '@types/node': 20.12.2
     dev: true
     optional: true
 
@@ -1578,7 +1578,7 @@ packages:
       terser: 5.30.0
     dev: true
 
-  /astro@4.5.12(@types/node@20.12.1):
+  /astro@4.5.12(@types/node@20.12.2):
     resolution: {integrity: sha512-xIJcFI2hbyV8+h5pWjL7SKD1jIP0K01fYVAH+gdAt0mJaXy+u8Mj+goD0cPlK6sEaykR+7zxQLYGKJ44U4qarg==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
@@ -1639,7 +1639,7 @@ packages:
       tsconfck: 3.0.3
       unist-util-visit: 5.0.0
       vfile: 6.0.1
-      vite: 5.2.6(@types/node@20.12.1)
+      vite: 5.2.6(@types/node@20.12.2)
       vitefu: 0.2.5(vite@5.2.6)
       which-pm: 2.1.1
       yargs-parser: 21.1.1
@@ -5645,13 +5645,13 @@ packages:
       merge-anything: 5.1.7
       solid-js: 1.8.16
       solid-refresh: 0.6.3(solid-js@1.8.16)
-      vite: 5.2.7(@types/node@20.12.1)
+      vite: 5.2.7(@types/node@20.12.2)
       vitefu: 0.2.5(vite@5.2.7)
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite@5.2.6(@types/node@20.12.1):
+  /vite@5.2.6(@types/node@20.12.2):
     resolution: {integrity: sha512-FPtnxFlSIKYjZ2eosBQamz4CbyrTizbZ3hnGJlh/wMtCrlp1Hah6AzBLjGI5I2urTfNnpovpHdrL6YRuBOPnCA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -5679,7 +5679,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 20.12.1
+      '@types/node': 20.12.2
       esbuild: 0.20.2
       postcss: 8.4.38
       rollup: 4.13.2
@@ -5687,7 +5687,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vite@5.2.7(@types/node@20.12.1):
+  /vite@5.2.7(@types/node@20.12.2):
     resolution: {integrity: sha512-k14PWOKLI6pMaSzAuGtT+Cf0YmIx12z9YGon39onaJNy8DLBfBJrzg9FQEmkAM5lpHBZs9wksWAsyF/HkpEwJA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -5715,7 +5715,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 20.12.1
+      '@types/node': 20.12.2
       esbuild: 0.20.2
       postcss: 8.4.38
       rollup: 4.13.2
@@ -5731,7 +5731,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 5.2.6(@types/node@20.12.1)
+      vite: 5.2.6(@types/node@20.12.2)
     dev: true
 
   /vitefu@0.2.5(vite@5.2.7):
@@ -5742,7 +5742,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 5.2.7(@types/node@20.12.1)
+      vite: 5.2.7(@types/node@20.12.2)
     dev: true
 
   /web-namespaces@2.0.1:
