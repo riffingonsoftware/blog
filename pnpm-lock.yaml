@@ -31,13 +31,13 @@ devDependencies:
     version: 0.5.12(tailwindcss@3.4.3)
   '@types/node':
     specifier: ^20.11.17
-    version: 20.12.5
+    version: 20.12.6
   astro:
     specifier: ^4.3.5
-    version: 4.5.16(@types/node@20.12.5)(lightningcss@1.24.1)(terser@5.30.3)(typescript@5.4.4)
+    version: 4.5.16(@types/node@20.12.6)(lightningcss@1.24.1)(terser@5.30.3)(typescript@5.4.4)
   astro-compress:
     specifier: 2.2.22
-    version: 2.2.22(@types/node@20.12.5)(typescript@5.4.4)
+    version: 2.2.22(@types/node@20.12.6)(typescript@5.4.4)
   daisyui:
     specifier: ^4.6.2
     version: 4.10.1(postcss@8.4.38)
@@ -114,7 +114,7 @@ packages:
       '@astrojs/markdown-remark': 5.0.0
       '@mdx-js/mdx': 3.0.1
       acorn: 8.11.3
-      astro: 4.5.16(@types/node@20.12.5)(lightningcss@1.24.1)(terser@5.30.3)(typescript@5.4.4)
+      astro: 4.5.16(@types/node@20.12.6)(lightningcss@1.24.1)(terser@5.30.3)(typescript@5.4.4)
       es-module-lexer: 1.5.0
       estree-util-visit: 2.0.0
       github-slugger: 2.0.0
@@ -172,7 +172,7 @@ packages:
       astro: ^3.0.0 || ^4.0.0
       tailwindcss: ^3.0.24
     dependencies:
-      astro: 4.5.16(@types/node@20.12.5)(lightningcss@1.24.1)(terser@5.30.3)(typescript@5.4.4)
+      astro: 4.5.16(@types/node@20.12.6)(lightningcss@1.24.1)(terser@5.30.3)(typescript@5.4.4)
       autoprefixer: 10.4.17(postcss@8.4.35)
       postcss: 8.4.35
       postcss-load-config: 4.0.2(postcss@8.4.35)
@@ -1459,8 +1459,8 @@ packages:
       undici-types: 5.26.5
     dev: true
 
-  /@types/node@20.12.5:
-    resolution: {integrity: sha512-BD+BjQ9LS/D8ST9p5uqBxghlN+S42iuNxjsUGjeZobe/ciXzk2qb1B6IXc6AnRLS+yFJRpN2IPEHMzwspfDJNw==}
+  /@types/node@20.12.6:
+    resolution: {integrity: sha512-3KurE8taB8GCvZBPngVbp0lk5CKi8M9f9k1rsADh0Evdz5SzJ+Q+Hx9uHoFGsLnLnd1xmkDQr2hVhlA0Mn0lKQ==}
     dependencies:
       undici-types: 5.26.5
     dev: true
@@ -1468,7 +1468,7 @@ packages:
   /@types/sax@1.2.7:
     resolution: {integrity: sha512-rO73L89PJxeYM3s3pPPjiPgVVcymqU490g0YO5n5By0k2Erzj6tay/4lr1CHAAU4JyOWd1rpQ8bCf6cZfHU96A==}
     dependencies:
-      '@types/node': 20.12.5
+      '@types/node': 20.12.6
     dev: true
 
   /@types/unist@2.0.10:
@@ -1483,7 +1483,7 @@ packages:
     resolution: {integrity: sha512-oJoftv0LSuaDZE3Le4DbKX+KS9G36NzOeSap90UIK0yMA/NhKJhqlSGtNDORNRaIbQfzjXDrQa0ytJ6mNRGz/Q==}
     requiresBuild: true
     dependencies:
-      '@types/node': 20.12.5
+      '@types/node': 20.12.6
     dev: true
     optional: true
 
@@ -1607,7 +1607,7 @@ packages:
     hasBin: true
     dev: true
 
-  /astro-compress@2.2.22(@types/node@20.12.5)(typescript@5.4.4):
+  /astro-compress@2.2.22(@types/node@20.12.6)(typescript@5.4.4):
     resolution: {integrity: sha512-0oGFjm0T+3eA+gsx75r3WnujWBSb72H3Ihn5wgrLFqAl0h/vopgt6ew8JzL5xogrLqeqs1EbpZwmCK5lLOaZUQ==}
     dependencies:
       '@playform/build': 0.0.5(@playform/document@0.0.6)
@@ -1615,7 +1615,7 @@ packages:
       '@playform/pipe': 0.0.2
       '@types/csso': 5.0.4
       '@types/html-minifier-terser': 7.0.2
-      astro: 4.5.16(@types/node@20.12.5)(lightningcss@1.24.1)(terser@5.30.3)(typescript@5.4.4)
+      astro: 4.5.16(@types/node@20.12.6)(lightningcss@1.24.1)(terser@5.30.3)(typescript@5.4.4)
       csso: 5.0.5
       html-minifier-terser: 7.2.0
       kleur: 4.1.5
@@ -1633,7 +1633,7 @@ packages:
       - typescript
     dev: true
 
-  /astro@4.5.16(@types/node@20.12.5)(lightningcss@1.24.1)(terser@5.30.3)(typescript@5.4.4):
+  /astro@4.5.16(@types/node@20.12.6)(lightningcss@1.24.1)(terser@5.30.3)(typescript@5.4.4):
     resolution: {integrity: sha512-1nOVsMq2OJiXnG6gO0Y77vTAboGN9nLQSy/8SGazq4h6x+alzbsMbQbArBgvaLzOSUXD0m91XLs3D8bOSuavrQ==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
@@ -1694,7 +1694,7 @@ packages:
       tsconfck: 3.0.3(typescript@5.4.4)
       unist-util-visit: 5.0.0
       vfile: 6.0.1
-      vite: 5.2.8(@types/node@20.12.5)(lightningcss@1.24.1)(terser@5.30.3)
+      vite: 5.2.8(@types/node@20.12.6)(lightningcss@1.24.1)(terser@5.30.3)
       vitefu: 0.2.5(vite@5.2.8)
       which-pm: 2.1.1
       yargs-parser: 21.1.1
@@ -5881,13 +5881,13 @@ packages:
       merge-anything: 5.1.7
       solid-js: 1.8.16
       solid-refresh: 0.6.3(solid-js@1.8.16)
-      vite: 5.2.8(@types/node@20.12.5)(lightningcss@1.24.1)(terser@5.30.3)
+      vite: 5.2.8(@types/node@20.12.6)(lightningcss@1.24.1)(terser@5.30.3)
       vitefu: 0.2.5(vite@5.2.8)
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite@5.2.8(@types/node@20.12.5)(lightningcss@1.24.1)(terser@5.30.3):
+  /vite@5.2.8(@types/node@20.12.6)(lightningcss@1.24.1)(terser@5.30.3):
     resolution: {integrity: sha512-OyZR+c1CE8yeHw5V5t59aXsUPPVTHMDjEZz8MgguLL/Q7NblxhZUlTu9xSPqlsUO/y+X7dlU05jdhvyycD55DA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -5915,7 +5915,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 20.12.5
+      '@types/node': 20.12.6
       esbuild: 0.20.2
       lightningcss: 1.24.1
       postcss: 8.4.38
@@ -5933,7 +5933,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 5.2.8(@types/node@20.12.5)(lightningcss@1.24.1)(terser@5.30.3)
+      vite: 5.2.8(@types/node@20.12.6)(lightningcss@1.24.1)(terser@5.30.3)
     dev: true
 
   /vscode-oniguruma@1.7.0:
