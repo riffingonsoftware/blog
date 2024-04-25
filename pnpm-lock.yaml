@@ -46,7 +46,7 @@ importers:
         version: 4.10.2(postcss@8.4.38)
       puppeteer:
         specifier: ^22.0.0
-        version: 22.7.0(typescript@5.4.5)
+        version: 22.7.1(typescript@5.4.5)
       remark-code-title:
         specifier: ^0.2.5
         version: 0.2.5
@@ -681,8 +681,8 @@ packages:
   '@playform/pipe@0.0.2':
     resolution: {integrity: sha512-1LJADjJVxUDIfpp5vkIup7vuxsZllWPYYbZO7gLN1CUcOFIekYSi1uxptkrYWBDRW/usiAyUdpd3gSKisED/sQ==}
 
-  '@puppeteer/browsers@2.2.2':
-    resolution: {integrity: sha512-hZ/JhxPIceWaGSEzUZp83/8M49CoxlkuThfTR7t4AoCu5+ZvJ3vktLm60Otww2TXeROB5igiZ8D9oPQh6ckBVg==}
+  '@puppeteer/browsers@2.2.3':
+    resolution: {integrity: sha512-bJ0UBsk0ESOs6RFcLXOt99a3yTDcOKlzfjad+rhFwdaG1Lu/Wzq58GHYCDTlZ9z6mldf4g+NTb+TXEfe0PpnsQ==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -976,14 +976,17 @@ packages:
   bare-events@2.2.2:
     resolution: {integrity: sha512-h7z00dWdG0PYOQEvChhOSWvOfkIKsdZGkWr083FgN/HyoQuebSew/cgirYqh9SCuy/hRvxc5Vy6Fw8xAmYHLkQ==}
 
-  bare-fs@2.2.3:
-    resolution: {integrity: sha512-amG72llr9pstfXOBOHve1WjiuKKAMnebcmMbPWDZ7BCevAoJLpugjuAPRsDINEyjT0a6tbaVx3DctkXIRbLuJw==}
+  bare-fs@2.3.0:
+    resolution: {integrity: sha512-TNFqa1B4N99pds2a5NYHR15o0ZpdNKbAeKTE/+G6ED/UeOavv8RY3dr/Fu99HW3zU3pXpo2kDNO8Sjsm2esfOw==}
 
-  bare-os@2.2.1:
-    resolution: {integrity: sha512-OwPyHgBBMkhC29Hl3O4/YfxW9n7mdTr2+SsO29XBWKKJsbgj3mnorDB80r5TiCQgQstgE5ga1qNYrpes6NvX2w==}
+  bare-os@2.3.0:
+    resolution: {integrity: sha512-oPb8oMM1xZbhRQBngTgpcQ5gXw6kjOaRsSWsIeNyRxGed2w/ARyP7ScBYpWR1qfX2E5rS3gBw6OWcSQo+s+kUg==}
 
-  bare-path@2.1.1:
-    resolution: {integrity: sha512-OHM+iwRDRMDBsSW7kl3dO62JyHdBKO3B25FB9vNQBPcGHMo4+eA8Yj41Lfbk3pS/seDY+siNge0LdRTulAau/A==}
+  bare-path@2.1.2:
+    resolution: {integrity: sha512-o7KSt4prEphWUHa3QUwCxUI00R86VdjiuxmJK0iNVDHYPGo+HsDaVCnqCmPbf/MiW1ok8F4p3m8RTHlWk8K2ig==}
+
+  bare-stream@1.0.0:
+    resolution: {integrity: sha512-KhNUoDL40iP4gFaLSsoGE479t0jHijfYdIcxRn/XtezA2BaUD0NRf/JGRpsMq6dMNM+SrCrB0YSSo/5wBY4rOQ==}
 
   base-64@1.0.0:
     resolution: {integrity: sha512-kwDPIFCGx0NZHog36dj+tHiwP4QMzsZ3AgMViUBKI0+V5n4U0ufTCUMhnQ04diaRI8EX/QcPfql7zlhZ7j4zgg==}
@@ -1096,8 +1099,8 @@ packages:
   chownr@1.1.4:
     resolution: {integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==}
 
-  chromium-bidi@0.5.17:
-    resolution: {integrity: sha512-BqOuIWUgTPj8ayuBFJUYCCuwIcwjBsb3/614P7tt1bEPJ4i1M0kCdIl0Wi9xhtswBXnfO2bTpTMkHD71H8rJMg==}
+  chromium-bidi@0.5.19:
+    resolution: {integrity: sha512-UA6zL77b7RYCjJkZBsZ0wlvCTD+jTjllZ8f6wdO4buevXgTZYjV+XLB9CiEa2OuuTGGTLnI7eN9I60YxuALGQg==}
     peerDependencies:
       devtools-protocol: '*'
 
@@ -2459,12 +2462,12 @@ packages:
   pump@3.0.0:
     resolution: {integrity: sha512-LwZy+p3SFs1Pytd/jYct4wpv49HiYCqd9Rlc5ZVdk0V+8Yzv6jR5Blk3TRmPL1ft69TxP0IMZGJ+WPFU2BFhww==}
 
-  puppeteer-core@22.7.0:
-    resolution: {integrity: sha512-9Q+L3VD7cfhXnxv6AqwTHsVb/+/uXENByhPrgvwQ49wvzQwtf1d6b7v6gpoG3tpRdwYjxoV1eHTD8tFahww09g==}
+  puppeteer-core@22.7.1:
+    resolution: {integrity: sha512-jD7T7yN7PWGuJmNT0TAEboA26s0VVnvbgCxqgQIF+eNQW2u71ENaV2JwzSJiCHO+e72H4Ue6AgKD9USQ8xAcOQ==}
     engines: {node: '>=18'}
 
-  puppeteer@22.7.0:
-    resolution: {integrity: sha512-s1ulKFZKW3lwWCtNu0VrRLfRaanFHxIv7F8UFYpLo8dPTZcI4wB4EAOD0sKT3SKP+1Rsjodb9WFsK78yKQ6i9Q==}
+  puppeteer@22.7.1:
+    resolution: {integrity: sha512-JBCBCwQ9+dyPp5haqeecgv0N0vgWFx44woUeKJaPeJT8CU3RXrd8F/tqJQbuAmcWlbMhYJSlTJkIFrwVAs6BNA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -3754,7 +3757,7 @@ snapshots:
       deepmerge-ts: 5.1.0
       fast-glob: 3.3.2
 
-  '@puppeteer/browsers@2.2.2':
+  '@puppeteer/browsers@2.2.3':
     dependencies:
       debug: 4.3.4
       extract-zip: 2.0.1
@@ -4192,19 +4195,24 @@ snapshots:
   bare-events@2.2.2:
     optional: true
 
-  bare-fs@2.2.3:
+  bare-fs@2.3.0:
     dependencies:
       bare-events: 2.2.2
-      bare-path: 2.1.1
-      streamx: 2.16.1
+      bare-path: 2.1.2
+      bare-stream: 1.0.0
     optional: true
 
-  bare-os@2.2.1:
+  bare-os@2.3.0:
     optional: true
 
-  bare-path@2.1.1:
+  bare-path@2.1.2:
     dependencies:
-      bare-os: 2.2.1
+      bare-os: 2.3.0
+    optional: true
+
+  bare-stream@1.0.0:
+    dependencies:
+      streamx: 2.16.1
     optional: true
 
   base-64@1.0.0: {}
@@ -4327,7 +4335,7 @@ snapshots:
   chownr@1.1.4:
     optional: true
 
-  chromium-bidi@0.5.17(devtools-protocol@0.0.1273771):
+  chromium-bidi@0.5.19(devtools-protocol@0.0.1273771):
     dependencies:
       devtools-protocol: 0.0.1273771
       mitt: 3.0.1
@@ -6041,10 +6049,10 @@ snapshots:
       end-of-stream: 1.4.4
       once: 1.4.0
 
-  puppeteer-core@22.7.0:
+  puppeteer-core@22.7.1:
     dependencies:
-      '@puppeteer/browsers': 2.2.2
-      chromium-bidi: 0.5.17(devtools-protocol@0.0.1273771)
+      '@puppeteer/browsers': 2.2.3
+      chromium-bidi: 0.5.19(devtools-protocol@0.0.1273771)
       debug: 4.3.4
       devtools-protocol: 0.0.1273771
       ws: 8.16.0
@@ -6053,12 +6061,12 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  puppeteer@22.7.0(typescript@5.4.5):
+  puppeteer@22.7.1(typescript@5.4.5):
     dependencies:
-      '@puppeteer/browsers': 2.2.2
+      '@puppeteer/browsers': 2.2.3
       cosmiconfig: 9.0.0(typescript@5.4.5)
       devtools-protocol: 0.0.1273771
-      puppeteer-core: 22.7.0
+      puppeteer-core: 22.7.1
     transitivePeerDependencies:
       - bufferutil
       - supports-color
@@ -6534,8 +6542,8 @@ snapshots:
       pump: 3.0.0
       tar-stream: 3.1.7
     optionalDependencies:
-      bare-fs: 2.2.3
-      bare-path: 2.1.1
+      bare-fs: 2.3.0
+      bare-path: 2.1.2
 
   tar-stream@2.2.0:
     dependencies:
