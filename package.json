@@ -11,22 +11,23 @@
     "astro": "astro"
   },
   "devDependencies": {
-    "@astrojs/mdx": "^3.0.0",
-    "@astrojs/rss": "^4.0.5",
-    "@astrojs/sitemap": "^3.0.5",
-    "@astrojs/solid-js": "^4.0.1",
+    "@astrojs/mdx": "^3.1.2",
+    "@astrojs/rss": "^4.0.7",
+    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/solid-js": "^4.4.0",
     "@astrojs/tailwind": "^5.1.0",
-    "@babel/core": "^7.23.9",
-    "@fontsource/fira-code": "^5.0.16",
-    "@tailwindcss/typography": "^0.5.10",
-    "@types/node": "^20.11.17",
-    "astro": "^4.3.5",
+    "@babel/core": "^7.24.9",
+    "@fontsource/fira-code": "^5.0.18",
+    "@tailwindcss/typography": "^0.5.13",
+    "@types/node": "^20.14.11",
+    "astro": "^4.11.6",
     "astro-compress": "2.2.28",
-    "daisyui": "^4.6.2",
-    "puppeteer": "^22.0.0",
+    "daisyui": "^4.12.10",
+    "puppeteer": "^22.13.1",
     "remark-code-title": "^0.2.5",
-    "sharp": "^0.33.2",
-    "solid-js": "^1.8.14",
-    "tailwindcss": "^3.4.1"
-  }
+    "sharp": "^0.33.4",
+    "solid-js": "^1.8.18",
+    "tailwindcss": "^3.4.6"
+  },
+  "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a"
 }
