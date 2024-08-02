@@ -39,8 +39,8 @@ importers:
         specifier: ^4.11.6
         version: 4.13.1(@types/node@20.14.14)(lightningcss@1.25.1)(terser@5.31.3)(typescript@5.4.5)
       astro-compress:
-        specifier: 2.3.0
-        version: 2.3.0(@types/node@20.14.14)(typescript@5.4.5)
+        specifier: 2.3.1
+        version: 2.3.1(@types/node@20.14.14)(typescript@5.4.5)
       daisyui:
         specifier: ^4.12.10
         version: 4.12.10(postcss@8.4.40)
@@ -761,8 +761,8 @@ packages:
     resolution: {integrity: sha512-ISvCdHdlTDlH5IpxQJIex7BWBywFWgjJSVdwst+/iQCoEYnyOaQ95+X1JGshuBjGp6nxKUy1jMgE3zPqN7fQdg==}
     hasBin: true
 
-  astro-compress@2.3.0:
-    resolution: {integrity: sha512-7JkIgQyngmWnRnjVkOcPHelVIi9/4RXGAy68wmsIBREpfKsBCAIVnyF9riBaahkL6rqiGEecyFDUBk6aW9qIew==}
+  astro-compress@2.3.1:
+    resolution: {integrity: sha512-W2rv6Vr8dZEw2CEA0/QcBEFmXCERbY8onlyixfRul1nY5moPNkk3zdiw7Id3TkIJyHpqQTP6OyfTmTp6MhOqjw==}
 
   astro@4.13.1:
     resolution: {integrity: sha512-VnMjAc+ykFsIVjgbu9Mt/EA1fMIcPMXbU89h3ATwGOzSIKDsQH72bDgfJkWiwk6u0OE90GeP5EPhAT28Twf9oA==}
@@ -3380,13 +3380,14 @@ snapshots:
 
   astring@1.8.6: {}
 
-  astro-compress@2.3.0(@types/node@20.14.14)(typescript@5.4.5):
+  astro-compress@2.3.1(@types/node@20.14.14)(typescript@5.4.5):
     dependencies:
       '@playform/pipe': 0.1.0
       '@types/csso': 5.0.4
       '@types/html-minifier-terser': 7.0.2
       astro: 4.13.1(@types/node@20.14.14)(lightningcss@1.25.1)(terser@5.31.3)(typescript@5.4.5)
       csso: 5.0.5
+      deepmerge-ts: 7.1.0
       html-minifier-terser: 7.2.0
       kleur: 4.1.5
       lightningcss: 1.25.1
