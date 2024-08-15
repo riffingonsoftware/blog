@@ -12,3 +12,11 @@ They can be found [here](https://www.linkedin.com/help/linkedin/answer/a521928/m
 * Minimum image dimensions: 1200 (w) x 627 (h) pixels
 * Recommended ratio: 1.91:1
 * File types: JPG, PNG, or GIF
+
+#### Blog Ideas
+1. Standardize to Innovate (Disclaimer, The Uniform/Congnitive Load, Revisit Standards)
+2. Every Company Is A Software Company; Every Software Company Is A Security Company
+3. Open Source Givers & Takers
+4. Computer Science vs Software Engineering
+5. Reading Technical Books
+6. The 2 Kinds of Ownership
