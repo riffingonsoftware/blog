@@ -28,7 +28,7 @@ importers:
         version: 7.25.2
       '@fontsource/fira-code':
         specifier: ^5.0.18
-        version: 5.0.18
+        version: 5.0.19
       '@tailwindcss/typography':
         specifier: ^0.5.13
         version: 0.5.14(tailwindcss@3.4.10)
@@ -360,8 +360,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@fontsource/fira-code@5.0.18':
-    resolution: {integrity: sha512-DuH/ewp/2sSYoJw7PxB1VuCyrxo7OCEWeML7sN5yNfP8gTleIktZl/dTopcPOHv1WwDUcqRG1veRoEgfEeYfqQ==}
+  '@fontsource/fira-code@5.0.19':
+    resolution: {integrity: sha512-dNQM7isP7wojw9IQQwIyrJOke+PoyTP9TSSpeo3trZHNOG1DJIEiMFMDCVerTixyfKMWgtJDEDyFCWfwyzEoEg==}
 
   '@img/sharp-darwin-arm64@0.33.4':
     resolution: {integrity: sha512-p0suNqXufJs9t3RqLBO6vvrgr5OhgbWp76s5gTRvdmxmuv9E1rcaqGUsl3l4mKVmXPkTkTErXediAui4x+8PSA==}
@@ -3157,7 +3157,7 @@ snapshots:
   '@esbuild/win32-x64@0.21.5':
     optional: true
 
-  '@fontsource/fira-code@5.0.18': {}
+  '@fontsource/fira-code@5.0.19': {}
 
   '@img/sharp-darwin-arm64@0.33.4':
     optionalDependencies:
