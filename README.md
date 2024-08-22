@@ -20,3 +20,5 @@ They can be found [here](https://www.linkedin.com/help/linkedin/answer/a521928/m
 4. Computer Science vs Software Engineering
 5. Reading Technical Books
 6. The 2 Kinds of Ownership
+7. I am left only with uncertainty.
+8. https://en.wikipedia.org/wiki/Diffusion_of_innovations?wprov=sfti1
