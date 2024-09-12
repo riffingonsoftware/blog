@@ -28,7 +28,7 @@ importers:
         version: 7.25.2
       '@fontsource/fira-code':
         specifier: ^5.0.18
-        version: 5.0.20
+        version: 5.1.0
       '@tailwindcss/typography':
         specifier: ^0.5.13
         version: 0.5.15(tailwindcss@3.4.11)
@@ -43,7 +43,7 @@ importers:
         version: 2.3.1(@types/node@20.16.5)(rollup@4.21.2)(typescript@5.4.5)
       daisyui:
         specifier: ^4.12.10
-        version: 4.12.10(postcss@8.4.39)
+        version: 4.12.10(postcss@8.4.45)
       puppeteer:
         specifier: ^23.0.0
         version: 23.3.0(typescript@5.4.5)
@@ -372,8 +372,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@fontsource/fira-code@5.0.20':
-    resolution: {integrity: sha512-od+SECX6aC5mRY+bCOi/3KUt4x8WE4zzEKxmsF6oNl3dfs9/qPHufyeqQgm/IuVg0eBDzLe9vXCZRuguVWxjlg==}
+  '@fontsource/fira-code@5.1.0':
+    resolution: {integrity: sha512-ti2XDP0qthaTDu44QawNP3PjEZIZ/cNl5VUZzvF9oYS/WY4LgmbF43IMTgTUZL33hknwFWBfmLmZCheOQmzJDg==}
 
   '@img/sharp-darwin-arm64@0.33.4':
     resolution: {integrity: sha512-p0suNqXufJs9t3RqLBO6vvrgr5OhgbWp76s5gTRvdmxmuv9E1rcaqGUsl3l4mKVmXPkTkTErXediAui4x+8PSA==}
@@ -3182,7 +3182,7 @@ snapshots:
   '@esbuild/win32-x64@0.21.5':
     optional: true
 
-  '@fontsource/fira-code@5.0.20': {}
+  '@fontsource/fira-code@5.1.0': {}
 
   '@img/sharp-darwin-arm64@0.33.4':
     optionalDependencies:
@@ -4020,12 +4020,12 @@ snapshots:
 
   culori@3.3.0: {}
 
-  daisyui@4.12.10(postcss@8.4.39):
+  daisyui@4.12.10(postcss@8.4.45):
     dependencies:
       css-selector-tokenizer: 0.8.0
       culori: 3.3.0
       picocolors: 1.0.1
-      postcss-js: 4.0.1(postcss@8.4.39)
+      postcss-js: 4.0.1(postcss@8.4.45)
     transitivePeerDependencies:
       - postcss
 
@@ -5355,11 +5355,6 @@ snapshots:
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.8
-
-  postcss-js@4.0.1(postcss@8.4.39):
-    dependencies:
-      camelcase-css: 2.0.1
-      postcss: 8.4.39
 
   postcss-js@4.0.1(postcss@8.4.45):
     dependencies:
