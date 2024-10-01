@@ -11,23 +11,23 @@
     "astro": "astro"
   },
   "devDependencies": {
-    "@astrojs/mdx": "^3.1.2",
+    "@astrojs/mdx": "^3.1.7",
     "@astrojs/rss": "^4.0.7",
     "@astrojs/sitemap": "^3.1.6",
-    "@astrojs/solid-js": "^4.4.0",
-    "@astrojs/tailwind": "^5.1.0",
-    "@babel/core": "^7.24.9",
-    "@fontsource/fira-code": "^5.0.18",
-    "@tailwindcss/typography": "^0.5.13",
-    "@types/node": "^20.14.11",
-    "astro": "^4.11.6",
+    "@astrojs/solid-js": "^4.4.2",
+    "@astrojs/tailwind": "^5.1.1",
+    "@babel/core": "^7.25.2",
+    "@fontsource/fira-code": "^5.1.0",
+    "@tailwindcss/typography": "^0.5.15",
+    "@types/node": "^20.16.10",
+    "astro": "^4.15.9",
     "astro-compress": "2.3.1",
     "daisyui": "^4.12.10",
-    "puppeteer": "^23.0.0",
+    "puppeteer": "^23.4.1",
     "remark-code-title": "^0.2.5",
-    "sharp": "^0.33.4",
-    "solid-js": "^1.8.18",
-    "tailwindcss": "^3.4.6"
+    "sharp": "^0.33.5",
+    "solid-js": "^1.9.1",
+    "tailwindcss": "^3.4.13"
   },
   "packageManager": "pnpm@9.11.0"
 }
