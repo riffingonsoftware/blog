@@ -14,4 +14,6 @@ tags: ["code", "people"]
 
 ![Darth Vader with his arms crossed, caption reads, "Come to the dark side, we have cookies."](../../images/dark-side.jpg)
 
-The dark side of ownership is when someone becomes the only path to action. It might feel as if they are the only one who can get anything done. It might feel like they're a hero. It may feel like they're the only path to success. Worse, they start to believe it. The don't want anyone else to touch the code, their code.
+The dark side of ownership is when someone becomes the only path to action. It might feel as if they are the only one who can get anything done. It might feel like they're a hero. It may feel like they're the only path to success. Worse, they start to believe it. They don't want anyone else to touch the code, their code.
+
+Actually, let me back up. This all sounds very nefarious, intentional and dark. That's not always the case. Sometimes this person or persons truly means well. Sometimes they may not even realize they're a problem. If you've read [The Phoenix Project](FIXME), this is Brent. He wasn't trying to be a bad guy. He wasn't trying to be a bottleneck. He meant well, but there he was. It took a fair bit of effort to unstick him and the team.
