@@ -12,7 +12,7 @@ tags: ["code", "people"]
 
 ## The Dark Side
 
-![Darth Vader with his arms crossed, caption reads, "Come to the dark side, we have cookies."](../../images/dark-side.jpg)
+![Darth Vader with his arms crossed, caption reads, "Come to the dark side, we have cookies."](../../images/dark-side-cookies.png)
 
 The dark side of ownership is when someone becomes the only path to action. It might feel as if they are the only one who can get anything done. It might feel like they're a hero. It may feel like they're the only path to success. Worse, they start to believe it. They don't want anyone else to touch the code, their code.
 
