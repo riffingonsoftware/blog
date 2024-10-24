@@ -39,8 +39,8 @@ importers:
         specifier: ^4.16.1
         version: 4.16.7(@types/node@20.17.0)(lightningcss@1.27.0)(rollup@4.24.0)(terser@5.36.0)(typescript@5.4.5)
       astro-compress:
-        specifier: 2.3.4
-        version: 2.3.4(@types/node@20.17.0)(rollup@4.24.0)(typescript@5.4.5)
+        specifier: 2.3.5
+        version: 2.3.5(@types/node@20.17.0)(rollup@4.24.0)(typescript@5.4.5)
       daisyui:
         specifier: ^4.12.13
         version: 4.12.13(postcss@8.4.47)
@@ -805,8 +805,8 @@ packages:
     resolution: {integrity: sha512-LElXdjswlqjWrPpJFg1Fx4wpkOCxj1TDHlSV4PlaRxHGWko024xICaa97ZkMfs6DRKlCguiAI+rbXv5GWwXIkg==}
     hasBin: true
 
-  astro-compress@2.3.4:
-    resolution: {integrity: sha512-uzNct3y30DBAY0ISoac0GrE0aX9kCQBolWpkqSt//KVtOs9Y8Atygk3O63KGtMnJ4cEwExVwacZ9RmDxwV6nDQ==}
+  astro-compress@2.3.5:
+    resolution: {integrity: sha512-TWZr/7IbIyi5e4vjuVN8UgkKMOhFqH25466Ct1jIG9UoDz50uNP5iPFQ2zPqO/Oe2541kYU7CchZt7cJ32w0Wg==}
 
   astro@4.16.7:
     resolution: {integrity: sha512-nON+8MUEkWTFwXbS4zsQIq4t0Fs42eulM4x236AL+qNnWfqNAOOqAnFxO1dxfJ1q+XopIBbbT9Mtev+0zH47PQ==}
@@ -3525,7 +3525,7 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro-compress@2.3.4(@types/node@20.17.0)(rollup@4.24.0)(typescript@5.4.5):
+  astro-compress@2.3.5(@types/node@20.17.0)(rollup@4.24.0)(typescript@5.4.5):
     dependencies:
       '@playform/pipe': 0.1.1
       '@types/csso': 5.0.4
