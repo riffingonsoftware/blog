@@ -19,7 +19,7 @@
     "@babel/core": "^7.25.8",
     "@fontsource/fira-code": "^5.1.0",
     "@tailwindcss/typography": "^0.5.15",
-    "@types/node": "^20.16.11",
+    "@types/node": "^22.0.0",
     "astro": "^4.16.1",
     "astro-compress": "2.3.5",
     "daisyui": "^4.12.13",
