@@ -7,15 +7,17 @@ heroImage: "/images/standards.jpg"
 heroImageAlt: "Standards in light blue handwriting with hand holding light blue marker underlining word."
 tags: ["business"]
 ---
-*Above image: Standards by [Nick Youngson](http://www.nyphotographic.com/) [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/) [Alpha Stock Images](http://alphastockimages.com/)*
+
+_Above image: Standards by [Nick Youngson](http://www.nyphotographic.com/) [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/) [Alpha Stock Images](http://alphastockimages.com/)_
 
 ## Disclaimer
 
+FIXME: The following is no longer true regarding the site description.
 I want to remind you about the site description for this website, "Strong opinions, loosely held because I'm probably wrong." Embracing standards is a relatively new thing for me in my career. For most of my career I was convinced I knew better than any standard. So, if we've spoken about this in the past, well, my position has likely changed since then.
 
 ## What is a standard?
 
-First, let's start with what a standard is *not*. A standard is not a hard requirement.
+First, let's start with what a standard is _not_. A standard is not a hard requirement.
 
 Okay, with that out of the way, what is a standard? A standard is a default, a choice without having to make a choice, a way we're going to do things when we don't have a specific reason to do something different.
 
@@ -27,7 +29,7 @@ What programming language are you going to use? You could consider any number of
 
 [Decision fatigue](https://en.wikipedia.org/wiki/Decision_fatigue) is maybe real (there have been some criticisms). I think I feel it on occasion. But okay, let's pretend it's not real. The choice is still yet another thing you have to do, maybe alone, maybe as a team, but yet another thing to do. There might even be occasions when it makes sense to have a conversation about the right language for a project, but that's probably the exception, not the rule.
 
-Maybe you don't agree with that logic. Okay, but let's play it out for a bit. Let's say you do have a default programming language for your company/business unit/team/whatever. What else do you get? Well, you get to build expertise with that language's ecosystem. Maybe you develop or have experts on the language or key frameworks. Maybe you know the sharp edges and dark corners to avoid. Maybe you can just go faster. I'm going to *guess* you'll grant me that much. There's a lot of value there.
+Maybe you don't agree with that logic. Okay, but let's play it out for a bit. Let's say you do have a default programming language for your company/business unit/team/whatever. What else do you get? Well, you get to build expertise with that language's ecosystem. Maybe you develop or have experts on the language or key frameworks. Maybe you know the sharp edges and dark corners to avoid. Maybe you can just go faster. I'm going to _guess_ you'll grant me that much. There's a lot of value there.
 
 ## Evolving Standards
 
@@ -36,3 +38,4 @@ I must admit to loving to try new things. So, I'm always happy to look for the n
 Most people will be happy to just keep using the standard. "It's how we've always done things." (And that can be a good thing.)
 
 But every once in a while, someone will challenge the standard. Great, let them.
+
