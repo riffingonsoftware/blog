@@ -10,7 +10,7 @@ importers:
     devDependencies:
       '@astrojs/mdx':
         specifier: ^4.0.7
-        version: 4.0.8(astro@5.2.6(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.34.6)(terser@5.37.0)(typescript@5.4.5)(yaml@2.7.0))
+        version: 4.0.8(astro@5.3.0(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.34.6)(terser@5.37.0)(typescript@5.4.5)(yaml@2.7.0))
       '@astrojs/rss':
         specifier: ^4.0.11
         version: 4.0.11
@@ -22,7 +22,7 @@ importers:
         version: 5.0.4(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.28.2)(solid-js@1.9.4)(terser@5.37.0)(yaml@2.7.0)
       '@astrojs/tailwind':
         specifier: ^6.0.0
-        version: 6.0.0(astro@5.2.6(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.34.6)(terser@5.37.0)(typescript@5.4.5)(yaml@2.7.0))(tailwindcss@3.4.17)
+        version: 6.0.0(astro@5.3.0(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.34.6)(terser@5.37.0)(typescript@5.4.5)(yaml@2.7.0))(tailwindcss@3.4.17)
       '@babel/core':
         specifier: ^7.26.7
         version: 7.26.8
@@ -37,7 +37,7 @@ importers:
         version: 22.13.2
       astro:
         specifier: ^5.1.9
-        version: 5.2.6(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.34.6)(terser@5.37.0)(typescript@5.4.5)(yaml@2.7.0)
+        version: 5.3.0(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.34.6)(terser@5.37.0)(typescript@5.4.5)(yaml@2.7.0)
       astro-compress:
         specifier: 2.3.6
         version: 2.3.6(@types/node@22.13.2)(jiti@2.4.2)(rollup@4.34.6)(typescript@5.4.5)(yaml@2.7.0)
@@ -885,8 +885,8 @@ packages:
   astro-compress@2.3.6:
     resolution: {integrity: sha512-P93OXRRykS2iLGN20KAr1tJUAUGptKOnUybqg00/8N4aHrZxR76giBhK/C9RCLm8tsnxL0nR5FCXR53MUza9Mg==}
 
-  astro@5.2.6:
-    resolution: {integrity: sha512-CrTuJMwpWF9kmOhX+cl6uPqNbTRrHO7eXggFP9SK7+Bsen/7FpJtA6k1p/ALleuV5ndJLqn/9tpmP3qACHPjYA==}
+  astro@5.3.0:
+    resolution: {integrity: sha512-e88l/Yk/6enR/ZDddLbqtM+oblBFk5mneNSmNesyVYGL/6Dj4UA67GPAZOk79VxT5dbLlclZSyyw/wlxN1aj3A==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2929,12 +2929,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@4.0.8(astro@5.2.6(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.34.6)(terser@5.37.0)(typescript@5.4.5)(yaml@2.7.0))':
+  '@astrojs/mdx@4.0.8(astro@5.3.0(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.34.6)(terser@5.37.0)(typescript@5.4.5)(yaml@2.7.0))':
     dependencies:
       '@astrojs/markdown-remark': 6.1.0
       '@mdx-js/mdx': 3.1.0(acorn@8.14.0)
       acorn: 8.14.0
-      astro: 5.2.6(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.34.6)(terser@5.37.0)(typescript@5.4.5)(yaml@2.7.0)
+      astro: 5.3.0(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.34.6)(terser@5.37.0)(typescript@5.4.5)(yaml@2.7.0)
       es-module-lexer: 1.6.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.4
@@ -2983,9 +2983,9 @@ snapshots:
       - tsx
       - yaml
 
-  '@astrojs/tailwind@6.0.0(astro@5.2.6(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.34.6)(terser@5.37.0)(typescript@5.4.5)(yaml@2.7.0))(tailwindcss@3.4.17)':
+  '@astrojs/tailwind@6.0.0(astro@5.3.0(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.34.6)(terser@5.37.0)(typescript@5.4.5)(yaml@2.7.0))(tailwindcss@3.4.17)':
     dependencies:
-      astro: 5.2.6(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.34.6)(terser@5.37.0)(typescript@5.4.5)(yaml@2.7.0)
+      astro: 5.3.0(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.34.6)(terser@5.37.0)(typescript@5.4.5)(yaml@2.7.0)
       autoprefixer: 10.4.20(postcss@8.5.1)
       postcss: 8.5.1
       postcss-load-config: 4.0.2(postcss@8.5.1)
@@ -3678,7 +3678,7 @@ snapshots:
       '@playform/pipe': 0.1.2
       '@types/csso': 5.0.4
       '@types/html-minifier-terser': 7.0.2
-      astro: 5.2.6(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.34.6)(terser@5.37.0)(typescript@5.4.5)(yaml@2.7.0)
+      astro: 5.3.0(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.34.6)(terser@5.37.0)(typescript@5.4.5)(yaml@2.7.0)
       commander: 13.0.0
       csso: 5.0.5
       deepmerge-ts: 7.1.3
@@ -3721,7 +3721,7 @@ snapshots:
       - uploadthing
       - yaml
 
-  astro@5.2.6(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.34.6)(terser@5.37.0)(typescript@5.4.5)(yaml@2.7.0):
+  astro@5.3.0(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.34.6)(terser@5.37.0)(typescript@5.4.5)(yaml@2.7.0):
     dependencies:
       '@astrojs/compiler': 2.10.4
       '@astrojs/internal-helpers': 0.5.1
