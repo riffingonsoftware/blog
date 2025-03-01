@@ -22,7 +22,7 @@
     "@types/node": "^22.10.10",
     "astro": "^5.1.9",
     "astro-compress": "2.3.6",
-    "daisyui": "^4.12.23",
+    "daisyui": "^5.0.0",
     "puppeteer": "^24.1.1",
     "remark-code-title": "^0.2.5",
     "sharp": "^0.33.5",
