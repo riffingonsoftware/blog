@@ -43,7 +43,7 @@ importers:
         version: 2.3.7(@types/node@22.13.17)(jiti@2.4.2)(rollup@4.38.0)(typescript@5.4.5)(yaml@2.7.0)
       daisyui:
         specifier: ^5.0.0
-        version: 5.0.9
+        version: 5.0.12
       puppeteer:
         specifier: ^24.1.1
         version: 24.5.0(typescript@5.4.5)
@@ -1062,8 +1062,8 @@ packages:
   csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
 
-  daisyui@5.0.9:
-    resolution: {integrity: sha512-RsaehHh45f+0shWgZZaOY09/8eOae2voRsqJCD71j9yrnYgcke0Nj5ys0ZxrW4SPcc4+q96kWyJu0Z8P1zZdoA==}
+  daisyui@5.0.12:
+    resolution: {integrity: sha512-01DU0eYBcHgPtuf5fxcrkGkIN6/Uyaqmkle5Yo3ZyW9YVAu036ALZbjv2KH5euvUbeQ4r9q3gAarGcf7Tywhng==}
 
   data-uri-to-buffer@6.0.2:
     resolution: {integrity: sha512-7hvf7/GW8e86rW0ptuwS3OcBGDjIi6SZva7hCyWC0yYry2cOPmLIjXAUHI6DK2HsnwJd9ifmt57i8eV2n4YNpw==}
@@ -3818,7 +3818,7 @@ snapshots:
 
   csstype@3.1.3: {}
 
-  daisyui@5.0.9: {}
+  daisyui@5.0.12: {}
 
   data-uri-to-buffer@6.0.2: {}
 
