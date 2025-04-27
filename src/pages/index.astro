@@ -1,17 +1,17 @@
 ---
-// TODO: Move this import to a component or layout?
-import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Riffing on Software</title>
-  </head>
-  <body>
-    <h1>Riffing on Software</h1>
-  </body>
-</html>
+<BaseLayout>
+  <div>
+    <div class="text-5xl font-bold">Welcome, Wanderer</div>
+    <p>
+      Welcome to a discordant group of ramblings on whatever happens to be on my
+      mind, but mostly software. Maybe, just maybe, the noise might be kindly
+      thought of as riffing.
+      <br />
+      <br />
+      Why should you listen to me? You shouldn't. I'm probably wrong.
+    </p>
+  </div>
+</BaseLayout>
