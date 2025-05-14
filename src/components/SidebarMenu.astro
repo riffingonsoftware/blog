@@ -1,0 +1,31 @@
+---
+const { sideBarActiveItemID } = Astro.props;
+const activeClass = "bg-[#0c1425]";
+---
+
+<ul class="flex flex-col overflow-y-auto flex-grow flex-shrink">
+  <li>
+    <a
+      class="py-3 text-base block px-4 hover:bg-gray-100 w-auto"
+      id="home"
+      href="/">Home</a
+    >
+  </li>
+  <li>
+    <a
+      class="py-3 text-base block px-4 hover:bg-gray-100 w-auto"
+      id="posts"
+      href="/posts/">Posts</a
+    >
+  </li>
+</ul>
+
+<script
+  define:vars={{
+    sideBarActiveItemID: sideBarActiveItemID,
+    activeClass: activeClass,
+  }}
+>
+  const activeItemElem = document.getElementById(sideBarActiveItemID);
+  activeItemElem && activeItemElem.classList.add(activeClass);
+</script>

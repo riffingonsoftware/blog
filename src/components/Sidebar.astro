@@ -1,10 +1,42 @@
 ---
-
+import { Image } from "astro:assets";
+import profileImage from "../images/profile.png";
+import SidebarFooter from "./SidebarFooter.astro";
+import SidebarMenu from "./SidebarMenu.astro";
 ---
 
-<div class="drawer-side" id="sidebar" style="background-color: blue;">
-  <label for="sidebar" class="drawer-overlay"></label>
-  <aside>
-    <h1>Sidebar</h1>
+<div class="fixed inset-y-0 left-0 z-40 md:relative" id="sidebar">
+  <!-- Hidden overlay for mobile - shown when sidebar is open -->
+  <div
+    class="fixed inset-0 bg-gray-800 bg-opacity-50 transition-opacity hidden md:hidden"
+    id="sidebar-overlay"
+  >
+  </div>
+
+  <aside
+    class="px-2 pt-2 h-auto min-h-full w-[15rem] bg-[#081019] text-white flex flex-col"
+  >
+    <div class="w-fit mx-auto mt-5 mb-6">
+      <a href="/">
+        <div class="transition ease-in-out hover:scale-[102%] block m-auto">
+          <div class="w-[8.5rem] h-[8.5rem] overflow-hidden rounded-full">
+            <Image
+              class="w-full h-full object-cover"
+              format="webp"
+              width={300}
+              height={300}
+              src={profileImage}
+              alt="Profile image"
+            />
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <SidebarMenu sideBarActiveItemID="home" />
+
+    <div class="mt-auto pt-6 px-4">
+      <SidebarFooter />
+    </div>
   </aside>
 </div>

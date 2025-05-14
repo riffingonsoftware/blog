@@ -15,12 +15,14 @@ const {
 <html lang="en">
   <Head title={title} description={description} />
   <body>
-    <div>
-      <main>
-        <slot />
-      </main>
-      <Footer description={SITE_DESCRIPTION} />
+    <div class="flex min-h-screen">
       {includeSidebar && <Sidebar />}
+      <div class="flex-1">
+        <main class="p-6">
+          <slot />
+        </main>
+        <Footer description={SITE_DESCRIPTION} />
+      </div>
     </div>
   </body>
 </html>
