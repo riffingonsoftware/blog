@@ -42,7 +42,9 @@ const displayPubDate = formatDate(pubDate);
     <div class="flex-1">
       <div class="flex gap-2 md:items-start">
         <div class="text-xl font-bold">
-          <a href={url} target={target} class="pointer-events-auto relative z-20 hover:underline">{title}</a>
+          <a href={url} target={target} class="pointer-events-auto relative z-20 no-underline hover:no-underline">
+            {title}
+          </a>
         </div>
         {
           displayPubDate && (
