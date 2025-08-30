@@ -22,9 +22,7 @@
     border-radius: var(--radius);
   }
   .btn-ghost { @apply bg-transparent text-text; }
-  .btn-ghost:hover {
-    background: color-mix(in oklab, var(--page), white 10%);
-  }
+  .btn-ghost:hover { background: color-mix(in oklab, var(--color-page), white 10%); }
 
   /* Badges */
   .badge {
@@ -34,11 +32,7 @@
   .badge-outline { @apply border border-border text-text; }
 
   /* Divider */
-  .divider {
-    @apply my-0;
-    height: 1px;
-    background: rgb(var(--border) / 0.25);
-  }
+  .divider { @apply my-0; height: 1px; background: var(--color-border); opacity: 0.25; }
 
   /* Navbar */
   .navbar {
