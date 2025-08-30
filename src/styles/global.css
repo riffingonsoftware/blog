@@ -1,25 +1,18 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-@layer base {
-  :root {
-    --page: #0c1425;
-    --sidebar: #081019;
-    --text: 209 213 219; /* gray-300 */
-    --text-strong: 243 244 246; /* gray-100 */
-    --border: 75 85 99; /* gray-600 */
-    --radius: 0.5rem;
-    --shadow-card: 0 6px 30px rgba(0, 0, 0, 0.35);
-  }
+@theme {
+  --color-page: #0c1425;
+  --color-sidebar: #081019;
+  --color-text: #d1d5db; /* gray-300 */
+  --color-text-strong: #f3f4f6; /* gray-100 */
+  --color-border: #4b5563; /* gray-600 */
+  --radius: 0.5rem;
+  --shadow-card: 0 6px 30px rgba(0, 0, 0, 0.35);
+}
 
-  html {
-    background-color: var(--page);
-    color: rgb(var(--text));
-  }
-  body {
-    background-color: var(--page);
-    color: rgb(var(--text));
-  }
+@layer base {
+  html, body { @apply bg-page text-text; }
 }
 
 @layer components {
@@ -28,10 +21,7 @@
     @apply inline-flex items-center gap-2 rounded px-3 py-2 select-none;
     border-radius: var(--radius);
   }
-  .btn-ghost {
-    @apply bg-transparent;
-    color: rgb(var(--text));
-  }
+  .btn-ghost { @apply bg-transparent text-text; }
   .btn-ghost:hover {
     background: color-mix(in oklab, var(--page), white 10%);
   }
@@ -41,11 +31,7 @@
     @apply inline-flex items-center rounded px-2 py-0.5 text-xs;
     border-radius: calc(var(--radius) - 2px);
   }
-  .badge-outline {
-    @apply border;
-    border-color: rgb(var(--border));
-    color: rgb(var(--text));
-  }
+  .badge-outline { @apply border border-border text-text; }
 
   /* Divider */
   .divider {
@@ -67,17 +53,12 @@
   .menu a {
     @apply block rounded px-4 py-3;
   }
-  .menu a:hover {
-    background: color-mix(in oklab, var(--sidebar), white 10%);
-  }
+  .menu a:hover { background: color-mix(in oklab, var(--color-sidebar), white 10%); }
 
   /* Card */
-  .card {
-    @apply rounded;
-    background: var(--page);
-  }
+  .card { @apply rounded bg-page; }
   .card:hover {
-    background: color-mix(in oklab, var(--page), white 5%);
+    background: color-mix(in oklab, var(--color-page), white 5%);
     box-shadow: var(--shadow-card);
   }
 
