@@ -1,3 +1,2 @@
-export { collections } from './posts/config';
-export type { PostSchema } from './posts/config';
-
+export { collections } from "./posts/config";
+export type { PostSchema } from "./posts/config";

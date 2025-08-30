@@ -11,45 +11,56 @@ const { page, tag, title } = Astro.props as {
 ---
 
 <DefaultLayout title={title}>
-  {tag ? (
-    <div>
-      <div class="text-3xl w-full font-bold mb-5 mt-10">Posts tagged "{tag}"</div>
-    </div>
-  ) : (
-    <div>
-      <div class="text-3xl w-full font-bold mb-5 mt-10">All Posts</div>
-    </div>
-  )}
+  {
+    tag ? (
+      <div>
+        <div class="mt-10 mb-5 w-full text-3xl font-bold">Posts tagged "{tag}"</div>
+      </div>
+    ) : (
+      <div>
+        <div class="mt-10 mb-5 w-full text-3xl font-bold">All Posts</div>
+      </div>
+    )
+  }
 
   <ul>
-    {page.data.map((post: CollectionEntry<'posts'>) => (
-      <li>
-        <HorizontalCard
-          pubDate={post.data.pubDate}
-          title={post.data.title}
-          img={post.data.heroImage}
-          imgAlt={post.data.heroImageAlt}
-          desc={post.data.description}
-          url={"/posts/" + post.slug}
-          tags={post.data.tags}
-          target="_self"
-        />
-        <div class="divider my-0"></div>
-      </li>
-    ))}
+  {
+      page.data.map((post) => (
+        <li>
+          <HorizontalCard
+            pubDate={post.data.pubDate}
+            title={post.data.title}
+            img={post.data.heroImage}
+            imgAlt={post.data.heroImageAlt}
+            desc={post.data.description}
+            url={"/posts/" + post.slug}
+            tags={post.data.tags}
+            target="_self"
+          />
+          <div class="divider my-0"></div>
+        </li>
+      ))
+    }
   </ul>
 
   <div class="flex justify-between">
-    {page.url.prev ? (
-      <a href={page.url.prev} class="btn btn-ghost my-10 mx-5">← Recent posts</a>
-    ) : (
-      <div></div>
-    )}
-    {page.url.next ? (
-      <a href={page.url.next} class="btn btn-ghost my-10 mx-5">Older posts →</a>
-    ) : (
-      <div></div>
-    )}
+    {
+      page.url.prev ? (
+        <a href={page.url.prev} class="btn btn-ghost mx-5 my-10">
+          ← Recent posts
+        </a>
+      ) : (
+        <div />
+      )
+    }
+    {
+      page.url.next ? (
+        <a href={page.url.next} class="btn btn-ghost mx-5 my-10">
+          Older posts →
+        </a>
+      ) : (
+        <div />
+      )
+    }
   </div>
-
 </DefaultLayout>

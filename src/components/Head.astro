@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import { ViewTransitions } from 'astro:transitions';
+import { ViewTransitions } from "astro:transitions";
 
 export interface Props {
   author?: string;
@@ -31,14 +31,14 @@ const { author, title, description, image, pubDate } = Astro.props as Props;
   <meta property="og:url" content={Astro.url} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content={new URL(image || '/images/riffingonsoftware-og.webp', Astro.url)} />
+  <meta property="og:image" content={new URL(image || "/images/riffingonsoftware-og.webp", Astro.url)} />
   {pubDate && <meta property="og:publish_date" content={pubDate} />}
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={new URL(image || '/images/riffingonsoftware-og.webp', Astro.url)} />
+  <meta name="twitter:image" content={new URL(image || "/images/riffingonsoftware-og.webp", Astro.url)} />
   <meta name="twitter:url" content={Astro.url} />
   <meta name="twitter:site" content="@riffingonsw" />
   <meta name="twitter:creator" content="@riffingonsw" />

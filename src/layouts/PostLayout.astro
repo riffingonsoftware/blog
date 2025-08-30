@@ -7,16 +7,7 @@ import { formatDate } from "../lib/date";
 
 export interface Props extends PostSchema {}
 
-const {
-  author,
-  title,
-  description,
-  pubDate,
-  updatedDate,
-  heroImage,
-  heroImageAlt,
-  tags,
-} = Astro.props as Props;
+const { author, title, description, pubDate, updatedDate, heroImage, heroImageAlt, tags } = Astro.props as Props;
 const displayPubDate = formatDate(pubDate);
 const displayUpdatedDate = formatDate(updatedDate);
 ---
@@ -24,46 +15,55 @@ const displayUpdatedDate = formatDate(updatedDate);
 <DefaultLayout author={author} title={title} description={description} image={heroImage} pubDate={pubDate}>
   <main class="md:flex md:justify-center">
     <div class="w-full max-w-[750px]">
-    <article class="prose prose-lg prose-img:mx-auto">
-      {heroImage && (
-        <Image
-          height={250}
-          width={500}
-          fit="contain"
-          format="webp"
-          src={heroImage}
-          alt={heroImageAlt ?? title}
-          class="max-w-full rounded-lg"
-          transition:name={heroImage}
-        />
-      )}
-      <h1 class="title my-2 text-4xl font-bold" transition:name={title}>
-        {title}
-      </h1>
-      {displayPubDate && <time>{displayPubDate}</time>}
-      {displayUpdatedDate && (
-        <div>
-          Last updated on <time>{displayUpdatedDate}</time>
-        </div>
-      )}
-      <div class="divider my-4"></div>
-      <slot />
-    </article>
+      <article class="prose prose-lg prose-img:mx-auto">
+        {
+          heroImage && (
+            <Image
+              height={250}
+              width={500}
+              fit="contain"
+              format="webp"
+              src={heroImage}
+              alt={heroImageAlt ?? title}
+              class="max-w-full rounded-lg"
+              transition:name={heroImage}
+            />
+          )
+        }
+        <h1 class="title my-2 text-4xl font-bold" transition:name={title}>
+          {title}
+        </h1>
+        {displayPubDate && <time>{displayPubDate}</time>}
+        {
+          displayUpdatedDate && (
+            <div>
+              Last updated on <time>{displayUpdatedDate}</time>
+            </div>
+          )
+        }
+        <div class="divider my-4"></div>
+        <slot />
+      </article>
 
-    {tags && (
-      <div class="mt-8 flex flex-wrap items-center gap-1 not-prose">
-        <span class="mr-2">Tags:</span>
-        {tags.map((tag) => (
-          <a href={`/posts/${tag}/1`} class="badge badge-outline mt-1 bg-transparent border-gray-500 text-gray-300 hover:bg-white/10 hover:text-white">
-            {tag}
-          </a>
-        ))}
+      {
+        tags && (
+          <div class="not-prose mt-8 flex flex-wrap items-center gap-1">
+            <span class="mr-2">Tags:</span>
+            {tags.map((tag) => (
+              <a
+                href={`/posts/${tag}/1`}
+                class="badge badge-outline mt-1 border-gray-500 bg-transparent text-gray-300 hover:bg-white/10 hover:text-white"
+              >
+                {tag}
+              </a>
+            ))}
+          </div>
+        )
+      }
+
+      <div class="not-prose mt-8">
+        <Comments />
       </div>
-    )}
-
-    <div class="mt-8 not-prose">
-      <Comments />
-    </div>
     </div>
   </main>
 </DefaultLayout>

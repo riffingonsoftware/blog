@@ -2,20 +2,25 @@
 import { SITE_TITLE } from "../config";
 ---
 
-<header class="navbar sticky top-0 z-30 bg-[#0c1425]/90 backdrop-blur shadow-sm md:hidden">
+<header class="navbar sticky top-0 z-30 bg-[#0c1425]/90 shadow-sm backdrop-blur md:hidden">
   <div class="navbar-start">
     <button id="menu-button" aria-label="Open menu" class="btn btn-ghost btn-square">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M3.75 5.25A.75.75 0 0 1 4.5 4.5h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75Zm0 7.5a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75Zm.75 6.75a.75.75 0 0 0 0 1.5h15a.75.75 0 0 0 0-1.5h-15Z" clip-rule="evenodd"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"
+        ><path
+          fill-rule="evenodd"
+          d="M3.75 5.25A.75.75 0 0 1 4.5 4.5h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75Zm0 7.5a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75Zm.75 6.75a.75.75 0 0 0 0 1.5h15a.75.75 0 0 0 0-1.5h-15Z"
+          clip-rule="evenodd"></path></svg
+      >
     </button>
   </div>
   <div class="navbar-center">
-    <a href="/" class="btn btn-ghost normal-case text-xl">{SITE_TITLE}</a>
+    <a href="/" class="btn btn-ghost text-xl normal-case">{SITE_TITLE}</a>
   </div>
-  <div class="navbar-end" />
+  <div class="navbar-end"></div>
 
   <script is:inline>
-    document.getElementById('menu-button')?.addEventListener('click', () => {
-      window.dispatchEvent(new CustomEvent('toggleSidebar'));
+    document.getElementById("menu-button")?.addEventListener("click", () => {
+      window.dispatchEvent(new CustomEvent("toggleSidebar"));
     });
   </script>
 </header>

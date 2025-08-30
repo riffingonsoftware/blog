@@ -7,15 +7,18 @@ import SidebarMenu from "./SidebarMenu.astro";
 
 <div class="fixed inset-y-0 left-0 z-40 md:relative" id="sidebar">
   <!-- Hidden overlay for mobile - shown when sidebar is open -->
-  <div class="fixed inset-0 bg-black/50 transition-opacity hidden md:hidden" id="sidebar-overlay"></div>
+  <div class="fixed inset-0 hidden bg-black/50 transition-opacity md:hidden" id="sidebar-overlay"></div>
 
-  <aside class="px-2 pt-2 h-screen w-[15rem] bg-[#081019] text-white flex flex-col hidden md:flex md:sticky md:top-0" id="sidebar-panel">
-    <div class="w-fit mx-auto mt-5 mb-6">
+  <aside
+    class="flex hidden h-screen w-[15rem] flex-col bg-[#081019] px-2 pt-2 text-white md:sticky md:top-0 md:flex"
+    id="sidebar-panel"
+  >
+    <div class="mx-auto mt-5 mb-6 w-fit">
       <a href="/">
-        <div class="transition ease-in-out hover:scale-[102%] block m-auto">
-          <div class="w-[8.5rem] h-[8.5rem] overflow-hidden rounded-full">
+        <div class="m-auto block transition ease-in-out hover:scale-[102%]">
+          <div class="h-[8.5rem] w-[8.5rem] overflow-hidden rounded-full">
             <Image
-              class="w-full h-full object-cover"
+              class="h-full w-full object-cover"
               format="webp"
               width={300}
               height={300}
@@ -29,26 +32,26 @@ import SidebarMenu from "./SidebarMenu.astro";
 
     <SidebarMenu sideBarActiveItemID="home" />
 
-    <div class="mt-auto pt-6 px-0">
+    <div class="mt-auto px-0 pt-6">
       <SidebarFooter />
     </div>
   </aside>
 </div>
 
 <script is:inline>
-  const overlay = document.getElementById('sidebar-overlay');
-  const panel = document.getElementById('sidebar-panel');
+  const overlay = document.getElementById("sidebar-overlay");
+  const panel = document.getElementById("sidebar-panel");
   function toggle() {
     if (!overlay || !panel) return;
-    const showing = !panel.classList.contains('hidden');
+    const showing = !panel.classList.contains("hidden");
     if (showing) {
-      panel.classList.add('hidden');
-      overlay.classList.add('hidden');
+      panel.classList.add("hidden");
+      overlay.classList.add("hidden");
     } else {
-      panel.classList.remove('hidden');
-      overlay.classList.remove('hidden');
+      panel.classList.remove("hidden");
+      overlay.classList.remove("hidden");
     }
   }
-  overlay?.addEventListener('click', toggle);
-  window.addEventListener('toggleSidebar', toggle);
+  overlay?.addEventListener("click", toggle);
+  window.addEventListener("toggleSidebar", toggle);
 </script>
