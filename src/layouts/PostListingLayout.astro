@@ -3,11 +3,14 @@ import DefaultLayout from "./DefaultLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 import type { CollectionEntry } from "astro:content";
 
-const { page, tag, title } = Astro.props as {
-  page: any;
+type Page<T> = { data: T[]; url: { prev?: string; next?: string } };
+export interface Props {
+  page: Page<CollectionEntry<'posts'>>;
   tag?: string;
   title: string;
-};
+}
+
+const { page, tag, title } = Astro.props;
 ---
 
 <DefaultLayout title={title}>

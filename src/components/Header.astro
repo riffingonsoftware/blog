@@ -4,7 +4,13 @@ import { SITE_TITLE } from "../config";
 
 <header class="navbar sticky top-0 z-30 bg-page/90 shadow-sm backdrop-blur md:hidden">
   <div class="navbar-start">
-    <button id="menu-button" aria-label="Open menu" class="btn btn-ghost btn-square">
+    <button
+      id="menu-button"
+      aria-label="Open menu"
+      aria-controls="sidebar-panel"
+      aria-expanded="false"
+      class="btn btn-ghost btn-square"
+    >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"
         ><path
           fill-rule="evenodd"
@@ -19,8 +25,15 @@ import { SITE_TITLE } from "../config";
   <div class="navbar-end"></div>
 
   <script is:inline>
-    document.getElementById("menu-button")?.addEventListener("click", () => {
+    const btn = document.getElementById("menu-button");
+    btn?.addEventListener("click", () => {
       window.dispatchEvent(new CustomEvent("toggleSidebar"));
+    });
+    window.addEventListener("sidebarToggled", (e) => {
+      const open = e?.detail?.open;
+      if (btn && typeof open === "boolean") {
+        btn.setAttribute("aria-expanded", String(open));
+      }
     });
   </script>
 </header>

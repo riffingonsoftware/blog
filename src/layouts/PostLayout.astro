@@ -5,14 +5,14 @@ import Comments from "../components/Comments.astro";
 import { Image } from "astro:assets";
 import { formatDate } from "../lib/date";
 
-export interface Props extends PostSchema {}
+export interface Props extends PostSchema { readonly readingTime?: string }
 
-const { author, title, description, pubDate, updatedDate, heroImage, heroImageAlt, tags } = Astro.props as Props;
+const { author, title, description, pubDate, updatedDate, heroImage, heroImageAlt, tags, canonicalUrl, readingTime } = Astro.props;
 const displayPubDate = formatDate(pubDate);
 const displayUpdatedDate = formatDate(updatedDate);
 ---
 
-<DefaultLayout author={author} title={title} description={description} image={heroImage} pubDate={pubDate}>
+<DefaultLayout author={author} title={title} description={description} image={heroImage} pubDate={pubDate} canonicalUrl={canonicalUrl}>
   <main class="md:flex md:justify-center">
     <div class="w-full max-w-[750px]">
       <article class="prose prose-lg prose-img:mx-auto">
@@ -33,7 +33,10 @@ const displayUpdatedDate = formatDate(updatedDate);
         <h1 class="title my-2 text-4xl font-bold" transition:name={title}>
           {title}
         </h1>
-        {displayPubDate && <time>{displayPubDate}</time>}
+        <div class="flex flex-wrap items-center gap-2 text-sm text-gray-400">
+          {displayPubDate && <time>{displayPubDate}</time>}
+          {readingTime && <span aria-label="Estimated reading time">• {readingTime}</span>}
+        </div>
         {
           displayUpdatedDate && (
             <div>
@@ -66,4 +69,18 @@ const displayUpdatedDate = formatDate(updatedDate);
       </div>
     </div>
   </main>
+  <script type="application/ld+json" is:inline>{
+    JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: title,
+      description,
+      datePublished: pubDate?.toString?.() ?? pubDate,
+      dateModified: updatedDate?.toString?.() ?? updatedDate,
+      url: canonicalUrl ?? Astro.url,
+      author: author ? { '@type': 'Person', name: author } : undefined,
+      image: heroImage ? new URL(heroImage, Astro.url).toString() : undefined,
+      keywords: Array.isArray(tags) ? tags.join(', ') : undefined,
+    })
+  }</script>
 </DefaultLayout>

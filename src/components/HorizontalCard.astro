@@ -13,14 +13,14 @@ export interface Props {
 import { Image } from "astro:assets";
 import { formatDate } from "../lib/date";
 
-const { pubDate, title, img, imgAlt, desc, url, tags = [], target = "_self" } = Astro.props as Props;
+const { pubDate, title, img, imgAlt, desc, url, tags = [], target = "_self" } = Astro.props;
 const displayPubDate = formatDate(pubDate);
 ---
 
 <div
-  class="card relative rounded-lg bg-[#0c1425] p-4 transition ease-in-out hover:scale-[102%] hover:bg-white/5 hover:shadow-xl"
+  class="card relative rounded-lg bg-page p-4 transition ease-in-out hover:scale-[102%] hover:bg-white/5 hover:shadow-xl"
 >
-  <a href={url} target={target} aria-label={title} class="absolute inset-0 z-10"></a>
+  <a href={url} target={target} aria-label={title} class="absolute inset-0 z-10 rounded-lg outline-none"></a>
 
   <div class="pointer-events-none relative z-20 flex flex-col gap-4 md:flex-row md:items-center">
     {
@@ -28,7 +28,7 @@ const displayPubDate = formatDate(pubDate);
         <a href={url} target={target} class="pointer-events-auto relative z-20 shrink-0">
           <Image
             src={img}
-            alt={imgAlt || ""}
+            alt={imgAlt || title}
             width={200}
             height={104.5}
             fit="contain"

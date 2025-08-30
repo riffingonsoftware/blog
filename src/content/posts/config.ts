@@ -9,7 +9,8 @@ const postSchema = z.object({
     pubDate: z.coerce.date(),
     tags: z.array(z.string()),
     title: z.string(),
-    updatedDate: z.string().optional(),
+    updatedDate: z.coerce.date().optional(),
+    canonicalUrl: z.string().url().optional(),
 });
 
 export type PostSchema = z.infer<typeof postSchema>;

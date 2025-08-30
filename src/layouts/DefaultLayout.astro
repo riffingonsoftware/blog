@@ -9,6 +9,7 @@ const {
   author,
   image,
   pubDate,
+  canonicalUrl,
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
   includeSidebar = true,
@@ -17,7 +18,7 @@ const {
 
 <!doctype html>
 <html lang="en">
-  <Head author={author} title={title} description={description} image={image} pubDate={pubDate} />
+  <Head author={author} title={title} description={description} image={image} pubDate={pubDate} canonicalUrl={canonicalUrl} />
   <body>
     <Header />
     <div class="flex min-h-screen">

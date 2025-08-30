@@ -8,13 +8,15 @@ export interface Props {
   description: string;
   image?: string;
   pubDate?: string;
+  canonicalUrl?: string;
 }
 
-const { author, title, description, image, pubDate } = Astro.props as Props;
+const { author, title, description, image, pubDate, canonicalUrl } = Astro.props;
 ---
 
 <head>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="Riffing on Software" />
   <meta charset="utf-8" />
   <meta name="description" content={description} />
   <meta name="generator" content={Astro.generator} />
@@ -23,12 +25,13 @@ const { author, title, description, image, pubDate } = Astro.props as Props;
   <title>{title}</title>
 
   <!-- Canonical URL -->
-  <link rel="canonical" href={Astro.url} />
+  <link rel="canonical" href={canonicalUrl ?? Astro.url} />
 
   <!-- Open Graph -->
   <meta property="og:author" content={author || "Ricardo Torres"} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={Astro.url} />
+  <meta property="og:site_name" content="Riffing on Software" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={new URL(image || "/images/riffingonsoftware-og.webp", Astro.url)} />
