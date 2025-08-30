@@ -24,7 +24,7 @@ const { page, tag, title } = Astro.props as {
   }
 
   <ul>
-  {
+    {
       page.data.map((post) => (
         <li>
           <HorizontalCard
@@ -37,7 +37,7 @@ const { page, tag, title } = Astro.props as {
             tags={post.data.tags}
             target="_self"
           />
-          <div class="divider my-0"></div>
+          <div class="divider my-0" />
         </li>
       ))
     }
