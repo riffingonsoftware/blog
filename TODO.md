@@ -33,6 +33,9 @@ Theming and CSS (idiomatic Tailwind v4)
 - TODO: Replace any remaining hard-coded `#0c1425` / `#081019` with token utilities (`bg-page`, `bg-sidebar`, `text-text`, `border-border`) where feasible.
   - Acceptance: `rg -n "#0c1425|#081019"` in `src/**` returns none in class contexts.
 - Keep `@plugin "@tailwindcss/typography"` declared in CSS (v4-native). No `tailwind.config.*` unless a non-CSS plugin/config is truly needed.
+- Small correctness fixes (applied): ensure CSS variables use `--color-*` names consistently.
+  - `.btn-ghost:hover` uses `var(--color-page)`.
+  - `.divider` uses `background: var(--color-border); opacity: .25;` (hex tokens don’t work with `rgb(var(--...)/alpha)`).
 
 Performance
 - 404 video: add `muted playsinline` and, if available, a small `poster` to avoid blank flashes. Path: `src/pages/404.astro`.
@@ -48,6 +51,11 @@ Content & features (optional polish)
 - Reading time: add a lightweight utility to compute reading time from rendered HTML or raw Markdown and display on post pages. Path: `src/layouts/PostLayout.astro` (near dates).
 - Search: consider `pagefind` (static-friendly) for client-side search; add a small input in the sidebar or header.
 
+Type safety / schema
+- Prefer inference over explicit casts in `.astro` files: when defining `interface Props { ... }`, destructure directly from `Astro.props` without `as Props` (`const { ... } = Astro.props;`). Update occurrences in layouts/components accordingly.
+- Make `updatedDate` consistent with `pubDate`: change schema to `updatedDate: z.coerce.date().optional()` to avoid string/date drift and simplify formatting.
+- Optional override: add `canonicalUrl: z.string().url().optional()` to the post schema. Plumb through `[slug].astro` to `PostLayout` (or straight to `Head.astro`) and render `<link rel="canonical">` using `canonicalUrl ?? Astro.url`.
+
 Decisions on other suggestions (do not implement unless requirements change)
 - Tailwind config file: NOT needed with v4 zero-config. Our tokens and plugins live in CSS, which is the current best practice.
 - Alphabetical Tailwind class ordering: we use `prettier-plugin-tailwindcss` (Tailwind’s canonical order). Switching to purely alphabetical is not recommended as it can affect utility semantics and readability.
@@ -56,4 +64,3 @@ Decisions on other suggestions (do not implement unless requirements change)
 
 References
 - Tailwind v4 theming with `@theme` tokens and CSS plugins is the recommended approach. No `content` globs or config file required for our current needs.
-
