@@ -37,14 +37,14 @@ const displayPubDate = formatDate(pubDate);
     )}
     <div class="flex-1">
       <div class="flex md:items-start gap-2">
-        <div class="text-xl font-bold pointer-events-auto">
-          <a href={url} target={target} class="hover:underline relative z-20">{title}</a>
+        <div class="text-xl font-bold">
+          <a href={url} target={target} class="hover:underline relative z-20 pointer-events-auto">{title}</a>
         </div>
         {displayPubDate && (
           <div class="md:ml-auto md:block hidden text-sm text-gray-400 whitespace-nowrap">{displayPubDate}</div>
         )}
       </div>
-      {desc && <p class="text-base text-gray-300 mt-1 pointer-events-auto">{desc}</p>}
+      {desc && <p class="text-base text-gray-300 mt-1">{desc}</p>}
       {displayPubDate && (
         <div class="md:hidden text-sm text-gray-400 mt-1">{displayPubDate}</div>
       )}
