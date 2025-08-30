@@ -1,10 +1,51 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
-@plugin "daisyui";
 
-html {
-  background-color: #0c1425;
-  color: lightgray;
+@layer base {
+  :root {
+    --page: #0c1425;
+    --sidebar: #081019;
+    --text: 209 213 219; /* gray-300 */
+    --text-strong: 243 244 246; /* gray-100 */
+    --border: 75 85 99; /* gray-600 */
+    --radius: 0.5rem;
+    --shadow-card: 0 6px 30px rgba(0, 0, 0, 0.35);
+  }
+
+  html {
+    background-color: var(--page);
+    color: rgb(var(--text));
+  }
+}
+
+@layer components {
+  /* Buttons */
+  .btn { @apply inline-flex items-center gap-2 px-3 py-2 rounded select-none; border-radius: var(--radius); }
+  .btn-ghost { @apply bg-transparent; color: rgb(var(--text)); }
+  .btn-ghost:hover { background: color-mix(in oklab, var(--page), white 10%); }
+
+  /* Badges */
+  .badge { @apply inline-flex items-center px-2 py-0.5 text-xs rounded; border-radius: calc(var(--radius) - 2px); }
+  .badge-outline { @apply border; border-color: rgb(var(--border)); color: rgb(var(--text)); }
+
+  /* Divider */
+  .divider { @apply my-0; height: 1px; background: rgb(var(--border) / 0.25); }
+
+  /* Navbar */
+  .navbar { @apply w-full flex items-center justify-between px-4 backdrop-blur-sm shadow-sm; height: 3.5rem; }
+
+  /* Menu */
+  .menu { @apply list-none p-0 m-0; }
+  .menu a { @apply block rounded px-4 py-3; }
+  .menu a:hover { background: color-mix(in oklab, var(--sidebar), white 10%); }
+
+  /* Card */
+  .card { @apply rounded; background: var(--page); }
+  .card:hover { background: color-mix(in oklab, var(--page), white 5%); box-shadow: var(--shadow-card); }
+
+  /* Footer */
+  .footer { @apply w-full; }
+  .footer-center { @apply text-center flex flex-col items-center; }
 }
 
 /* Ensure prose looks good on dark background */
