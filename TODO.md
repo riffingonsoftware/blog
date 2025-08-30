@@ -55,6 +55,10 @@ Type safety / schema
 - Prefer inference over explicit casts in `.astro` files: when defining `interface Props { ... }`, destructure directly from `Astro.props` without `as Props` (`const { ... } = Astro.props;`). Update occurrences in layouts/components accordingly.
 - Make `updatedDate` consistent with `pubDate`: change schema to `updatedDate: z.coerce.date().optional()` to avoid string/date drift and simplify formatting.
 - Optional override: add `canonicalUrl: z.string().url().optional()` to the post schema. Plumb through `[slug].astro` to `PostLayout` (or straight to `Head.astro`) and render `<link rel="canonical">` using `canonicalUrl ?? Astro.url`.
+- Strongly type `page` in `PostListingLayout.astro` instead of `any`: declare a minimal structural type that matches Astro paginate output for our usage, e.g.:
+  - `type Page<T> = { data: T[]; url: { prev?: string; next?: string } }` and use `Page<CollectionEntry<'posts'>>`.
+  - Then `interface Props { page: Page<CollectionEntry<'posts'>>; tag?: string; title: string }` and destructure from `Astro.props` (no `as`).
+  - Acceptance: no `any` in `PostListingLayout.astro`; IDE shows typed `page.data` and `page.url.prev/next`.
 
 Decisions on other suggestions (do not implement unless requirements change)
 - Tailwind config file: NOT needed with v4 zero-config. Our tokens and plugins live in CSS, which is the current best practice.
