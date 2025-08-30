@@ -3,7 +3,9 @@ const { description } = Astro.props;
 const today = new Date();
 ---
 
-<footer>
-  <div class="italic">{description}</div>
-  <div>&copy; {today.getFullYear()} Ricardo Torres</div>
+<footer class="footer footer-center p-4 bg-transparent">
+  <aside>
+    <p class="italic">{description}</p>
+    <p>&copy; {today.getFullYear()} Ricardo Torres</p>
+  </aside>
 </footer>

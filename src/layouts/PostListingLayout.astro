@@ -23,7 +23,7 @@ const { page, tag, title } = Astro.props as {
 
   <ul>
     {page.data.map((post: CollectionEntry<'posts'>) => (
-      <li class="py-4">
+      <li>
         <HorizontalCard
           pubDate={post.data.pubDate}
           title={post.data.title}
@@ -34,23 +34,22 @@ const { page, tag, title } = Astro.props as {
           tags={post.data.tags}
           target="_self"
         />
-        <hr class="my-4 border-gray-700" />
+        <div class="divider my-0"></div>
       </li>
     ))}
   </ul>
 
   <div class="flex justify-between">
     {page.url.prev ? (
-      <a href={page.url.prev} class="my-10 mx-5 underline">← Recent posts</a>
+      <a href={page.url.prev} class="btn btn-ghost my-10 mx-5">← Recent posts</a>
     ) : (
       <div></div>
     )}
     {page.url.next ? (
-      <a href={page.url.next} class="my-10 mx-5 underline">Older posts →</a>
+      <a href={page.url.next} class="btn btn-ghost my-10 mx-5">Older posts →</a>
     ) : (
       <div></div>
     )}
   </div>
 
 </DefaultLayout>
-

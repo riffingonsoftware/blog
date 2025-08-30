@@ -3,20 +3,12 @@ const { sideBarActiveItemID } = Astro.props;
 const activeClass = "bg-[#0c1425]";
 ---
 
-<ul class="flex flex-col overflow-y-auto flex-grow flex-shrink">
+<ul class="menu menu-vertical px-2 overflow-y-auto flex-grow">
   <li>
-    <a
-      class="py-3 text-base block px-4 hover:bg-gray-100 w-auto"
-      id="home"
-      href="/">Home</a
-    >
+    <a id="home" href="/" class="rounded-lg hover:bg-white/10">Home</a>
   </li>
   <li>
-    <a
-      class="py-3 text-base block px-4 hover:bg-gray-100 w-auto"
-      id="posts"
-      href="/posts/">Posts</a
-    >
+    <a id="posts" href="/posts/" class="rounded-lg hover:bg-white/10">Posts</a>
   </li>
 </ul>
 
@@ -27,5 +19,7 @@ const activeClass = "bg-[#0c1425]";
   }}
 >
   const activeItemElem = document.getElementById(sideBarActiveItemID);
-  activeItemElem && activeItemElem.classList.add(activeClass);
+  if (activeItemElem) {
+    activeItemElem.classList.add(activeClass);
+  }
 </script>

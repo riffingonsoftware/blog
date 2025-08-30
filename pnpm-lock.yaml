@@ -26,6 +26,9 @@ importers:
       astro-compress:
         specifier: ^2.3.8
         version: 2.3.8(@types/node@24.3.0)(jiti@2.5.1)(rollup@4.49.0)(typescript@5.8.3)
+      daisyui:
+        specifier: ^5.0.54
+        version: 5.0.54
       remark-code-title:
         specifier: ^0.2.5
         version: 0.2.5
@@ -995,6 +998,9 @@ packages:
   csso@5.0.5:
     resolution: {integrity: sha512-0LrrStPOdJj+SPCCrGhzryycLjwcgUSHBtxNA8aIDxf0GLsRh1cKYhB00Gd1lDOS4yGH69+SNn13+TWbVHETFQ==}
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0, npm: '>=7.0.0'}
+
+  daisyui@5.0.54:
+    resolution: {integrity: sha512-03iuq06+lLq/VczY/+YpADgLXVC1HYO63PNiH6A9hn/+f6IkVoONVc+Jh08xizkLQQCVVMMUBp+KeIdcWSBLcg==}
 
   debug@4.4.1:
     resolution: {integrity: sha512-KcKCqiftBJcZr++7ykoDIEwSa3XWowTfNPo92BYxjXiyYEVrUQh2aLyhxBCwww+heortUFxEJYcRzosstTEBYQ==}
@@ -3192,6 +3198,8 @@ snapshots:
   csso@5.0.5:
     dependencies:
       css-tree: 2.2.1
+
+  daisyui@5.0.54: {}
 
   debug@4.4.1:
     dependencies:

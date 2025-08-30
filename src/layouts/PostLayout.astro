@@ -16,11 +16,33 @@ const {
   heroImageAlt,
   tags,
 } = Astro.props as Props;
+
+function formatDate(val: string | Date | undefined): string {
+  if (!val) return '';
+  if (typeof val === 'string') {
+    if (/^\d{4}\.\d{2}\.\d{2}$/.test(val)) return val;
+    const d = new Date(val);
+    if (isNaN(d.getTime())) return val;
+    const yyyy = d.getFullYear();
+    const mm = String(d.getMonth() + 1).padStart(2, '0');
+    const dd = String(d.getDate()).padStart(2, '0');
+    return `${yyyy}.${mm}.${dd}`;
+  }
+  const d = val as Date;
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${yyyy}.${mm}.${dd}`;
+}
+
+const displayPubDate = formatDate(pubDate);
+const displayUpdatedDate = formatDate(updatedDate);
 ---
 
 <DefaultLayout author={author} title={title} description={description} image={heroImage} pubDate={pubDate}>
   <main class="md:flex md:justify-center">
-    <article class="prose prose-lg max-w-[750px] prose-img:mx-auto">
+    <div class="w-full max-w-[750px]">
+    <article class="prose prose-lg prose-img:mx-auto">
       {heroImage && (
         <Image
           height={250}
@@ -36,30 +58,30 @@ const {
       <h1 class="title my-2 text-4xl font-bold" transition:name={title}>
         {title}
       </h1>
-      {pubDate && <time>{pubDate}</time>}
-      {updatedDate && (
+      {displayPubDate && <time>{displayPubDate}</time>}
+      {displayUpdatedDate && (
         <div>
-          Last updated on <time>{updatedDate}</time>
+          Last updated on <time>{displayUpdatedDate}</time>
         </div>
       )}
-      <hr class="my-4 border-gray-700" />
+      <div class="divider my-4"></div>
       <slot />
     </article>
-  </main>
 
-  {tags && (
-    <div class="mt-8">
-      <span>Tags: </span>
-      {tags.map((tag) => (
-        <a href={`/posts/${tag}/1`} class="inline-block mr-2 mt-2 px-2 py-1 rounded border border-gray-500 hover:bg-gray-800">
-          {tag}
-        </a>
-      ))}
+    {tags && (
+      <div class="mt-8 flex flex-wrap items-center gap-1 not-prose">
+        <span class="mr-2">Tags:</span>
+        {tags.map((tag) => (
+          <a href={`/posts/${tag}/1`} class="badge badge-outline mt-1 bg-transparent border-gray-500 text-gray-300 hover:bg-white/10 hover:text-white">
+            {tag}
+          </a>
+        ))}
+      </div>
+    )}
+
+    <div class="mt-8 not-prose">
+      <Comments />
     </div>
-  )}
-
-  <div class="mt-8">
-    <Comments />
-  </div>
+    </div>
+  </main>
 </DefaultLayout>
-

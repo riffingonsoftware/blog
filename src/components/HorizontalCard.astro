@@ -10,30 +10,72 @@ export interface Props {
   target?: string;
 }
 
+import { Image } from "astro:assets";
+
 const { pubDate, title, img, imgAlt, desc, url, tags = [], target = "_self" } = Astro.props as Props;
+
+function formatDate(val: string | Date | undefined): string {
+  if (!val) return '';
+  if (typeof val === 'string') {
+    if (/^\d{4}\.\d{2}\.\d{2}$/.test(val)) return val;
+    const d = new Date(val);
+    if (isNaN(d.getTime())) return val;
+    const yyyy = d.getFullYear();
+    const mm = String(d.getMonth() + 1).padStart(2, '0');
+    const dd = String(d.getDate()).padStart(2, '0');
+    return `${yyyy}.${mm}.${dd}`;
+  }
+  const d = val as Date;
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${yyyy}.${mm}.${dd}`;
+}
+
+const displayPubDate = formatDate(pubDate);
 ---
 
-<div class="relative flex gap-4 items-start w-full p-3 rounded hover:bg-gray-800/20">
-  <a href={url} target={target} aria-label={title} class="absolute inset-0 z-0" />
-  {img && (
-    <a href={url} target={target} class="shrink-0 relative z-10">
-      <img src={img} alt={imgAlt || ''} class="w-36 h-24 object-cover rounded" loading="lazy" />
-    </a>
-  )}
-  <div class="flex-1 relative z-10">
-    {pubDate && <div class="text-sm text-gray-400">{new Date(pubDate).toDateString()}</div>}
-    <div class="text-xl font-semibold">
-      <a href={url} target={target} class="hover:underline relative z-10">{title}</a>
-    </div>
-    {desc && <div class="text-gray-300">{desc}</div>}
-    {tags.length > 0 && (
-      <div class="mt-2">
-        {tags.map((t) => (
-          <a href={`/posts/${t}/1`} class="inline-block mr-2 mt-1 px-2 py-0.5 text-xs rounded border border-gray-500 hover:bg-gray-800 relative z-20">
-            {t}
-          </a>
-        ))}
-      </div>
+<div class="relative rounded-lg card bg-[#0c1425] hover:bg-white/5 transition ease-in-out hover:scale-[102%] hover:shadow-xl p-4">
+  <a href={url} target={target} aria-label={title} class="absolute inset-0 z-10"></a>
+
+  <div class="relative z-20 pointer-events-none flex flex-col md:flex-row md:items-center gap-4">
+    {img && (
+      <a href={url} target={target} class="shrink-0 pointer-events-auto relative z-20">
+        <Image
+          src={img}
+          alt={imgAlt || ''}
+          width={200}
+          height={104.5}
+          fit="contain"
+          format="webp"
+          class="max-w-full md:max-w-[15rem] rounded-lg"
+          transition:name={img}
+        />
+      </a>
     )}
+    <div class="flex-1">
+      <div class="flex md:items-start gap-2">
+        <div class="text-xl font-bold pointer-events-auto">
+          <a href={url} target={target} class="hover:underline relative z-20">{title}</a>
+        </div>
+        {displayPubDate && (
+          <div class="md:ml-auto md:block hidden text-sm text-gray-400 whitespace-nowrap">{displayPubDate}</div>
+        )}
+      </div>
+      {desc && <p class="text-base text-gray-300 mt-1 pointer-events-auto">{desc}</p>}
+      {displayPubDate && (
+        <div class="md:hidden text-sm text-gray-400 mt-1">{displayPubDate}</div>
+      )}
+    </div>
   </div>
+
+  {tags.length > 0 && (
+    <div class="flex flex-wrap justify-end gap-1 relative z-30 pointer-events-auto">
+      {tags.map((t) => (
+        <a href={`/posts/${t}/1`} class="badge badge-outline mt-1 text-xs bg-transparent border-gray-500 text-gray-300 hover:bg-white/10 hover:text-white transition ease-in-out hover:shadow-xl hover:scale-[105%]">
+          {t}
+        </a>
+      ))}
+    </div>
+  )}
 </div>
