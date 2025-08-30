@@ -22,6 +22,9 @@ const { author, title, description, image, pubDate } = Astro.props as Props;
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>{title}</title>
 
+  <!-- Canonical URL -->
+  <link rel="canonical" href={Astro.url} />
+
   <!-- Open Graph -->
   <meta property="og:author" content={author || "Ricardo Torres"} />
   <meta property="og:type" content="website" />
@@ -30,5 +33,14 @@ const { author, title, description, image, pubDate } = Astro.props as Props;
   <meta property="og:description" content={description} />
   <meta property="og:image" content={new URL(image || '/images/riffingonsoftware-og.webp', Astro.url)} />
   {pubDate && <meta property="og:publish_date" content={pubDate} />}
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={new URL(image || '/images/riffingonsoftware-og.webp', Astro.url)} />
+  <meta name="twitter:url" content={Astro.url} />
+  <meta name="twitter:site" content="@riffingonsw" />
+  <meta name="twitter:creator" content="@riffingonsw" />
   <ViewTransitions />
 </head>
