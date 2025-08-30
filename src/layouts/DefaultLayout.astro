@@ -1,10 +1,14 @@
 ---
 import Footer from "../components/Footer.astro";
 import Head from "../components/Head.astro";
+import Header from "../components/Header.astro";
 import Sidebar from "../components/Sidebar.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../config";
 
 const {
+  author,
+  image,
+  pubDate,
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
   includeSidebar = true,
@@ -13,8 +17,9 @@ const {
 
 <!doctype html>
 <html lang="en">
-  <Head title={title} description={description} />
+  <Head author={author} title={title} description={description} image={image} pubDate={pubDate} />
   <body>
+    <Header />
     <div class="flex min-h-screen">
       {includeSidebar && <Sidebar />}
       <div class="flex-1">

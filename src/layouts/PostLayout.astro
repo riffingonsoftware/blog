@@ -1,0 +1,65 @@
+---
+import type { PostSchema } from "../content/posts/config";
+import DefaultLayout from "./DefaultLayout.astro";
+import Comments from "../components/Comments.astro";
+import { Image } from "astro:assets";
+
+export interface Props extends PostSchema {}
+
+const {
+  author,
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  heroImage,
+  heroImageAlt,
+  tags,
+} = Astro.props as Props;
+---
+
+<DefaultLayout author={author} title={title} description={description} image={heroImage} pubDate={pubDate}>
+  <main class="md:flex md:justify-center">
+    <article class="prose prose-lg max-w-[750px] prose-img:mx-auto">
+      {heroImage && (
+        <Image
+          height={250}
+          width={500}
+          fit="contain"
+          format="webp"
+          src={heroImage}
+          alt={heroImageAlt ?? title}
+          class="max-w-full rounded-lg"
+          transition:name={heroImage}
+        />
+      )}
+      <h1 class="title my-2 text-4xl font-bold" transition:name={title}>
+        {title}
+      </h1>
+      {pubDate && <time>{pubDate}</time>}
+      {updatedDate && (
+        <div>
+          Last updated on <time>{updatedDate}</time>
+        </div>
+      )}
+      <hr class="my-4 border-gray-700" />
+      <slot />
+    </article>
+  </main>
+
+  {tags && (
+    <div class="mt-8">
+      <span>Tags: </span>
+      {tags.map((tag) => (
+        <a href={`/posts/${tag}/1`} class="inline-block mr-2 mt-2 px-2 py-1 rounded border border-gray-500 hover:bg-gray-800">
+          {tag}
+        </a>
+      ))}
+    </div>
+  )}
+
+  <div class="mt-8">
+    <Comments />
+  </div>
+</DefaultLayout>
+

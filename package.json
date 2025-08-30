@@ -2,16 +2,23 @@
   "name": "riffingonsoftware",
   "type": "module",
   "version": "0.0.1",
+  "private": true,
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
-  "dependencies": {
-    "@tailwindcss/vite": "^4.1.6",
-    "astro": "^5.7.13",
-    "tailwindcss": "^4.1.6"
+  "devDependencies": {
+    "@astrojs/rss": "^4.0.12",
+    "@astrojs/sitemap": "^3.5.1",
+    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/vite": "^4.1.12",
+    "astro": "^5.13.5",
+    "astro-compress": "^2.3.8",
+    "remark-code-title": "^0.2.5",
+    "sharp": "^0.34.3",
+    "tailwindcss": "^4.1.12"
   },
-  "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
+  "packageManager": "pnpm@10.9.0"
 }

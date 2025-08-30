@@ -1,0 +1,18 @@
+---
+import { SITE_TITLE } from "../config";
+---
+
+<header class="sticky top-0 z-30 flex h-14 w-full items-center justify-between bg-[#0c1425]/90 backdrop-blur px-4 shadow-sm md:hidden">
+  <button id="menu-button" aria-label="Open menu" class="p-2 rounded border border-gray-600">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M3.75 5.25A.75.75 0 0 1 4.5 4.5h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75Zm0 7.5a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75Zm.75 6.75a.75.75 0 0 0 0 1.5h15a.75.75 0 0 0 0-1.5h-15Z" clip-rule="evenodd"/></svg>
+  </button>
+  <a href="/" class="font-semibold">{SITE_TITLE}</a>
+  <div class="w-9" />
+
+  <script is:inline>
+    document.getElementById('menu-button')?.addEventListener('click', () => {
+      window.dispatchEvent(new CustomEvent('toggleSidebar'));
+    });
+  </script>
+</header>
+

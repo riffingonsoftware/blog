@@ -7,15 +7,9 @@ import SidebarMenu from "./SidebarMenu.astro";
 
 <div class="fixed inset-y-0 left-0 z-40 md:relative" id="sidebar">
   <!-- Hidden overlay for mobile - shown when sidebar is open -->
-  <div
-    class="fixed inset-0 bg-gray-800 bg-opacity-50 transition-opacity hidden md:hidden"
-    id="sidebar-overlay"
-  >
-  </div>
+  <div class="fixed inset-0 bg-black/50 transition-opacity hidden md:hidden" id="sidebar-overlay"></div>
 
-  <aside
-    class="px-2 pt-2 h-auto min-h-full w-[15rem] bg-[#081019] text-white flex flex-col"
-  >
+  <aside class="px-2 pt-2 h-screen w-[15rem] bg-[#081019] text-white flex flex-col hidden md:flex md:sticky md:top-0" id="sidebar-panel">
     <div class="w-fit mx-auto mt-5 mb-6">
       <a href="/">
         <div class="transition ease-in-out hover:scale-[102%] block m-auto">
@@ -40,3 +34,21 @@ import SidebarMenu from "./SidebarMenu.astro";
     </div>
   </aside>
 </div>
+
+<script is:inline>
+  const overlay = document.getElementById('sidebar-overlay');
+  const panel = document.getElementById('sidebar-panel');
+  function toggle() {
+    if (!overlay || !panel) return;
+    const showing = !panel.classList.contains('hidden');
+    if (showing) {
+      panel.classList.add('hidden');
+      overlay.classList.add('hidden');
+    } else {
+      panel.classList.remove('hidden');
+      overlay.classList.remove('hidden');
+    }
+  }
+  overlay?.addEventListener('click', toggle);
+  window.addEventListener('toggleSidebar', toggle);
+</script>

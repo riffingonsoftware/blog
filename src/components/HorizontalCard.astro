@@ -1,0 +1,39 @@
+---
+export interface Props {
+  pubDate?: string | Date;
+  title: string;
+  img?: string;
+  imgAlt?: string;
+  desc?: string;
+  url: string;
+  tags?: string[];
+  target?: string;
+}
+
+const { pubDate, title, img, imgAlt, desc, url, tags = [], target = "_self" } = Astro.props as Props;
+---
+
+<div class="relative flex gap-4 items-start w-full p-3 rounded hover:bg-gray-800/20">
+  <a href={url} target={target} aria-label={title} class="absolute inset-0 z-0" />
+  {img && (
+    <a href={url} target={target} class="shrink-0 relative z-10">
+      <img src={img} alt={imgAlt || ''} class="w-36 h-24 object-cover rounded" loading="lazy" />
+    </a>
+  )}
+  <div class="flex-1 relative z-10">
+    {pubDate && <div class="text-sm text-gray-400">{new Date(pubDate).toDateString()}</div>}
+    <div class="text-xl font-semibold">
+      <a href={url} target={target} class="hover:underline relative z-10">{title}</a>
+    </div>
+    {desc && <div class="text-gray-300">{desc}</div>}
+    {tags.length > 0 && (
+      <div class="mt-2">
+        {tags.map((t) => (
+          <a href={`/posts/${t}/1`} class="inline-block mr-2 mt-1 px-2 py-0.5 text-xs rounded border border-gray-500 hover:bg-gray-800 relative z-20">
+            {t}
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+</div>

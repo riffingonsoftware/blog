@@ -1,6 +1,15 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 html {
   background-color: #0c1425;
   color: lightgray;
+}
+
+/* Ensure prose looks good on dark background */
+.prose {
+  --tw-prose-body: theme(colors.gray.200);
+  --tw-prose-headings: theme(colors.gray.100);
+  --tw-prose-links: theme(colors.blue.300);
+  --tw-prose-quotes: theme(colors.gray.300);
 }
