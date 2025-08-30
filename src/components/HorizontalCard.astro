@@ -20,7 +20,7 @@ const displayPubDate = formatDate(pubDate);
 <div
   class="card relative rounded-lg bg-page p-4 transition ease-in-out hover:scale-[102%] hover:bg-white/5 hover:shadow-xl"
 >
-  <a href={url} target={target} aria-label={title} class="absolute inset-0 z-10 rounded-lg outline-none"></a>
+  <a href={url} target={target} tabindex="-1" class="absolute inset-0 z-10 rounded-lg outline-none" role="presentation"></a>
 
   <div class="pointer-events-none relative z-20 flex flex-col gap-4 md:flex-row md:items-center">
     {
@@ -42,7 +42,7 @@ const displayPubDate = formatDate(pubDate);
     <div class="flex-1">
       <div class="flex gap-2 md:items-start">
         <div class="text-xl font-bold">
-          <a href={url} target={target} class="pointer-events-auto relative z-20 no-underline hover:no-underline">
+          <a href={url} target={target} class="pointer-events-auto relative z-20 no-underline hover:no-underline focus-ring">
             {title}
           </a>
         </div>

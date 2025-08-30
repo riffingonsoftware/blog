@@ -23,14 +23,16 @@ import SidebarMenu from "./SidebarMenu.astro";
               width={300}
               height={300}
               src={profileImage}
-              alt="Profile image"
+              alt="Portrait of Ricardo Torres"
             />
           </div>
         </div>
       </a>
     </div>
 
-    <SidebarMenu sideBarActiveItemID="home" />
+    <nav aria-label="Primary">
+      <SidebarMenu sideBarActiveItemID="home" />
+    </nav>
 
     <div class="mt-auto px-0 pt-6">
       <SidebarFooter />
@@ -41,6 +43,25 @@ import SidebarMenu from "./SidebarMenu.astro";
 <script is:inline>
   const overlay = document.getElementById("sidebar-overlay");
   const panel = document.getElementById("sidebar-panel");
+  const headerEl = document.getElementById("site-header");
+  const contentEl = document.getElementById("page-content");
+  let previouslyFocused = null;
+
+  function getFocusable(root) {
+    if (!root) return [];
+    const selectors = [
+      'a[href]',
+      'button',
+      'textarea',
+      'input',
+      'select',
+      '[tabindex]:not([tabindex="-1"])',
+    ].join(',');
+    return Array.from(root.querySelectorAll(selectors)).filter(
+      (el) => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden') && el.offsetParent !== null,
+    );
+  }
+
   function toggle() {
     if (!overlay || !panel) return;
     const showing = !panel.classList.contains("hidden");
@@ -52,6 +73,62 @@ import SidebarMenu from "./SidebarMenu.astro";
       overlay.classList.remove("hidden");
     }
     const open = !panel.classList.contains("hidden");
+
+    // Modal semantics only when open on mobile
+    if (open) {
+      previouslyFocused = document.activeElement;
+      panel.setAttribute('role', 'dialog');
+      panel.setAttribute('aria-modal', 'true');
+      panel.setAttribute('aria-label', 'Navigation');
+      // Move focus into panel
+      const f = getFocusable(panel);
+      f[0]?.focus();
+      // Trap focus inside
+      const trap = (e) => {
+        if (e.key === 'Escape') {
+          e.preventDefault();
+          toggle();
+          return;
+        }
+        if (e.key !== 'Tab') return;
+        const focusables = getFocusable(panel);
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      };
+      panel.addEventListener('keydown', trap);
+      panel._trapHandler = trap;
+      // Inert background and prevent scroll
+      headerEl?.setAttribute('inert', '');
+      contentEl?.setAttribute('inert', '');
+      document.body.style.overflow = 'hidden';
+    } else {
+      panel.removeAttribute('role');
+      panel.removeAttribute('aria-modal');
+      panel.removeAttribute('aria-label');
+      if (panel._trapHandler) {
+        panel.removeEventListener('keydown', panel._trapHandler);
+        panel._trapHandler = null;
+      }
+      headerEl?.removeAttribute('inert');
+      contentEl?.removeAttribute('inert');
+      document.body.style.overflow = '';
+      // Return focus to the toggle button if possible
+      if (previouslyFocused && previouslyFocused.focus) {
+        try { previouslyFocused.focus(); } catch {}
+      }
+    }
     window.dispatchEvent(new CustomEvent("sidebarToggled", { detail: { open } }));
   }
   overlay?.addEventListener("click", toggle);

@@ -9,4 +9,14 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
     <p style="margin-top: 1em;">Sorry, I couldn't find the page you were looking for.</p>
     <p>Maybe try going <a class="text-lg underline" href="/">Home</a>?</p>
   </div>
+  <script is:inline>
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const v = document.querySelector('video');
+      if (v) {
+        v.autoplay = false;
+        v.removeAttribute('autoplay');
+        try { v.pause(); } catch {}
+      }
+    }
+  </script>
 </DefaultLayout>

@@ -20,11 +20,12 @@ const {
 <html lang="en">
   <Head author={author} title={title} description={description} image={image} pubDate={pubDate} canonicalUrl={canonicalUrl} />
   <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
     <Header />
     <div class="flex min-h-screen">
       {includeSidebar && <Sidebar />}
-      <div class="flex-1">
-        <main class="p-6">
+      <div class="flex-1" id="page-content">
+        <main class="p-6" id="main-content">
           <slot />
         </main>
         <Footer description={SITE_DESCRIPTION} />
