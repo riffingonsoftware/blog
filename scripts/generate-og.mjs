@@ -14,6 +14,10 @@ const POSTS_DIR = path.resolve(__dirname, '..', 'src', 'content', 'posts');
 const OUT_DIR = path.resolve(__dirname, '..', 'public', 'og');
 
 const SITE_TITLE = 'Riffing on Software';
+// Presentation toggles
+const SHOW_SITE_LABEL = false; // small label at top-left
+const SHOW_DOMAIN = true; // text url at bottom
+const SHOW_DECOR_DOTS = false; // decorative dots in top-right
 const WIDTH = 1200;
 const HEIGHT = 627; // 1.91:1
 
@@ -31,7 +35,7 @@ function readPostsDir() {
 function parseFrontmatter(content) {
   // Very small YAML frontmatter parser for title and tags.
   // Expects frontmatter at the top between --- lines.
-  const result = { title: undefined, tags: [] };
+  const result = { title: undefined, tags: [], heroImage: undefined };
   if (!content.startsWith('---')) return result;
   const end = content.indexOf('\n---', 3);
   if (end === -1) return result;
@@ -43,6 +47,8 @@ function parseFrontmatter(content) {
     if (!inTags) {
       if (l.startsWith('title:')) {
         result.title = l.replace(/^title:\s*/, '').replace(/^"|"$/g, '').replace(/^'|'$/g, '');
+      } else if (l.startsWith('heroImage:')) {
+        result.heroImage = l.replace(/^heroImage:\s*/, '').replace(/^"|"$/g, '').replace(/^'|'$/g, '');
       } else if (l.startsWith('tags:')) {
         // Could be inline array or start of list
         const after = l.replace(/^tags:\s*/, '');
@@ -98,19 +104,25 @@ function wrapTitle(text, maxChars = 30, maxLines = 3) {
   return lines;
 }
 
-function svgTemplate({ title, site = SITE_TITLE }) {
+function svgTemplate({ title, site = SITE_TITLE, compact = false }) {
   const bg1 = '#0c1425';
   const bg2 = '#081019';
   const accent = '#93c5fd'; // tailwind blue-300
   const text = '#f3f4f6'; // gray-100
   const subtext = '#d1d5db'; // gray-300
-  const titleLines = wrapTitle(title || site, 34, 3).map(escapeXML);
+  const charLimit = compact ? 28 : 34;
+  const titleLines = wrapTitle(title || site, charLimit, 3).map(escapeXML);
   const lineHeight = 64;
   const startY = 275 - (titleLines.length - 1) * (lineHeight / 2);
   const titleSVG = titleLines
     .map((t, i) => `<text x="60" y="${startY + i * lineHeight}" font-size="56" font-weight="700" fill="${text}">${t}</text>`)
     .join('\n');
-  return `<?xml version="1.0" encoding="UTF-8"?>
+  const siteLabel = SHOW_SITE_LABEL ? `<text x=\"60\" y=\"140\" font-size=\"28\" font-weight=\"600\" fill=\"${subtext}\">${escapeXML(site)}</text>` : '';
+  const domainText = SHOW_DOMAIN ? `<text x=\"60\" y=\"560\" font-size=\"24\" fill=\"${accent}\">${escapeXML('riffingonsoftware.com')}</text>` : '';
+  const decorDots = SHOW_DECOR_DOTS ? `<circle cx=\"1140\" cy=\"100\" r=\"10\" fill=\"${accent}\"/>
+  <circle cx=\"1110\" cy=\"100\" r=\"4\" fill=\"${accent}\"/>
+  <circle cx=\"1080\" cy=\"100\" r=\"2\" fill=\"${accent}\"/>` : '';
+  return `<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <svg width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
@@ -123,23 +135,49 @@ function svgTemplate({ title, site = SITE_TITLE }) {
   </defs>
   <rect width="100%" height="100%" fill="url(#g)"/>
   <rect x="40" y="60" width="1120" height="507" rx="16" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" filter="url(#shadow)"/>
-  <text x="60" y="140" font-size="28" font-weight="600" fill="${subtext}">${escapeXML(site)}</text>
+  ${siteLabel}
   ${titleSVG}
-  <text x="60" y="560" font-size="24" fill="${accent}">${escapeXML('riffingonsoftware.com')}</text>
-  <circle cx="1140" cy="100" r="10" fill="${accent}"/>
-  <circle cx="1110" cy="100" r="4" fill="${accent}"/>
-  <circle cx="1080" cy="100" r="2" fill="${accent}"/>
+  ${domainText}
+  ${decorDots}
 </svg>`;
+}
+
+function resolveHeroPath(hero) {
+  if (!hero || typeof hero !== 'string') return undefined;
+  const p = hero.replace(/^\"|\"$/g, '').replace(/^'|'$/g, '');
+  if (p.startsWith('/')) {
+    return path.resolve(__dirname, '..', 'public', p.slice(1));
+  }
+  return path.resolve(__dirname, '..', p);
 }
 
 async function generate(postFile) {
   const src = fs.readFileSync(postFile, 'utf8');
-  const { title } = parseFrontmatter(src);
+  const { title, heroImage } = parseFrontmatter(src);
   const slug = slugFromFilename(postFile);
-  const svg = svgTemplate({ title });
+  const heroAbs = resolveHeroPath(heroImage);
+  const svg = svgTemplate({ title, compact: Boolean(heroAbs) });
   const outPath = path.join(OUT_DIR, `${slug}.jpg`);
-  const img = sharp(Buffer.from(svg));
-  await img.jpeg({ quality: 85 }).toFile(outPath);
+  let base = sharp(Buffer.from(svg)).png();
+  if (heroAbs && fs.existsSync(heroAbs)) {
+    try {
+      const overlayPng = await sharp(heroAbs)
+        .resize({ width: 360, height: 360, fit: 'inside', withoutEnlargement: true })
+        .png()
+        .toBuffer();
+      const meta = await sharp(overlayPng).metadata();
+      const w = meta.width || 0;
+      const h = meta.height || 0;
+      const rightEdge = 40 + 1120; // inner card right edge
+      const margin = 40; // inner margin
+      const left = Math.max(40, rightEdge - margin - w);
+      const top = Math.max(60, 60 + Math.round((507 - h) / 2));
+      base = base.composite([{ input: overlayPng, left, top }]);
+    } catch (e) {
+      console.warn('OG: failed to overlay hero for', slug, e?.message || e);
+    }
+  }
+  await base.jpeg({ quality: 85 }).toFile(outPath);
   return { slug, outPath };
 }
 
