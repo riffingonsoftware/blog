@@ -10,6 +10,9 @@ const {
   image,
   pubDate,
   canonicalUrl,
+  isArticle = false,
+  updatedDate,
+  tags,
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
   includeSidebar = true,
@@ -18,7 +21,7 @@ const {
 
 <!doctype html>
 <html lang="en">
-  <Head author={author} title={title} description={description} image={image} pubDate={pubDate} canonicalUrl={canonicalUrl} />
+  <Head author={author} title={title} description={description} image={image} pubDate={pubDate} canonicalUrl={canonicalUrl} isArticle={isArticle} updatedDate={updatedDate} tags={tags} />
   <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
     <Header />

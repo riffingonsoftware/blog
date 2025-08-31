@@ -5,14 +5,14 @@ import Comments from "../components/Comments.astro";
 import { Image } from "astro:assets";
 import { formatDate } from "../lib/date";
 
-export interface Props extends PostSchema { readonly readingTime?: string }
+export interface Props extends PostSchema { readonly readingTime?: string; ogImage?: string; slug?: string }
 
-const { author, title, description, pubDate, updatedDate, heroImage, heroImageAlt, tags, canonicalUrl, readingTime } = Astro.props;
+const { author, title, description, pubDate, updatedDate, heroImage, heroImageAlt, tags, canonicalUrl, readingTime, ogImage, slug } = Astro.props;
 const displayPubDate = formatDate(pubDate);
 const displayUpdatedDate = formatDate(updatedDate);
 ---
 
-<DefaultLayout author={author} title={title} description={description} image={heroImage} pubDate={pubDate} canonicalUrl={canonicalUrl}>
+<DefaultLayout author={author} title={title} description={description} image={ogImage ?? heroImage} pubDate={pubDate} canonicalUrl={canonicalUrl} isArticle={true} updatedDate={updatedDate} tags={tags}>
   <main class="md:flex md:justify-center">
     <div class="w-full max-w-[750px]">
       <article class="prose prose-lg prose-img:mx-auto">

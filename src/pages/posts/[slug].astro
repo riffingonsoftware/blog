@@ -24,6 +24,7 @@ let rt: string | undefined;
 if ("body" in entry && typeof entry.body === "string") {
   rt = readingTime(entry.body);
 }
+const ogImage = `/og/${entry.slug}.jpg`;
 ---
 
 <PostLayout
@@ -37,6 +38,8 @@ if ("body" in entry && typeof entry.body === "string") {
   tags={post.tags}
   canonicalUrl={post.canonicalUrl}
   readingTime={rt}
+  ogImage={ogImage}
+  slug={entry.slug}
 >
   <Content />
 </PostLayout>

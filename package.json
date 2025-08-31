@@ -5,12 +5,13 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro check && node scripts/generate-og.mjs && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "typecheck": "astro check"
+    "typecheck": "astro check",
+    "generate:og": "node scripts/generate-og.mjs"
   },
   "devDependencies": {
     "@astrojs/rss": "^4.0.12",
