@@ -1,47 +1,24 @@
-# Astro Starter Kit: Minimal
+# Riffing on Software
+## The Blog
 
-```sh
-pnpm create astro@latest -- --template minimal
-```
+Welcome to the home of my blog. We'll see if I do anything with it or even stick to it, but I've been thinking about doing this long enough.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+I've used the excellent [Astro Modern Personal Website Template](https://github.com/manuelernestog/astro-modern-personal-website) as the basis for this site. Any problems herein are doubtless my fault.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### LinkedIn Requirements
 
-## 🚀 Project Structure
+They can be found [here](https://www.linkedin.com/help/linkedin/answer/a521928/making-your-website-shareable-on-linkedin?lang=en-us&intendedLocale=en), but specifically for og:image:
+* Max file size: 5 MB
+* Minimum image dimensions: 1200 (w) x 627 (h) pixels
+* Recommended ratio: 1.91:1
+* File types: JPG, PNG, or GIF
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `pnpm install`         | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+#### Blog Ideas
+1. Standardize to Innovate (Disclaimer, The Uniform/Congnitive Load, Revisit Standards)
+2. Every Company Is A Software Company; Every Software Company Is A Security Company
+3. Open Source Givers & Takers
+4. Computer Science vs Software Engineering
+5. Reading Technical Books
+6. The 2 Kinds of Ownership
+7. I am left only with uncertainty.
+8. https://en.wikipedia.org/wiki/Diffusion_of_innovations?wprov=sfti1
