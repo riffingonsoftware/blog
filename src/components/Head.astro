@@ -17,6 +17,22 @@ export interface Props {
 const { author, title, description, image, pubDate, canonicalUrl, isArticle = false, updatedDate, tags = [] } = Astro.props;
 const pubIso = pubDate ? (typeof pubDate === 'string' ? pubDate : pubDate.toISOString()) : undefined;
 const updIso = updatedDate ? (typeof updatedDate === 'string' ? updatedDate : updatedDate.toISOString()) : undefined;
+
+// Ensure og:image and twitter:image are absolute and use the current deploy host on Cloudflare Pages
+// Prefer CF_PAGES_URL when available (preview builds), else fall back to Astro.url (production site in config)
+function absUrl(pathOrUrl?: string) {
+  const rel = pathOrUrl || "/og/default.jpg";
+  if (/^https?:\/\//i.test(rel)) return rel;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const cf = (import.meta as any)?.env?.CF_PAGES_URL as string | undefined;
+  const base = cf && typeof cf === 'string' && cf.length > 0 ? cf : String(Astro.url);
+  try {
+    return new URL(rel, base).toString();
+  } catch {
+    return rel;
+  }
+}
+const ogImageAbs = absUrl(image || "/og/default.jpg");
 ---
 
 <head>
@@ -39,7 +55,8 @@ const updIso = updatedDate ? (typeof updatedDate === 'string' ? updatedDate : up
   <meta property="og:site_name" content="Riffing on Software" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content={new URL(image || "/og/default.jpg", Astro.url)} />
+  <meta property="og:image" content={ogImageAbs} />
+  <meta property="og:image:secure_url" content={ogImageAbs} />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="627" />
   <meta property="og:image:type" content="image/jpeg" />
@@ -53,7 +70,7 @@ const updIso = updatedDate ? (typeof updatedDate === 'string' ? updatedDate : up
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={new URL(image || "/og/default.jpg", Astro.url)} />
+  <meta name="twitter:image" content={ogImageAbs} />
   <meta name="twitter:url" content={Astro.url} />
   <meta name="twitter:site" content="@riffingonsw" />
   <meta name="twitter:creator" content="@riffingonsw" />

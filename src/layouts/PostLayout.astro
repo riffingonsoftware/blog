@@ -10,6 +10,20 @@ export interface Props extends PostSchema { readonly readingTime?: string; ogIma
 const { author, title, description, pubDate, updatedDate, heroImage, heroImageAlt, tags, canonicalUrl, readingTime, ogImage, slug } = Astro.props;
 const displayPubDate = formatDate(pubDate);
 const displayUpdatedDate = formatDate(updatedDate);
+// Build absolute image URL for JSON-LD (match og:image behavior)
+function absUrl(pathOrUrl?: string) {
+  const rel = pathOrUrl || "/og/default.jpg";
+  if (/^https?:\/\//i.test(rel)) return rel;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const cf = (import.meta as any)?.env?.CF_PAGES_URL as string | undefined;
+  const base = cf && typeof cf === 'string' && cf.length > 0 ? cf : String(Astro.url);
+  try {
+    return new URL(rel, base).toString();
+  } catch {
+    return rel;
+  }
+}
+const jsonLdImage = absUrl(ogImage || heroImage);
 ---
 
 <DefaultLayout author={author} title={title} description={description} image={ogImage ?? heroImage} pubDate={pubDate} canonicalUrl={canonicalUrl} isArticle={true} updatedDate={updatedDate} tags={tags}>
@@ -79,7 +93,7 @@ const displayUpdatedDate = formatDate(updatedDate);
       dateModified: updatedDate?.toString?.() ?? updatedDate,
       url: canonicalUrl ?? Astro.url,
       author: author ? { '@type': 'Person', name: author } : undefined,
-      image: heroImage ? new URL(heroImage, Astro.url).toString() : undefined,
+      image: jsonLdImage,
       keywords: Array.isArray(tags) ? tags.join(', ') : undefined,
     })
   }</script>
