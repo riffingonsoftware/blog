@@ -1,9 +1,9 @@
-import { createEffect } from "solid-js";
+<div id="giscus"></div>
 
-export default function Comments() {
-  createEffect(() => {
+<script is:inline>
+  (function () {
     const script = document.createElement("script");
-    const tag = document.getElementById('giscus');
+    const tag = document.getElementById("giscus");
     script.src = "https://giscus.app/client.js";
     script.setAttribute("data-repo", "riffingonsoftware/blog");
     script.setAttribute("data-repo-id", "R_kgDOIrK8MQ");
@@ -18,11 +18,7 @@ export default function Comments() {
     script.setAttribute("data-lang", "en");
     script.setAttribute("data-loading", "lazy");
     script.setAttribute("crossorigin", "anonymous");
-    script.setAttribute("async", "true");
-    tag?.appendChild(script);
-  });
-
-  return (
-    <div id="giscus" />
-  );
-}
+    script.async = true;
+    tag && tag.appendChild(script);
+  })();
+</script>

@@ -1,78 +1,89 @@
 ---
-import type { PostSchema } from "../content/posts/config";
-import BaseLayout from "./BaseLayout.astro";
-import Comments from "../components/Comments";
 import { Image } from "astro:assets";
+import Comments from "../components/Comments.astro";
+import type { PostSchema } from "../content/posts/config";
+import { formatDate } from "../lib/date";
+import DefaultLayout from "./DefaultLayout.astro";
 
-export interface Props extends PostSchema {}
+export interface Props extends PostSchema { readonly readingTime?: string; ogImage?: string; slug?: string }
 
-const {
-  author,
-  title,
-  description,
-  pubDate,
-  updatedDate,
-  heroImage,
-  heroImageAlt,
-  tags,
-} = Astro.props;
+const { author, title, description, pubDate, updatedDate, heroImage, heroImageAlt, tags, canonicalUrl, readingTime, ogImage, slug } = Astro.props;
+const authorName = author ?? "Ricardo Torres";
+const displayPubDate = formatDate(pubDate);
+const displayUpdatedDate = formatDate(updatedDate);
+// Build absolute image URL for JSON-LD using configured site
+const jsonLdImage = new URL(ogImage || heroImage || "/og/default.jpg", Astro.url).toString();
 ---
 
-<BaseLayout
-  author={author}
-  title={title}
-  description={description}
-  image={heroImage}
-  pubDate={pubDate}
->
+<DefaultLayout author={authorName} title={title} description={description} image={ogImage ?? heroImage} pubDate={pubDate} canonicalUrl={canonicalUrl} isArticle={true} updatedDate={updatedDate} tags={tags}>
   <main class="md:flex md:justify-center">
-    <article class="prose prose-lg max-w-[750px] prose-img:mx-auto">
+    <div class="w-full max-w-[750px]">
+      <article class="prose prose-lg prose-img:mx-auto">
+        {
+          heroImage && (
+            <Image
+              height={250}
+              width={500}
+              fit="contain"
+              format="webp"
+              src={heroImage}
+              alt={heroImageAlt ?? title}
+              class="max-w-full rounded-lg"
+              transition:name={heroImage}
+            />
+          )
+        }
+        <h1 class="title my-2 text-4xl font-bold" transition:name={title}>
+          {title}
+        </h1>
+        <div class="flex flex-wrap items-center gap-2 text-sm text-gray-400">
+          {displayPubDate && <time>{displayPubDate}</time>}
+          {readingTime && <span aria-label="Estimated reading time">• {readingTime}</span>}
+        </div>
+        {
+          displayUpdatedDate && (
+            <div>
+              Last updated on <time>{displayUpdatedDate}</time>
+            </div>
+          )
+        }
+        <div class="divider my-4"></div>
+        <slot />
+      </article>
+
       {
-        heroImage && (
-          <Image
-            height={250}
-            width={500}
-            fit="contain"
-            format="webp"
-            src={heroImage}
-            alt={heroImageAlt ?? title}
-            class="max-w-full rounded-lg"
-            transition:name={heroImage}
-          />
-        )
-      }
-      <h1 class="title my-2 text-4xl font-bold" transition:name={title}>
-        {title}
-      </h1>
-      {pubDate && <time>{pubDate}</time>}
-      {
-        updatedDate && (
-          <div>
-            {" "}
-            Last updated on <time>{updatedDate}</time>{" "}
+        tags && (
+          <div class="not-prose mt-8 flex flex-wrap items-center gap-1">
+            <span class="mr-2">Tags:</span>
+            {tags.map((tag) => (
+              <a
+                href={`/posts/${tag}/1`}
+                class="badge badge-outline mt-1 border-gray-500 bg-transparent text-gray-300 transition ease-in-out hover:scale-[105%] hover:bg-white/10 hover:text-white hover:shadow-xl"
+              >
+                {tag}
+              </a>
+            ))}
           </div>
         )
       }
-      <div class="divider my-2"></div>
-      <slot />
-    </article>
-  </main>
-  {
-    tags && (
-      <div class="tags" style="margin-top: 2em;">
-        Tags:
-        {tags.map((tag) => (
-          <a href={`/posts/${tag}/1`}>
-            <div
-              class="badge badge-outline ease-in-out hover:scale-[110%] hover:shadow-xl transition"
-              style="margin-right: 0.5em;"
-            >
-              {tag}
-            </div>
-          </a>
-        ))}
+
+      <div class="not-prose mt-8">
+        <Comments />
       </div>
-    )
-  }
-  <Comments client:idle />
-</BaseLayout>
+    </div>
+  </main>
+  <script type="application/ld+json" is:inline>{
+    JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: title,
+      description,
+      datePublished: pubDate?.toString?.() ?? pubDate,
+      dateModified: updatedDate?.toString?.() ?? updatedDate,
+      url: canonicalUrl ?? Astro.url,
+      author: authorName ? { '@type': 'Person', name: authorName } : undefined,
+      image: jsonLdImage,
+      keywords: Array.isArray(tags) ? tags.join(', ') : undefined,
+    })
+  }</script>
+</DefaultLayout>

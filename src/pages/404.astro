@@ -1,17 +1,22 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import DefaultLayout from "../layouts/DefaultLayout.astro";
 ---
 
-<BaseLayout
-  title="404 Not Found"
-  description="This is not the page you're looking for."
->
+<DefaultLayout title="404 Not Found" description="This is not the page you're looking for.">
   <div class="content-center text-center">
-    <video autoplay controls playsinline src="/404.mp4"></video>
+    <video autoplay muted playsinline controls src="/404.mp4"></video>
     <div class="text-5xl font-bold">That's a negative, Ghost Rider</div>
-    <p style="margin-top: 1em;">
-      Sorry, I couldn't find the page you were looking for.
-    </p>
+    <p style="margin-top: 1em;">Sorry, I couldn't find the page you were looking for.</p>
     <p>Maybe try going <a class="text-lg underline" href="/">Home</a>?</p>
   </div>
-</BaseLayout>
+  <script is:inline>
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const v = document.querySelector('video');
+      if (v) {
+        v.autoplay = false;
+        v.removeAttribute('autoplay');
+        try { v.pause(); } catch {}
+      }
+    }
+  </script>
+</DefaultLayout>

@@ -1,11 +1,120 @@
-@tailwind base;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
-/* @layer base {
-    blockquote attribution {
-        @apply text-right;
-    }
-} */
+@theme {
+  --color-page: #0c1425;
+  --color-sidebar: #081019;
+  --color-text: #d1d5db; /* gray-300 */
+  --color-text-strong: #f3f4f6; /* gray-100 */
+  --color-border: #4b5563; /* gray-600 */
+  --radius: 0.5rem;
+  --shadow-card: 0 6px 30px rgba(0, 0, 0, 0.35);
+}
 
-.prose :where(blockquote):not(:where([class~="not-prose"] *)) {
-    quotes: none;
+@layer base {
+  html, body { @apply bg-page text-text; }
+}
+
+@layer components {
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center gap-2 rounded px-3 py-2 select-none;
+    border-radius: var(--radius);
+  }
+  .btn-ghost { @apply bg-transparent text-text; }
+  .btn-ghost:hover { background: color-mix(in oklab, var(--color-page), white 10%); }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center rounded px-2 py-0.5 text-xs;
+    border-radius: calc(var(--radius) - 2px);
+  }
+  .badge-outline { @apply border border-border text-text; }
+
+  /* Divider */
+  .divider { @apply my-0; height: 1px; background: var(--color-border); opacity: 0.25; }
+
+  /* Navbar */
+  .navbar {
+    @apply flex w-full items-center justify-between px-4 shadow-sm backdrop-blur-sm;
+    height: 3.5rem;
+  }
+
+  /* Menu */
+  .menu {
+    @apply m-0 list-none p-0;
+  }
+  .menu a {
+    @apply block rounded px-4 py-3;
+  }
+  .menu a:hover { background: color-mix(in oklab, var(--color-sidebar), white 10%); }
+
+  /* Card */
+  .card { @apply rounded bg-page; }
+  .card:hover {
+    background: color-mix(in oklab, var(--color-page), white 5%);
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Footer */
+  .footer {
+    @apply w-full;
+  }
+  .footer-center {
+    @apply flex flex-col items-center text-center;
+  }
+}
+
+/* Ensure prose looks good on dark background */
+.prose {
+  --tw-prose-body: theme(colors.gray.200);
+  --tw-prose-headings: theme(colors.gray.100);
+  --tw-prose-links: theme(colors.blue.300);
+  --tw-prose-quotes: theme(colors.gray.300);
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: white;
+  color: black;
+  padding: 8px 12px;
+  z-index: 1000;
+  border-radius: var(--radius);
+}
+.skip-link:focus {
+  top: 8px;
+}
+
+/* Focus visibility for interactive elements */
+:is(a, button, .btn, .badge, .menu a):focus-visible {
+  outline: 2px solid color-mix(in oklab, white, transparent 60%);
+  outline-offset: 2px;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid color-mix(in oklab, white, transparent 60%);
+  outline-offset: 2px;
+}
+
+/* Reduced motion: minimize animations and transforms */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .card:hover {
+    transform: none !important;
+  }
+  /* Disable View Transitions animations */
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation: none !important;
+  }
 }

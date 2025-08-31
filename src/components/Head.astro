@@ -1,0 +1,65 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import "../styles/global.css";
+
+export interface Props {
+  author?: string;
+  title: string;
+  description: string;
+  image?: string;
+  pubDate?: string | Date;
+  canonicalUrl?: string;
+  isArticle?: boolean;
+  updatedDate?: string | Date;
+  tags?: string[];
+}
+
+const { author, title, description, image, pubDate, canonicalUrl, isArticle = false, updatedDate, tags = [] } = Astro.props;
+const pubIso = pubDate ? (typeof pubDate === 'string' ? pubDate : pubDate.toISOString()) : undefined;
+const updIso = updatedDate ? (typeof updatedDate === 'string' ? updatedDate : updatedDate.toISOString()) : undefined;
+
+// Build absolute image URLs using the configured site
+const ogImageAbs = new URL(image || "/og/default.jpg", Astro.url).toString();
+---
+
+<head>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="Riffing on Software" />
+  <meta charset="utf-8" />
+  <meta name="description" content={description} />
+  <meta name="generator" content={Astro.generator} />
+  <meta name="title" content={title} />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>{title}</title>
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href={canonicalUrl ?? Astro.url} />
+
+  <!-- Open Graph -->
+  <meta property="og:author" content={author || "Ricardo Torres"} />
+  <meta property="og:type" content={isArticle ? "article" : "website"} />
+  <meta property="og:url" content={Astro.url} />
+  <meta property="og:site_name" content="Riffing on Software" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageAbs} />
+  <meta property="og:image:secure_url" content={ogImageAbs} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="627" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:alt" content={title} />
+  {isArticle && author && <meta property="article:author" content={author} />}
+  {isArticle && pubIso && <meta property="article:published_time" content={pubIso} />}
+  {isArticle && updIso && <meta property="article:modified_time" content={updIso} />}
+  {isArticle && Array.isArray(tags) && tags.map((t) => <meta property="article:tag" content={t} />)}
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageAbs} />
+  <meta name="twitter:url" content={Astro.url} />
+  <meta name="twitter:site" content="@riffingonsw" />
+  <meta name="twitter:creator" content="@riffingonsw" />
+  <ViewTransitions />
+</head>

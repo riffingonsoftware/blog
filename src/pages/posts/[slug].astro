@@ -1,25 +1,39 @@
 ---
-import {CollectionEntry, getCollection} from "astro:content";
-import type {PostSchema} from "../../content/posts/config";
+import { CollectionEntry, getCollection } from "astro:content";
+import type { PostSchema } from "../../content/posts/config";
 import PostLayout from "../../layouts/PostLayout.astro";
+import { readingTime } from "../../lib/readingTime";
+import { excerptFromMarkdown } from "../../lib/excerpt";
 
 export async function getStaticPaths() {
-    const postEntries = await getCollection("posts", ({data}) => {
-        return data.draft !== true;
-    });
-    return postEntries.map((entry) => ({
+  const postEntries = await getCollection("posts", ({ data }) => {
+    return data.draft !== true;
+  });
+  return postEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
-    }));
+  }));
 }
 
-interface Props {
-    entry: CollectionEntry<"posts">;
-}
+export interface Props { entry: CollectionEntry<'posts'> }
 
-const {entry} = Astro.props;
+const { entry } = Astro.props;
 const post: PostSchema = entry.data;
-const {Content} = await entry.render();
+const { Content } = await entry.render();
+let rt: string | undefined;
+// Compute reading time from raw markdown/body if available
+if ("body" in entry && typeof entry.body === "string") {
+  rt = readingTime(entry.body);
+}
+const ogImage = `/og/${entry.slug}.jpg`;
+// Ensure LinkedIn-friendly description length; fallback to content excerpt
+let description = post.description;
+if (!description || description.length < 100) {
+  if ("body" in entry && typeof entry.body === "string") {
+    const ex = excerptFromMarkdown(entry.body, 160);
+    if (ex && ex.length > 0) description = ex;
+  }
+}
 ---
 
 <PostLayout
@@ -28,10 +42,13 @@ const {Content} = await entry.render();
   title={post.title}
   heroImage={post.heroImage}
   heroImageAlt={post.heroImageAlt}
-  description={post.description}
+  description={description}
   updatedDate={post.updatedDate}
-  url={post.url}
   tags={post.tags}
+  canonicalUrl={post.canonicalUrl}
+  readingTime={rt}
+  ogImage={ogImage}
+  slug={entry.slug}
 >
-  <Content/>
+  <Content />
 </PostLayout>
