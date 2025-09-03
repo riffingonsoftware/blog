@@ -10,7 +10,7 @@ import SidebarMenu from "./SidebarMenu.astro";
   <div class="fixed inset-0 hidden bg-black/50 transition-opacity md:hidden" id="sidebar-overlay"></div>
 
   <aside
-    class="flex hidden h-screen w-[15rem] flex-col bg-sidebar px-2 pt-2 text-white md:sticky md:top-0 md:flex"
+    class="bg-sidebar flex hidden h-screen w-[15rem] flex-col px-2 pt-2 text-white md:sticky md:top-0 md:flex"
     id="sidebar-panel"
   >
     <div class="mx-auto mt-5 mb-6 w-fit">
@@ -49,16 +49,9 @@ import SidebarMenu from "./SidebarMenu.astro";
 
   function getFocusable(root) {
     if (!root) return [];
-    const selectors = [
-      'a[href]',
-      'button',
-      'textarea',
-      'input',
-      'select',
-      '[tabindex]:not([tabindex="-1"])',
-    ].join(',');
+    const selectors = ["a[href]", "button", "textarea", "input", "select", '[tabindex]:not([tabindex="-1"])'].join(",");
     return Array.from(root.querySelectorAll(selectors)).filter(
-      (el) => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden') && el.offsetParent !== null,
+      (el) => !el.hasAttribute("disabled") && !el.getAttribute("aria-hidden") && el.offsetParent !== null,
     );
   }
 
@@ -77,20 +70,20 @@ import SidebarMenu from "./SidebarMenu.astro";
     // Modal semantics only when open on mobile
     if (open) {
       previouslyFocused = document.activeElement;
-      panel.setAttribute('role', 'dialog');
-      panel.setAttribute('aria-modal', 'true');
-      panel.setAttribute('aria-label', 'Navigation');
+      panel.setAttribute("role", "dialog");
+      panel.setAttribute("aria-modal", "true");
+      panel.setAttribute("aria-label", "Navigation");
       // Move focus into panel
       const f = getFocusable(panel);
       f[0]?.focus();
       // Trap focus inside
       const trap = (e) => {
-        if (e.key === 'Escape') {
+        if (e.key === "Escape") {
           e.preventDefault();
           toggle();
           return;
         }
-        if (e.key !== 'Tab') return;
+        if (e.key !== "Tab") return;
         const focusables = getFocusable(panel);
         if (focusables.length === 0) return;
         const first = focusables[0];
@@ -107,26 +100,28 @@ import SidebarMenu from "./SidebarMenu.astro";
           }
         }
       };
-      panel.addEventListener('keydown', trap);
+      panel.addEventListener("keydown", trap);
       panel._trapHandler = trap;
       // Inert background and prevent scroll
-      headerEl?.setAttribute('inert', '');
-      contentEl?.setAttribute('inert', '');
-      document.body.style.overflow = 'hidden';
+      headerEl?.setAttribute("inert", "");
+      contentEl?.setAttribute("inert", "");
+      document.body.style.overflow = "hidden";
     } else {
-      panel.removeAttribute('role');
-      panel.removeAttribute('aria-modal');
-      panel.removeAttribute('aria-label');
+      panel.removeAttribute("role");
+      panel.removeAttribute("aria-modal");
+      panel.removeAttribute("aria-label");
       if (panel._trapHandler) {
-        panel.removeEventListener('keydown', panel._trapHandler);
+        panel.removeEventListener("keydown", panel._trapHandler);
         panel._trapHandler = null;
       }
-      headerEl?.removeAttribute('inert');
-      contentEl?.removeAttribute('inert');
-      document.body.style.overflow = '';
+      headerEl?.removeAttribute("inert");
+      contentEl?.removeAttribute("inert");
+      document.body.style.overflow = "";
       // Return focus to the toggle button if possible
       if (previouslyFocused && previouslyFocused.focus) {
-        try { previouslyFocused.focus(); } catch {}
+        try {
+          previouslyFocused.focus();
+        } catch {}
       }
     }
     window.dispatchEvent(new CustomEvent("sidebarToggled", { detail: { open } }));

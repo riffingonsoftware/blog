@@ -12,7 +12,10 @@
 }
 
 @layer base {
-  html, body { @apply bg-page text-text; }
+  html,
+  body {
+    @apply bg-page text-text;
+  }
 }
 
 @layer components {
@@ -21,18 +24,29 @@
     @apply inline-flex items-center gap-2 rounded px-3 py-2 select-none;
     border-radius: var(--radius);
   }
-  .btn-ghost { @apply bg-transparent text-text; }
-  .btn-ghost:hover { background: color-mix(in oklab, var(--color-page), white 10%); }
+  .btn-ghost {
+    @apply text-text bg-transparent;
+  }
+  .btn-ghost:hover {
+    background: color-mix(in oklab, var(--color-page), white 10%);
+  }
 
   /* Badges */
   .badge {
     @apply inline-flex items-center rounded px-2 py-0.5 text-xs;
     border-radius: calc(var(--radius) - 2px);
   }
-  .badge-outline { @apply border border-border text-text; }
+  .badge-outline {
+    @apply border-border text-text border;
+  }
 
   /* Divider */
-  .divider { @apply my-0; height: 1px; background: var(--color-border); opacity: 0.25; }
+  .divider {
+    @apply my-0;
+    height: 1px;
+    background: var(--color-border);
+    opacity: 0.25;
+  }
 
   /* Navbar */
   .navbar {
@@ -47,10 +61,14 @@
   .menu a {
     @apply block rounded px-4 py-3;
   }
-  .menu a:hover { background: color-mix(in oklab, var(--color-sidebar), white 10%); }
+  .menu a:hover {
+    background: color-mix(in oklab, var(--color-sidebar), white 10%);
+  }
 
   /* Card */
-  .card { @apply rounded bg-page; }
+  .card {
+    @apply bg-page rounded;
+  }
   .card:hover {
     background: color-mix(in oklab, var(--color-page), white 5%);
     box-shadow: var(--shadow-card);
@@ -100,7 +118,9 @@
 
 /* Reduced motion: minimize animations and transforms */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

@@ -14,9 +14,19 @@ export interface Props {
   tags?: string[];
 }
 
-const { author, title, description, image, pubDate, canonicalUrl, isArticle = false, updatedDate, tags = [] } = Astro.props;
-const pubIso = pubDate ? (typeof pubDate === 'string' ? pubDate : pubDate.toISOString()) : undefined;
-const updIso = updatedDate ? (typeof updatedDate === 'string' ? updatedDate : updatedDate.toISOString()) : undefined;
+const {
+  author,
+  title,
+  description,
+  image,
+  pubDate,
+  canonicalUrl,
+  isArticle = false,
+  updatedDate,
+  tags = [],
+} = Astro.props;
+const pubIso = pubDate ? (typeof pubDate === "string" ? pubDate : pubDate.toISOString()) : undefined;
+const updIso = updatedDate ? (typeof updatedDate === "string" ? updatedDate : updatedDate.toISOString()) : undefined;
 
 // Build absolute image URLs using the configured site
 const ogImageAbs = new URL(image || "/og/default.jpg", Astro.url).toString();

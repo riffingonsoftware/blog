@@ -5,7 +5,7 @@ import type { CollectionEntry } from "astro:content";
 
 type Page<T> = { data: T[]; url: { prev?: string; next?: string } };
 export interface Props {
-  page: Page<CollectionEntry<'posts'>>;
+  page: Page<CollectionEntry<"posts">>;
   tag?: string;
   title: string;
 }

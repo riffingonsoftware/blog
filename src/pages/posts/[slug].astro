@@ -15,7 +15,9 @@ export async function getStaticPaths() {
   }));
 }
 
-export interface Props { entry: CollectionEntry<'posts'> }
+export interface Props {
+  entry: CollectionEntry<"posts">;
+}
 
 const { entry } = Astro.props;
 const post: PostSchema = entry.data;

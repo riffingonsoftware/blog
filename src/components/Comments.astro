@@ -2,23 +2,57 @@
 
 <script is:inline>
   (function () {
-    const script = document.createElement("script");
-    const tag = document.getElementById("giscus");
-    script.src = "https://giscus.app/client.js";
-    script.setAttribute("data-repo", "riffingonsoftware/blog");
-    script.setAttribute("data-repo-id", "R_kgDOIrK8MQ");
-    script.setAttribute("data-category", "Giscus");
-    script.setAttribute("data-category-id", "DIC_kwDOIrK8Mc4CT2Ig");
-    script.setAttribute("data-mapping", "pathname");
-    script.setAttribute("data-strict", "1");
-    script.setAttribute("data-reactions-enabled", "1");
-    script.setAttribute("data-emit-metadata", "0");
-    script.setAttribute("data-input-position", "top");
-    script.setAttribute("data-theme", "preferred_color_scheme");
-    script.setAttribute("data-lang", "en");
-    script.setAttribute("data-loading", "lazy");
-    script.setAttribute("crossorigin", "anonymous");
-    script.async = true;
-    tag && tag.appendChild(script);
+    if (window.__giscusLoaderInitialized) return;
+    window.__giscusLoaderInitialized = true;
+    window.__giscusLastPathname = undefined;
+
+    function mountGiscus() {
+      const container = document.getElementById("giscus");
+      if (!container) return;
+
+      // Clear any existing iframe/script to support client-side navigations
+      container.innerHTML = "";
+
+      const script = document.createElement("script");
+      script.src = "https://giscus.app/client.js";
+      script.setAttribute("data-repo", "riffingonsoftware/blog");
+      script.setAttribute("data-repo-id", "R_kgDOIrK8MQ");
+      script.setAttribute("data-category", "Giscus");
+      script.setAttribute("data-category-id", "DIC_kwDOIrK8Mc4CT2Ig");
+      script.setAttribute("data-mapping", "pathname");
+      script.setAttribute("data-strict", "1");
+      script.setAttribute("data-reactions-enabled", "1");
+      script.setAttribute("data-emit-metadata", "0");
+      script.setAttribute("data-input-position", "top");
+      script.setAttribute("data-theme", "preferred_color_scheme");
+      script.setAttribute("data-lang", "en");
+      script.setAttribute("data-loading", "lazy");
+      script.setAttribute("crossorigin", "anonymous");
+      script.async = true;
+      container.appendChild(script);
+    }
+
+    function scheduleMount() {
+      // Avoid redundant reloads for the same pathname
+      if (window.__giscusLastPathname === location.pathname) return;
+      window.__giscusLastPathname = location.pathname;
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(mountGiscus);
+      } else {
+        setTimeout(mountGiscus, 0);
+      }
+    }
+
+    // Initial load
+    scheduleMount();
+
+    // Re-run after Astro client-side navigations (View Transitions / swaps)
+    document.addEventListener("astro:page-load", scheduleMount);
+    document.addEventListener("astro:after-swap", scheduleMount);
   })();
+  // Avoid polluting the global type
+  // @ts-ignore
+  window.__giscusLoaderInitialized = window.__giscusLoaderInitialized || false;
+  // @ts-ignore
+  window.__giscusLastPathname = window.__giscusLastPathname || undefined;
 </script>
