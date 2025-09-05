@@ -5,12 +5,12 @@ import SidebarFooter from "./SidebarFooter.astro";
 import SidebarMenu from "./SidebarMenu.astro";
 ---
 
-<div class="fixed inset-y-0 left-0 z-40 md:relative" id="sidebar">
+<div class="pointer-events-none fixed inset-y-0 left-0 z-40 md:relative" id="sidebar">
   <!-- Hidden overlay for mobile - shown when sidebar is open -->
-  <div class="fixed inset-0 hidden bg-black/50 transition-opacity md:hidden" id="sidebar-overlay"></div>
+  <div class="fixed inset-0 z-10 hidden bg-black/50 transition-opacity md:hidden" id="sidebar-overlay"></div>
 
   <aside
-    class="bg-sidebar flex hidden h-screen w-[15rem] flex-col px-2 pt-2 text-white md:sticky md:top-0 md:flex"
+    class="bg-sidebar relative z-20 flex hidden h-screen w-[15rem] flex-col px-2 pt-2 text-white md:sticky md:top-0 md:flex"
     id="sidebar-panel"
   >
     <div class="mx-auto mt-5 mb-6 w-fit">
@@ -43,6 +43,7 @@ import SidebarMenu from "./SidebarMenu.astro";
 <script is:inline>
   const overlay = document.getElementById("sidebar-overlay");
   const panel = document.getElementById("sidebar-panel");
+  const container = document.getElementById("sidebar");
   const headerEl = document.getElementById("site-header");
   const contentEl = document.getElementById("page-content");
   let previouslyFocused = null;
@@ -56,14 +57,18 @@ import SidebarMenu from "./SidebarMenu.astro";
   }
 
   function toggle() {
-    if (!overlay || !panel) return;
+    if (!overlay || !panel || !container) return;
     const showing = !panel.classList.contains("hidden");
     if (showing) {
       panel.classList.add("hidden");
       overlay.classList.add("hidden");
+      container.classList.remove("pointer-events-auto");
+      container.classList.add("pointer-events-none");
     } else {
       panel.classList.remove("hidden");
       overlay.classList.remove("hidden");
+      container.classList.remove("pointer-events-none");
+      container.classList.add("pointer-events-auto");
     }
     const open = !panel.classList.contains("hidden");
 

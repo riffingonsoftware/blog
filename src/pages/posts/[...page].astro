@@ -2,7 +2,7 @@
 import PostListingLayout from "../../layouts/PostListingLayout.astro";
 import { getCollection } from "astro:content";
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({ paginate }: { paginate: any }) {
   const posts = await getCollection("posts", ({ data }) => {
     return data.draft !== true;
   });

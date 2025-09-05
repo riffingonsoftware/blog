@@ -1,5 +1,6 @@
 ---
-import { CollectionEntry, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import type { PostSchema } from "../../content/posts/config";
 import PostLayout from "../../layouts/PostLayout.astro";
 import { readingTime } from "../../lib/readingTime";
