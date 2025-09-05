@@ -122,8 +122,8 @@ import SidebarMenu from "./SidebarMenu.astro";
       headerEl?.removeAttribute("inert");
       contentEl?.removeAttribute("inert");
       document.body.style.overflow = "";
-      // Return focus to the toggle button if possible
-      if (previouslyFocused && previouslyFocused.focus) {
+      // Return focus on desktop only; mobile Safari requires an extra tap after programmatic focus
+      if (previouslyFocused && previouslyFocused.focus && window.matchMedia("(min-width: 768px)").matches) {
         try {
           previouslyFocused.focus();
         } catch {}
