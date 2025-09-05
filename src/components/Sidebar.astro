@@ -5,7 +5,7 @@ import SidebarFooter from "./SidebarFooter.astro";
 import SidebarMenu from "./SidebarMenu.astro";
 ---
 
-<div class="pointer-events-none fixed inset-y-0 left-0 z-40 md:relative" id="sidebar">
+<div class="pointer-events-none fixed inset-y-0 left-0 z-40 md:pointer-events-auto md:relative" id="sidebar">
   <!-- Hidden overlay for mobile - shown when sidebar is open -->
   <div class="fixed inset-0 z-10 hidden bg-black/50 transition-opacity md:hidden" id="sidebar-overlay"></div>
 
