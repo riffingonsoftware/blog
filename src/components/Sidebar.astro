@@ -7,10 +7,14 @@ import SidebarMenu from "./SidebarMenu.astro";
 
 <div class="pointer-events-none fixed inset-y-0 left-0 z-40 md:pointer-events-auto md:relative" id="sidebar">
   <!-- Hidden overlay for mobile - shown when sidebar is open -->
-  <div class="fixed inset-0 z-10 hidden bg-black/50 transition-opacity md:hidden" id="sidebar-overlay"></div>
+  <div
+    class="pointer-events-none fixed inset-0 z-10 bg-black/50 opacity-0 transition-opacity md:hidden"
+    id="sidebar-overlay"
+  >
+  </div>
 
   <aside
-    class="bg-sidebar relative z-20 flex hidden h-screen w-[15rem] flex-col px-2 pt-2 text-white md:sticky md:top-0 md:flex"
+    class="bg-sidebar pointer-events-none relative z-20 flex h-screen w-[15rem] -translate-x-full flex-col px-2 pt-2 text-white transition-transform duration-300 ease-in-out md:pointer-events-auto md:sticky md:top-0 md:flex md:translate-x-0"
     id="sidebar-panel"
   >
     <div class="mx-auto mt-5 mb-6 w-fit">
@@ -64,29 +68,35 @@ import SidebarMenu from "./SidebarMenu.astro";
     const headerNow = document.getElementById("site-header");
     const contentNow = document.getElementById("page-content");
     if (!overlayEl || !panelEl || !sidebarEl) return;
-    const showing = !panelEl.classList.contains("hidden");
-    if (showing) {
-      panelEl.classList.add("hidden");
-      overlayEl.classList.add("hidden");
+    const isOpen = !panelEl.classList.contains("-translate-x-full");
+    const nextOpen = !isOpen;
+
+    if (nextOpen) {
+      // Opening: slide in panel and fade in overlay
+      panelEl.classList.remove("-translate-x-full", "pointer-events-none");
+      overlayEl.classList.remove("opacity-0", "pointer-events-none");
+      overlayEl.classList.add("opacity-100");
     } else {
-      panelEl.classList.remove("hidden");
-      overlayEl.classList.remove("hidden");
+      // Closing: slide out panel and fade out overlay
+      panelEl.classList.add("-translate-x-full", "pointer-events-none");
+      overlayEl.classList.add("opacity-0", "pointer-events-none");
+      overlayEl.classList.remove("opacity-100");
     }
-    const open = !panelEl.classList.contains("hidden");
 
     // Ensure wrapper doesn't intercept taps when closed on mobile
-    if (open) {
+    if (nextOpen) {
       sidebarEl.classList.remove("pointer-events-none");
     } else {
       sidebarEl.classList.add("pointer-events-none");
     }
 
     // Modal semantics only when open on mobile
-    if (open) {
+    if (nextOpen) {
       previouslyFocused = document.activeElement;
       panelEl.setAttribute("role", "dialog");
       panelEl.setAttribute("aria-modal", "true");
       panelEl.setAttribute("aria-label", "Navigation");
+      panelEl.removeAttribute("aria-hidden");
       // Move focus into panel
       const f = getFocusable(panelEl);
       f[0]?.focus();
@@ -124,6 +134,7 @@ import SidebarMenu from "./SidebarMenu.astro";
       panelEl.removeAttribute("role");
       panelEl.removeAttribute("aria-modal");
       panelEl.removeAttribute("aria-label");
+      panelEl.setAttribute("aria-hidden", "true");
       if (panelEl._trapHandler) {
         panelEl.removeEventListener("keydown", panelEl._trapHandler);
         panelEl._trapHandler = null;
@@ -138,7 +149,7 @@ import SidebarMenu from "./SidebarMenu.astro";
         } catch {}
       }
     }
-    window.dispatchEvent(new CustomEvent("sidebarToggled", { detail: { open } }));
+    window.dispatchEvent(new CustomEvent("sidebarToggled", { detail: { open: nextOpen } }));
   }
   // Delegate overlay clicks to survive client navigations
   if (!window.__sidebarOverlayDelegated) {
