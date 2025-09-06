@@ -1,26 +1,22 @@
 ---
 const { sideBarActiveItemID } = Astro.props;
-const activeClass = "bg-page";
 ---
 
 <ul class="menu menu-vertical flex-grow overflow-y-auto px-2">
   <li>
-    <a id="home" href="/" class="rounded-lg hover:bg-white/10">Home</a>
+    <a
+      id="home"
+      href="/"
+      class="rounded-lg hover:bg-white/10"
+      aria-current={sideBarActiveItemID === "home" ? "page" : undefined}>Home</a
+    >
   </li>
   <li>
-    <a id="posts" href="/posts/" class="rounded-lg hover:bg-white/10">Posts</a>
+    <a
+      id="posts"
+      href="/posts/"
+      class="rounded-lg hover:bg-white/10"
+      aria-current={sideBarActiveItemID === "posts" ? "page" : undefined}>Posts</a
+    >
   </li>
 </ul>
-
-<script
-  define:vars={{
-    sideBarActiveItemID: sideBarActiveItemID,
-    activeClass: activeClass,
-  }}
->
-  const activeItemElem = document.getElementById(sideBarActiveItemID);
-  if (activeItemElem) {
-    activeItemElem.classList.add(activeClass);
-    activeItemElem.setAttribute("aria-current", "page");
-  }
-</script>

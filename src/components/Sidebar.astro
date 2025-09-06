@@ -3,6 +3,10 @@ import { Image } from "astro:assets";
 import profileImage from "../images/profile.png";
 import SidebarFooter from "./SidebarFooter.astro";
 import SidebarMenu from "./SidebarMenu.astro";
+
+// Determine active sidebar item from current path
+const { pathname } = Astro.url;
+const computedActiveId = pathname.startsWith("/posts") ? "posts" : pathname === "/" ? "home" : undefined;
 ---
 
 <div class="pointer-events-none fixed inset-y-0 left-0 z-40 md:pointer-events-auto md:relative" id="sidebar">
@@ -35,7 +39,7 @@ import SidebarMenu from "./SidebarMenu.astro";
     </div>
 
     <nav aria-label="Primary">
-      <SidebarMenu sideBarActiveItemID="home" />
+      <SidebarMenu sideBarActiveItemID={computedActiveId} />
     </nav>
 
     <div class="mt-auto px-0 pt-6">
