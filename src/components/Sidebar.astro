@@ -5,12 +5,12 @@ import SidebarFooter from "./SidebarFooter.astro";
 import SidebarMenu from "./SidebarMenu.astro";
 ---
 
-<div class="fixed inset-y-0 left-0 z-40 md:relative" id="sidebar">
+<div class="pointer-events-none fixed inset-y-0 left-0 z-40 md:pointer-events-auto md:relative" id="sidebar">
   <!-- Hidden overlay for mobile - shown when sidebar is open -->
-  <div class="fixed inset-0 hidden bg-black/50 transition-opacity md:hidden" id="sidebar-overlay"></div>
+  <div class="fixed inset-0 z-10 hidden bg-black/50 transition-opacity md:hidden" id="sidebar-overlay"></div>
 
   <aside
-    class="bg-sidebar flex hidden h-screen w-[15rem] flex-col px-2 pt-2 text-white md:sticky md:top-0 md:flex"
+    class="bg-sidebar relative z-20 flex hidden h-screen w-[15rem] flex-col px-2 pt-2 text-white md:sticky md:top-0 md:flex"
     id="sidebar-panel"
   >
     <div class="mx-auto mt-5 mb-6 w-fit">
@@ -43,6 +43,7 @@ import SidebarMenu from "./SidebarMenu.astro";
 <script is:inline>
   const overlay = document.getElementById("sidebar-overlay");
   const panel = document.getElementById("sidebar-panel");
+  const sidebar = document.getElementById("sidebar");
   const headerEl = document.getElementById("site-header");
   const contentEl = document.getElementById("page-content");
   let previouslyFocused = null;
@@ -56,16 +57,26 @@ import SidebarMenu from "./SidebarMenu.astro";
   }
 
   function toggle() {
-    if (!overlay || !panel) return;
-    const showing = !panel.classList.contains("hidden");
+    // Re-query in case of soft navigations or DOM swaps
+    const overlayEl = document.getElementById("sidebar-overlay");
+    const panelEl = document.getElementById("sidebar-panel");
+    if (!overlayEl || !panelEl) return;
+    const showing = !panelEl.classList.contains("hidden");
     if (showing) {
-      panel.classList.add("hidden");
-      overlay.classList.add("hidden");
+      panelEl.classList.add("hidden");
+      overlayEl.classList.add("hidden");
     } else {
-      panel.classList.remove("hidden");
-      overlay.classList.remove("hidden");
+      panelEl.classList.remove("hidden");
+      overlayEl.classList.remove("hidden");
     }
-    const open = !panel.classList.contains("hidden");
+    const open = !panelEl.classList.contains("hidden");
+
+    // Ensure wrapper doesn't intercept taps when closed on mobile
+    if (open) {
+      sidebar?.classList.remove("pointer-events-none");
+    } else {
+      sidebar?.classList.add("pointer-events-none");
+    }
 
     // Modal semantics only when open on mobile
     if (open) {
@@ -74,7 +85,7 @@ import SidebarMenu from "./SidebarMenu.astro";
       panel.setAttribute("aria-modal", "true");
       panel.setAttribute("aria-label", "Navigation");
       // Move focus into panel
-      const f = getFocusable(panel);
+      const f = getFocusable(panelEl);
       f[0]?.focus();
       // Trap focus inside
       const trap = (e) => {
@@ -100,19 +111,19 @@ import SidebarMenu from "./SidebarMenu.astro";
           }
         }
       };
-      panel.addEventListener("keydown", trap);
-      panel._trapHandler = trap;
+      panelEl.addEventListener("keydown", trap);
+      panelEl._trapHandler = trap;
       // Inert background and prevent scroll
       headerEl?.setAttribute("inert", "");
       contentEl?.setAttribute("inert", "");
       document.body.style.overflow = "hidden";
     } else {
-      panel.removeAttribute("role");
-      panel.removeAttribute("aria-modal");
-      panel.removeAttribute("aria-label");
-      if (panel._trapHandler) {
-        panel.removeEventListener("keydown", panel._trapHandler);
-        panel._trapHandler = null;
+      panelEl.removeAttribute("role");
+      panelEl.removeAttribute("aria-modal");
+      panelEl.removeAttribute("aria-label");
+      if (panelEl._trapHandler) {
+        panelEl.removeEventListener("keydown", panelEl._trapHandler);
+        panelEl._trapHandler = null;
       }
       headerEl?.removeAttribute("inert");
       contentEl?.removeAttribute("inert");
