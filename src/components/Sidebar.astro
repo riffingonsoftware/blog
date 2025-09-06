@@ -5,8 +5,7 @@ import SidebarFooter from "./SidebarFooter.astro";
 import SidebarMenu from "./SidebarMenu.astro";
 ---
 
-<div class="pointer-events-none fixed inset-y-0 left-0 z-40 md:pointer-events-auto md:relative" id="sidebar">
-  \
+<div class="fixed inset-y-0 left-0 z-40 md:relative" id="sidebar">
   <!-- Hidden overlay for mobile - shown when sidebar is open -->
   <div class="fixed inset-0 z-10 hidden bg-black/50 transition-opacity md:hidden" id="sidebar-overlay"></div>
 
@@ -44,7 +43,6 @@ import SidebarMenu from "./SidebarMenu.astro";
 <script is:inline>
   const overlay = document.getElementById("sidebar-overlay");
   const panel = document.getElementById("sidebar-panel");
-  const sidebar = document.getElementById("sidebar");
   const headerEl = document.getElementById("site-header");
   const contentEl = document.getElementById("page-content");
   let previouslyFocused = null;
@@ -68,13 +66,6 @@ import SidebarMenu from "./SidebarMenu.astro";
       overlay.classList.remove("hidden");
     }
     const open = !panel.classList.contains("hidden");
-
-    // Ensure wrapper doesn't intercept taps when closed on mobile
-    if (open) {
-      sidebar?.classList.remove("pointer-events-none");
-    } else {
-      sidebar?.classList.add("pointer-events-none");
-    }
 
     // Modal semantics only when open on mobile
     if (open) {
