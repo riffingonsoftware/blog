@@ -7,10 +7,10 @@ import SidebarMenu from "./SidebarMenu.astro";
 
 <div class="fixed inset-y-0 left-0 z-40 md:relative" id="sidebar">
   <!-- Hidden overlay for mobile - shown when sidebar is open -->
-  <div class="fixed inset-0 z-10 hidden bg-black/50 transition-opacity md:hidden" id="sidebar-overlay"></div>
+  <div class="fixed inset-0 hidden bg-black/50 transition-opacity md:hidden" id="sidebar-overlay"></div>
 
   <aside
-    class="bg-sidebar relative z-20 flex hidden h-screen w-[15rem] flex-col px-2 pt-2 text-white md:sticky md:top-0 md:flex"
+    class="bg-sidebar flex hidden h-screen w-[15rem] flex-col px-2 pt-2 text-white md:sticky md:top-0 md:flex"
     id="sidebar-panel"
   >
     <div class="mx-auto mt-5 mb-6 w-fit">
