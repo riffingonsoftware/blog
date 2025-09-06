@@ -25,15 +25,31 @@ import { SITE_TITLE } from "../config";
   <div class="navbar-end"></div>
 
   <script is:inline>
-    const btn = document.getElementById("menu-button");
-    btn?.addEventListener("click", () => {
-      window.dispatchEvent(new CustomEvent("toggleSidebar"));
-    });
-    window.addEventListener("sidebarToggled", (e) => {
-      const open = e?.detail?.open;
-      if (btn && typeof open === "boolean") {
-        btn.setAttribute("aria-expanded", String(open));
+    (function () {
+      if (window.__sidebarHeaderInitialized) return;
+      window.__sidebarHeaderInitialized = true;
+
+      function onClick(e) {
+        const target = e?.target?.closest?.("#menu-button");
+        if (target) {
+          window.dispatchEvent(new CustomEvent("toggleSidebar"));
+        }
       }
-    });
+
+      function onSidebarToggled(e) {
+        const btn = document.getElementById("menu-button");
+        const open = e?.detail?.open;
+        if (btn && typeof open === "boolean") {
+          btn.setAttribute("aria-expanded", String(open));
+        }
+      }
+
+      // Event delegation ensures clicks work across client navigations
+      document.addEventListener("click", onClick);
+      // Update aria-expanded on the current button each time
+      window.addEventListener("sidebarToggled", onSidebarToggled);
+    })();
+    // @ts-ignore
+    window.__sidebarHeaderInitialized = window.__sidebarHeaderInitialized || false;
   </script>
 </header>
