@@ -9,10 +9,13 @@ export async function getStaticPaths() {
   const postEntries = await getCollection("posts", ({ data }) => {
     return data.draft !== true;
   });
-  return postEntries.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }));
+  return postEntries.map((entry) => {
+    const slugLast = entry.slug.split("/").pop() || entry.slug;
+    return {
+      params: { slug: slugLast },
+      props: { entry },
+    };
+  });
 }
 
 export interface Props {
@@ -27,7 +30,8 @@ let rt: string | undefined;
 if ("body" in entry && typeof entry.body === "string") {
   rt = readingTime(entry.body);
 }
-const ogImage = `/og/${entry.slug}.jpg`;
+const slugLast = entry.slug.split("/").pop() || entry.slug;
+const ogImage = `/og/${slugLast}.jpg`;
 // Ensure LinkedIn-friendly description length; fallback to content excerpt
 let description = post.description;
 if (!description || description.length < 100) {

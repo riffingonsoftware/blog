@@ -3,7 +3,6 @@ title: "He Hate Me"
 description: "Pissing off some of the people, some of the time"
 draft: true
 pubDate: "2025.12.15"
-heroImage: "/images/FIXME.jpg"
 heroImageAlt: "FIXME"
 tags: ["leadership", "not software", "people"]
 ---

@@ -3,7 +3,6 @@ title: "Voice in Software"
 description: "A writer's voice in an AI world."
 draft: true
 pubDate: "2024.10.14"
-heroImage: "FIXME"
 heroImageAlt: "FIXME"
 tags: ["ai", "software"]
 ---

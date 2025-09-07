@@ -24,7 +24,9 @@ const last_posts = posts.slice(0, 3);
   <div class="mt-10">
     <div class="mt-10 mb-5 w-full text-3xl font-bold">Latest Posts</div>
     {
-      last_posts.map((post) => (
+      last_posts.map((post) => {
+        const slugLast = post.slug.split('/')?.pop() || post.slug;
+        return (
         <div>
           <HorizontalCard
             pubDate={post.data.pubDate}
@@ -32,13 +34,14 @@ const last_posts = posts.slice(0, 3);
             img={post.data.heroImage}
             imgAlt={post.data.heroImageAlt}
             desc={post.data.description}
-            url={"/posts/" + post.slug}
+            url={"/posts/" + slugLast}
             tags={post.data.tags}
             target="_self"
           />
           <div class="divider my-0" />
         </div>
-      ))
+        );
+      })
     }
   </div>
 </DefaultLayout>

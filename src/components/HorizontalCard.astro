@@ -2,7 +2,7 @@
 export interface Props {
   pubDate?: string | Date;
   title: string;
-  img?: string;
+  img?: ImageMetadata;
   imgAlt?: string;
   desc?: string;
   url: string;
@@ -11,10 +11,13 @@ export interface Props {
 }
 
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import { formatDate } from "../lib/date";
 
 const { pubDate, title, img, imgAlt, desc, url, tags = [], target = "_self" } = Astro.props;
 const displayPubDate = formatDate(pubDate);
+
+// Using ImageMetadata from content schema; no runtime inference needed
 ---
 
 <div
@@ -30,12 +33,12 @@ const displayPubDate = formatDate(pubDate);
           <Image
             src={img}
             alt={imgAlt || title}
-            width={200}
-            height={104.5}
-            fit="contain"
-            format="webp"
             class="max-w-full rounded-lg md:max-w-[15rem]"
-            transition:name={img}
+            widths={[200, 320]}
+            sizes="(min-width: 768px) 240px, 100vw"
+            formats={["avif", "webp"]}
+            fit="contain"
+            transition:name={title}
           />
         </a>
       )

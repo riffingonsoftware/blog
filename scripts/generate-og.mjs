@@ -26,10 +26,20 @@ function ensureDir(dir) {
 }
 
 function readPostsDir() {
-  return fs
-    .readdirSync(POSTS_DIR)
-    .filter((f) => f.endsWith(".md"))
-    .map((f) => path.join(POSTS_DIR, f));
+  const out = [];
+  /** @param {string} dir */
+  function walk(dir) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const p = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        walk(p);
+      } else if (entry.isFile() && entry.name.endsWith(".md")) {
+        out.push(p);
+      }
+    }
+  }
+  walk(POSTS_DIR);
+  return out;
 }
 
 function parseFrontmatter(content) {
@@ -79,6 +89,10 @@ function parseFrontmatter(content) {
 }
 
 function slugFromFilename(file) {
+  const base = path.basename(file);
+  if (base.toLowerCase() === "index.md") {
+    return path.basename(path.dirname(file));
+  }
   return path.basename(file, ".md");
 }
 
@@ -157,11 +171,16 @@ function svgTemplate({ title, site = SITE_TITLE, compact = false }) {
 </svg>`;
 }
 
-function resolveHeroPath(hero) {
+function resolveHeroPath(hero, baseDir) {
   if (!hero || typeof hero !== "string") return undefined;
   const p = hero.replace(/^\"|\"$/g, "").replace(/^'|'$/g, "");
   if (p.startsWith("/")) {
+    // Absolute from site root -> look under public
     return path.resolve(__dirname, "..", "public", p.slice(1));
+  }
+  // Relative path -> resolve from the markdown file directory
+  if (baseDir) {
+    return path.resolve(baseDir, p);
   }
   return path.resolve(__dirname, "..", p);
 }
@@ -170,7 +189,7 @@ async function generate(postFile) {
   const src = fs.readFileSync(postFile, "utf8");
   const { title, heroImage } = parseFrontmatter(src);
   const slug = slugFromFilename(postFile);
-  const heroAbs = resolveHeroPath(heroImage);
+  const heroAbs = resolveHeroPath(heroImage, path.dirname(postFile));
   const svg = svgTemplate({ title, compact: Boolean(heroAbs) });
   const outPath = path.join(OUT_DIR, `${slug}.jpg`);
   let base = sharp(Buffer.from(svg)).png();

@@ -3,7 +3,6 @@ title: "Adventures in Wasmland"
 description: "Let's see how deep this rabbit hole goes."
 draft: true
 pubDate: "2023.02.16"
-heroImage: "/images/white_rabbit.jpg"
 heroImageAlt: "Chalk drawing on asphalt of a white rabbit with the words, in chalk, from a stencil saying FOLLOW THE WHITE RABBIT"
 tags: ["wasm"]
 ---

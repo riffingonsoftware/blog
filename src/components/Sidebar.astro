@@ -27,11 +27,13 @@ const computedActiveId = pathname.startsWith("/posts") ? "posts" : pathname === 
           <div class="h-[8.5rem] w-[8.5rem] overflow-hidden rounded-full">
             <Image
               class="h-full w-full object-cover"
-              format="webp"
-              width={300}
-              height={300}
               src={profileImage}
               alt="Portrait of Ricardo Torres"
+              widths={[136, 272]}
+              sizes="136px"
+              formats={["avif", "webp"]}
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>

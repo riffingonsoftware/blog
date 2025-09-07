@@ -28,21 +28,25 @@ const { page, tag, title } = Astro.props;
 
   <ul>
     {
-      page.data.map((post) => (
-        <li>
-          <HorizontalCard
-            pubDate={post.data.pubDate}
-            title={post.data.title}
-            img={post.data.heroImage}
-            imgAlt={post.data.heroImageAlt}
-            desc={post.data.description}
-            url={"/posts/" + post.slug}
-            tags={post.data.tags}
-            target="_self"
-          />
-          <div class="divider my-0" />
-        </li>
-      ))
+      page.data.map((post) => {
+        const img = post.data.heroImage;
+        const slugLast = post.slug.split('/')?.pop() || post.slug;
+        return (
+          <li>
+            <HorizontalCard
+              pubDate={post.data.pubDate}
+              title={post.data.title}
+              img={img}
+              imgAlt={post.data.heroImageAlt}
+              desc={post.data.description}
+              url={"/posts/" + slugLast}
+              tags={post.data.tags}
+              target="_self"
+            />
+            <div class="divider my-0" />
+          </li>
+        );
+      })
     }
   </ul>
 

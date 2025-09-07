@@ -3,7 +3,6 @@ title: "Open Source Software Sustainability"
 description: "Is open source software a sustainable model?"
 draft: true
 pubDate: "2023.02.20"
-heroImage: "/images/United_Federation_of_Planets_logo.svg"
 heroImageAlt: "United Federation of Planets Logo"
 tags: ["business"]
 ---

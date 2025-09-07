@@ -1,9 +1,11 @@
 ---
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import Comments from "../components/Comments.astro";
 import type { PostSchema } from "../content/posts/config";
 import { formatDate } from "../lib/date";
 import DefaultLayout from "./DefaultLayout.astro";
+// No runtime image metadata inference needed when using content image()
 
 export interface Props extends PostSchema {
   readonly readingTime?: string;
@@ -42,6 +44,7 @@ const jsonLd = {
   image: jsonLdImage,
   keywords: Array.isArray(tags) ? tags.join(", ") : undefined,
 };
+// Using ImageMetadata from content schema; no runtime inference needed
 ---
 
 <DefaultLayout
@@ -61,14 +64,16 @@ const jsonLd = {
         {
           heroImage && (
             <Image
-              height={250}
-              width={500}
-              fit="contain"
-              format="webp"
               src={heroImage}
               alt={heroImageAlt ?? title}
               class="max-w-full rounded-lg"
-              transition:name={heroImage}
+              widths={[480, 768, 1024, 1280]}
+              sizes="(min-width: 800px) 750px, 100vw"
+              formats={["avif", "webp"]}
+              fit="contain"
+              loading="eager"
+              fetchpriority="high"
+              transition:name={slug ?? title}
             />
           )
         }

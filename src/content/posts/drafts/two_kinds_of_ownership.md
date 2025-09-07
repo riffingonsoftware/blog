@@ -3,7 +3,6 @@ title: "Two Kinds of Ownership"
 description: "Own code the right way."
 draft: true
 pubDate: "2024.10.07"
-heroImage: "/images/two-wolves.png"
 heroImageAlt: "FIXME"
 tags: ["code", "people"]
 ---
@@ -12,7 +11,7 @@ tags: ["code", "people"]
 
 ## The Dark Side
 
-![Darth Vader with his arms crossed, caption reads, "Come to the dark side, we have cookies."](../../images/dark-side-cookies.png)
+![Darth Vader with his arms crossed, caption reads, "Come to the dark side, we have cookies."](./dark-side-cookies.png)
 
 The dark side of ownership is when someone becomes the only path to action. It might feel as if they are the only one who can get anything done. It might feel like they're a hero. It may feel like they're the only path to success. Worse, they may start to believe it. They don't want anyone else to touch the code, their code.
 
@@ -24,7 +23,7 @@ Owning something takes a toll. The minimalist understands this. Choosing to own 
 
 When one acts with intent in their ownership, they will try to make decisions with both the short- and long-term in mind. They will work to ensure a project can continue with or without them. This isn't a purely altruistic act. We should all be able to enjoy some time away without having to worry about the world bursting into flame due simply to our absence.
 
-![Earth, floating in space, half the globe is blackened from being burned, there is a ring of fire threatening to consume the other half.](../../images/globe-on-fire.jpg)
+![Earth, floating in space, half the globe is blackened from being burned, there is a ring of fire threatening to consume the other half.](./globe-on-fire.jpg)
 But more than the self, the project will be better for having been tended rather than protected.
 
 ## Territorialism vs Investment

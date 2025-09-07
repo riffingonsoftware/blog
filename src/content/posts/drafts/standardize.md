@@ -3,7 +3,6 @@ title: "Standardize to Innovate"
 description: "Standards free up bandwidth for innovation."
 draft: true
 pubDate: "2023.10.12"
-heroImage: "/images/standards.jpg"
 heroImageAlt: "Standards in light blue handwriting with hand holding light blue marker underlining word."
 tags: ["business"]
 ---
@@ -38,4 +37,3 @@ I must admit to loving to try new things. So, I'm always happy to look for the n
 Most people will be happy to just keep using the standard. "It's how we've always done things." (And that can be a good thing.)
 
 But every once in a while, someone will challenge the standard. Great, let them.
-
