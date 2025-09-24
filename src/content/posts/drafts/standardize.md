@@ -2,7 +2,7 @@
 title: "Standardize to Innovate"
 description: "Standards free up bandwidth for innovation."
 draft: true
-pubDate: "2023.10.12"
+pubDate: "2025.10.12"
 heroImageAlt: "Standards in light blue handwriting with hand holding light blue marker underlining word."
 tags: ["business"]
 ---
@@ -11,8 +11,7 @@ _Above image: Standards by [Nick Youngson](http://www.nyphotographic.com/) [CC B
 
 ## Disclaimer
 
-FIXME: The following is no longer true regarding the site description.
-I want to remind you about the site description for this website, "Strong opinions, loosely held because I'm probably wrong." Embracing standards is a relatively new thing for me in my career. For most of my career I was convinced I knew better than any standard. So, if we've spoken about this in the past, well, my position has likely changed since then.
+I often like to say I have strong opinions, loosely held because I'm probably wrong. I explicitly add the "I'm proabably wrong bit" to remind myself. Embracing standards is a relatively new thing for me. For most of my career I was convinced I knew better than any standard. So, if we've spoken about this in the past, well, my position has likely changed since then.
 
 ## What is a standard?
 
@@ -28,12 +27,12 @@ What programming language are you going to use? You could consider any number of
 
 [Decision fatigue](https://en.wikipedia.org/wiki/Decision_fatigue) is maybe real (there have been some criticisms). I think I feel it on occasion. But okay, let's pretend it's not real. The choice is still yet another thing you have to do, maybe alone, maybe as a team, but yet another thing to do. There might even be occasions when it makes sense to have a conversation about the right language for a project, but that's probably the exception, not the rule.
 
-Maybe you don't agree with that logic. Okay, but let's play it out for a bit. Let's say you do have a default programming language for your company/business unit/team/whatever. What else do you get? Well, you get to build expertise with that language's ecosystem. Maybe you develop or have experts on the language or key frameworks. Maybe you know the sharp edges and dark corners to avoid. Maybe you can just go faster. I'm going to _guess_ you'll grant me that much. There's a lot of value there.
+Maybe you don't agree with that logic. Okay, but let's play it out for a bit. Let's say you do have a default programming language for your company/business unit/team/whatever. What else do you get? Well, you get to build expertise with that language's ecosystem. Maybe you develop or have experts on the language or key frameworks. Maybe you know the sharp edges and dark corners to avoid. Maybe you can just go faster. I'm going to _guess_ you'll grant me that much. There's a lot of value there. Speed cures a whole lot.
 
 ## Evolving Standards
 
-I must admit to loving to try new things. So, I'm always happy to look for the next, new best thing ever. So, revisiting standards comes naturally to me. I also know not everyone feels that way. Guess what? That's awesome!
+I must admit to loving to try new things. So, I'm always happy to look for the next, new, best thing ever. So, revisiting standards comes naturally to me. I also know not everyone feels that way. Guess what? That's awesome!
 
-Most people will be happy to just keep using the standard. "It's how we've always done things." (And that can be a good thing.)
+Most people will be happy to just keep using the standard. "It's how we've always done things." (And that *can* be a good thing.)
 
-But every once in a while, someone will challenge the standard. Great, let them.
+But every once in a while, someone will challenge the standard. Great, let them. Most people won't care enough to challenge the standards, but some few, brave folks will believe they can do better. They might be right. Some people are wired different and will put in significant effort to prove they're right or just to make things better. Then... well, then everyone gets to benefit. The standard will have evolved, and for folks happy to just follow the standard, things got better with little to no effort on their parts.
