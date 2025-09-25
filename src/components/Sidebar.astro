@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import profileImage from "../images/profile.png";
 import SidebarFooter from "./SidebarFooter.astro";
 import SidebarMenu from "./SidebarMenu.astro";
@@ -25,7 +25,7 @@ const computedActiveId = pathname.startsWith("/posts") ? "posts" : pathname === 
       <a href="/">
         <div class="m-auto block transition ease-in-out hover:scale-[102%]">
           <div class="h-[8.5rem] w-[8.5rem] overflow-hidden rounded-full">
-            <Image
+            <Picture
               class="h-full w-full object-cover"
               src={profileImage}
               alt="Portrait of Ricardo Torres"

@@ -89,6 +89,37 @@
   --tw-prose-headings: theme(colors.gray.100);
   --tw-prose-links: theme(colors.blue.300);
   --tw-prose-quotes: theme(colors.gray.300);
+  --tw-prose-pre-bg: color-mix(in oklab, var(--color-page), white 24%);
+}
+
+.prose pre {
+  background: var(--tw-prose-pre-bg);
+  border: 1px solid color-mix(in oklab, var(--color-border), white 35%);
+  border-radius: var(--radius);
+  color: var(--color-text-strong);
+  overflow-x: auto;
+  padding: 1rem;
+}
+
+.prose code {
+  color: var(--color-text-strong);
+  background: color-mix(in oklab, var(--color-page), white 18%);
+  border: 1px solid color-mix(in oklab, var(--color-border), white 40%);
+  border-radius: calc(var(--radius) - 2px);
+  padding: 0.1rem 0.35rem;
+}
+
+.prose :not(pre) > code::before,
+.prose :not(pre) > code::after {
+  content: "";
+}
+
+.prose pre code {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  color: inherit;
+  padding: 0;
 }
 
 /* Skip link */

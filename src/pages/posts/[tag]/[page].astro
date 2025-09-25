@@ -1,12 +1,12 @@
 ---
+import type { GetStaticPaths } from "astro";
 import PostListingLayout from "../../../layouts/PostListingLayout.astro";
 import { getCollection } from "astro:content";
+import { includeVisiblePosts } from "../../../lib/postFilters";
 
-export async function getStaticPaths({ paginate }) {
+export const getStaticPaths = (async ({ paginate }) => {
   const posts = (
-    await getCollection("posts", ({ data }) => {
-      return data.draft !== true;
-    })
+    await getCollection("posts", includeVisiblePosts)
   ).sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
   const tags = posts.flatMap((post) => post.data.tags).flat();
 
@@ -14,7 +14,7 @@ export async function getStaticPaths({ paginate }) {
     const taggedPosts = posts.filter((post) => post.data.tags.includes(tag));
     return paginate(taggedPosts, { params: { tag }, pageSize: 10 });
   });
-}
+}) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
 const params = Astro.params;

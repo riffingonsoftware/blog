@@ -1,14 +1,14 @@
 ---
-import { CollectionEntry, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import type { PostSchema } from "../../content/posts/config";
 import PostLayout from "../../layouts/PostLayout.astro";
 import { readingTime } from "../../lib/readingTime";
 import { excerptFromMarkdown } from "../../lib/excerpt";
+import { includeVisiblePosts } from "../../lib/postFilters";
 
 export async function getStaticPaths() {
-  const postEntries = await getCollection("posts", ({ data }) => {
-    return data.draft !== true;
-  });
+  const postEntries = await getCollection("posts", includeVisiblePosts);
   return postEntries.map((entry) => {
     const slugLast = entry.slug.split("/").pop() || entry.slug;
     return {
