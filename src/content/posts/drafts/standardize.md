@@ -11,9 +11,19 @@ _Above image: Standards by [Nick Youngson](http://www.nyphotographic.com/) [CC B
 
 ## Disclaimer
 
-I often like to say I have strong opinions, loosely held because I'm probably wrong. I explicitly add the "I'm proabably wrong" bit to remind myself.
+I often like to say I have strong opinions, loosely held because I'm probably wrong. I explicitly add the "I'm probably wrong" bit to remind myself.
 
 Embracing standards is a relatively new thing for me. For most of my career I was convinced I knew better than any standard. So, if we've spoken about this in the past, well, my position has likely changed since then. No, I'm not sorry.
+
+I used to actively dislike standards. I equated them to the lowest common denominator. Early in my career, standards hadn't really mattered, not to me. I was ridiculously lucky to start in rapid research and development. Everything was new, not just to me, but to most everyone. It was awesome.
+
+So, I didn't really consider standards until I was already established in my career. That came to a head my second go round at The Boeing Company. I was about a week into my two weeks' notice, a foot out the door. My then-boss, Josh Sting, came to me with an amazing offer (thanks, Josh!), but I wanted to be sure I was aligned with leadership. Jinnah Hosein was (still is at the time of this writing) Boeing's Vice President of Software Engineering. He likes the phrase, "why have two when one will do?"
+
+I sat with that... longer than I'd like to admit. I'd already been sitting with it. I will sometimes try new things simply because they're new. Could I push for standardizing on a single solution?
+
+I could. I did. I do. 
+
+Now, I'm not going to lie. I might have an easier time accepting standards now I'm senior enough to be the one setting them, or at least to have a say. Even so, I think I could convince a younger, more junior, me standards are better for the business. Could I take the argument a big step further? Yeah, it's better for the business, but standardizing also gives you room to innovate. 
 
 ## What is a standard?
 
