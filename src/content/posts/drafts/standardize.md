@@ -29,7 +29,7 @@ Now, I'm not going to lie. I might have an easier time accepting standards now I
 
 First, let's start with what a standard is _not_. A standard is not a hard requirement.
 
-Okay, with that out of the way, what is a standard? A standard is a default, a choice without having to make a choice, a way we're going to do things when we don't have a specific reason to do something different.
+Okay, with that out of the way, what _is_ a standard? A standard is a default, a choice without having to make a choice, a way we're going to do things when we don't have a specific reason to do something different.
 
 ### Choice without making a choice?
 
@@ -45,10 +45,14 @@ Maybe you don't agree with that logic. Okay, but let's play it out for a bit. Le
 
 I must admit to loving to try new things. (Like, I might have a bit of a problem, drives-my-wife-insane kind of problem.) So, I'm always happy to look for the next, new, best thing ever. So, revisiting standards comes naturally to me. I also know not everyone feels that way. Guess what? That's awesome, too!
 
-Most people will be happy to just keep using the standard. "It's how we've always done things." (And that *can* be a good thing.)
+Most people will be happy to just keep using the standard. "It's how we've always done things." (If you know me, you probably know I very-dislike that phrase, but here, for this specific use, maybe it's okay.)
 
-But every once in a while, someone will challenge the standard. Great, let them. Most people won't care enough to challenge the standards, but some few, brave folks will believe they can do better. They might be right. Some people are wired different and will put in significant effort to prove they're right or just to make things better. Then... well, then everyone gets to benefit. The standard will have evolved, and for folks happy to just follow the standard, things got better with little to no effort on their parts.
+But every once in a while, someone will challenge the standard. Great, let them. Most people won't care enough to challenge the standards, but some few, brave folks will believe they can do better. They might be right. Some people are wired different and will put in significant effort to make things better or just to prove they're right. Then... well, then everyone gets to benefit. The standard will have evolved, and for folks happy to just follow the standard, things got better with little to no effort on their parts.
 
 ## Wait, really!?
 
-Well... maybe. I also like to say, "all code is debt." Well, standards are going to be debt, too. Maybe no brave souls come along to challenge the status quo and now some teams are left maintaining the standards.
+Well... maybe. I also like to say, "all code is debt." Well, standards are going to be debt, too. Maybe no brave souls come along to challenge the status quo and now some team is left maintaining the standard. In net, I believe this is still worth it. The alternative isn't no debt, it's debt spread out across the organization. Better to consolidate.
+
+## Okay, fine, whatever, but where's the innovation?
+
+Okay, I titled this post _Standardize to Innovate_. Yes, I did. Aside from the expertise development I mentioned above, now's a good time to discuss innovation budget. I think [this post](https://mcfunley.com/choose-boring-technology) is the first place I heard about something like an innovation budget, here innovation tokens. (If you do read it, please keep in mind it was written in 2015, so any specific callouts should be seen in that light.) So now, if we have a standard, if we're not reinventing the wheel with every project, we can be free to develop crewed spaceflight (again, sorry couldn't help myself). Okay, my space snark aside, the point still remains. When we're not busy learning the latest and greatest programming language for the 13th time this year, we are better positioned to push the bounds in other dimensions.
