@@ -17,9 +17,7 @@ Embracing standards is a relatively new thing for me. For most of my career I wa
 
 I used to actively dislike standards. I equated them to the lowest common denominator. Early in my career, standards hadn't really mattered, not to me. I was ridiculously lucky to start in rapid research and development. Everything was new, not just to me, but to most everyone. It was awesome.
 
-So, I didn't really consider standards until I was already established in my career. That came to a head my second go round at The Boeing Company. I was about a week into my two weeks' notice, a foot out the door. My then-boss, Josh Sting, came to me with an amazing offer (thanks, Josh!), but I wanted to be sure I was aligned with leadership. Jinnah Hosein was (still is at the time of this writing) Boeing's Vice President of Software Engineering. He likes the phrase, "why have two when one will do?"
-
-I sat with that... longer than I'd like to admit. I'd already been sitting with it. I will sometimes try new things simply because they're new. Could I push for standardizing on a single solution?
+So, I didn't really consider standards until I was already established in my career. I had a leader who liked the phrase, "why have two when one will do?" I sat with that... longer than I'd like to admit. I'd already been sitting with it. I will sometimes try new things simply because they're new. Could I be aligned? Could I push for standardizing on a single solution?
 
 I could. I did. I do. 
 
@@ -41,7 +39,7 @@ What programming language are you going to use? You could consider any number of
 
 Maybe you don't agree with that logic. Okay, but let's play it out for a bit. Let's say you do have a default programming language for your company/business unit/team/whatever. What else do you get? Well, you get to build expertise with that language's ecosystem. Maybe you develop or have experts on the language or key frameworks. Maybe you know the sharp edges and dark corners to avoid. Maybe you have homegrown libraries and tools to help. Maybe you can just go faster. I'm going to _guess_ you'll grant me that much. There's a lot of value there. Speed cures a whole lot.
 
-## Evolving Standards
+## Evolving standards
 
 I must admit to loving to try new things. (Like, I might have a bit of a problem, drives-my-wife-insane kind of problem.) So, I'm always happy to look for the next, new, best thing ever. So, revisiting standards comes naturally to me. I also know not everyone feels that way. Guess what? That's awesome, too!
 
@@ -55,4 +53,6 @@ Well... maybe. I also like to say, "all code is debt." Well, standards are going
 
 ## Okay, fine, whatever, but where's the innovation?
 
-Okay, I titled this post _Standardize to Innovate_. Yes, I did. Aside from the expertise development I mentioned above, now's a good time to discuss innovation budget. I think [this post](https://mcfunley.com/choose-boring-technology) is the first place I heard about something like an innovation budget, here innovation tokens. (If you do read it, please keep in mind it was written in 2015, so any specific callouts should be seen in that light.) So now, if we have a standard, if we're not reinventing the wheel with every project, we can be free to develop crewed spaceflight (again, sorry couldn't help myself). Okay, my space snark aside, the point still remains. When we're not busy learning the latest and greatest programming language for the 13th time this year, we are better positioned to push the bounds in other dimensions.
+Okay, I titled this post _Standardize to Innovate_. Yes, I did. Aside from the expertise development I mentioned above, now's a good time to discuss innovation budget. I think [this post](https://mcfunley.com/choose-boring-technology) is the first place I heard about something like an innovation budget, here innovation tokens. (If you do read it, please keep in mind it was written in 2015, so any specific callouts should be seen in that light.) So now, if we have a standard, if we're not reinventing the wheel with every project, we can be free to develop crewed spaceflight (sorry, couldn't help myself). Okay, my space snark aside, the point still remains. When we're not busy learning the latest and greatest programming language or framework for the 13th time this year, we are better positioned to push the bounds in other dimensions. Hopefully, those dimensions can be things that move the business or the project in a meaningful dimension.
+
+That's it. There's no great mystery, no secret. The simple truth is when you aren't doing one thing, you are free to do something else, basic [opportunity cost](https://en.wikipedia.org/wiki/Opportunity_cost). Crazy right? I think when you hear it (or read it), it's pretty easy to see. I'm a little ashamed it took me so long to see.
