@@ -3,8 +3,9 @@ title: "Standardize to Innovate"
 description: "Standards free up bandwidth for innovation."
 draft: true
 pubDate: "2025.10.12"
+heroImage: "./20251012-hero.jpg"
 heroImageAlt: "Standards in light blue handwriting with hand holding light blue marker underlining word."
-tags: ["business"]
+tags: ["business", "choices"]
 ---
 
 _Above image: Standards by [Nick Youngson](http://www.nyphotographic.com/) [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/) [Alpha Stock Images](http://alphastockimages.com/)_
@@ -17,7 +18,7 @@ Embracing standards is a relatively new thing for me. For most of my career I wa
 
 I used to actively dislike standards. I equated them to the lowest common denominator. Early in my career, standards hadn't really mattered, not to me. I was ridiculously lucky to start in rapid research and development. Everything was new, not just to me, but to most everyone. It was awesome.
 
-So, I didn't really consider standards until I was already established in my career. I had a leader who liked the phrase, "why have two when one will do?" I sat with that... longer than I'd like to admit. I'd already been sitting with it. I will sometimes try new things simply because they're new. Could I be aligned? Could I push for standardizing on a single solution?
+So, I didn't really consider standards until I was already established in my career. I had a leader who liked the phrase, "why have two when one will do?" I sat with that... longer than I'd like to admit. I will sometimes try new things simply because they're new. Could I push for standardizing on a single solution?
 
 I could. I did. I do. 
 
@@ -35,11 +36,11 @@ Yeah, see, this is awesome. As you become more senior, you'll often find you hav
 
 What programming language are you going to use? You could consider any number of languages, from the popular to the obscure. You could make this choice every time you start a new project. You could do that, but I don't think you should.
 
-[Decision fatigue](https://en.wikipedia.org/wiki/Decision_fatigue) is maybe real (there have been some criticisms). I think I feel it on occasion. But okay, let's pretend it's not real. The choice is still yet another thing you have to do, maybe alone, maybe as a team, but yet another thing to do. There might even be occasions when it makes sense to have a conversation about the right language for a project, but that's probably the exception, not the rule.
+I don't know if [decision fatigue](https://en.wikipedia.org/wiki/Decision_fatigue) is real or not. Regardless, the choice is still yet another thing you have to do, maybe alone, maybe as a team, but yet another thing to do. There might even be occasions when it makes sense to have a conversation about the right language for a project, but that's probably the exception, not the rule. Just getting to work can be amazing, freeing.
 
 Maybe you don't agree with that logic. Okay, but let's play it out for a bit. Let's say you do have a default programming language for your company/business unit/team/whatever. What else do you get? Well, you get to build expertise with that language's ecosystem. Maybe you develop or have experts on the language or key frameworks. Maybe you know the sharp edges and dark corners to avoid. Maybe you have homegrown libraries and tools to help. Maybe you can just go faster. I'm going to _guess_ you'll grant me that much. There's a lot of value there. Speed cures a whole lot.
 
-## Evolving standards
+## Evolving Standards
 
 I must admit to loving to try new things. (Like, I might have a bit of a problem, drives-my-wife-insane kind of problem.) So, I'm always happy to look for the next, new, best thing ever. So, revisiting standards comes naturally to me. I also know not everyone feels that way. Guess what? That's awesome, too!
 
@@ -53,6 +54,6 @@ Well... maybe. I also like to say, "all code is debt." Well, standards are going
 
 ## Okay, fine, whatever, but where's the innovation?
 
-Okay, I titled this post _Standardize to Innovate_. Yes, I did. Aside from the expertise development I mentioned above, now's a good time to discuss innovation budget. I think [this post](https://mcfunley.com/choose-boring-technology) is the first place I heard about something like an innovation budget, here innovation tokens. (If you do read it, please keep in mind it was written in 2015, so any specific callouts should be seen in that light.) So now, if we have a standard, if we're not reinventing the wheel with every project, we can be free to develop crewed spaceflight (sorry, couldn't help myself). Okay, my space snark aside, the point still remains. When we're not busy learning the latest and greatest programming language or framework for the 13th time this year, we are better positioned to push the bounds in other dimensions. Hopefully, those dimensions can be things that move the business or the project in a meaningful dimension.
+Okay, I titled this post _Standardize to Innovate_. Yes, I did. Aside from the expertise development I mentioned above, now's a good time to discuss innovation budget. I think [this post](https://mcfunley.com/choose-boring-technology) is the first place I heard about something like an innovation budget, here innovation tokens. (If you do read it, please keep in mind it was written in 2015, so any specific callouts should be seen in that light.) So now, if we have a standard, if we're not reinventing the wheel with every project, we can be free to develop crewed spaceflight (sorry, couldn't help myself). Okay, my space snark aside, the point still remains. When we're not busy learning the latest and greatest programming language or framework for the 13th time this year, we are better positioned to push the bounds in other dimensions. Hopefully, those dimensions can be things that move the business or the project in a meaningful dimension. Imagine if you have a few minutes here, an hour there, because you're not [RTFM](https://en.wikipedia.org/wiki/RTFM)ing, web searching, or asking your favorite LLM. That's time you could be building that one extra feature, fixing that one other annoyance, or maybe finally finding product market fit.
 
 That's it. There's no great mystery, no secret. The simple truth is when you aren't doing one thing, you are free to do something else, basic [opportunity cost](https://en.wikipedia.org/wiki/Opportunity_cost). Crazy right? I think when you hear it (or read it), it's pretty easy to see. I'm a little ashamed it took me so long to see.
