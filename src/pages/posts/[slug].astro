@@ -32,9 +32,9 @@ if ("body" in entry && typeof entry.body === "string") {
 }
 const slugLast = entry.slug.split("/").pop() || entry.slug;
 const ogImage = `/og/${slugLast}.jpg`;
-// Ensure LinkedIn-friendly description length; fallback to content excerpt
+// Use frontmatter description if present; fallback to content excerpt
 let description = post.description;
-if (!description || description.length < 100) {
+if (!description) {
   if ("body" in entry && typeof entry.body === "string") {
     const ex = excerptFromMarkdown(entry.body, 160);
     if (ex && ex.length > 0) description = ex;
