@@ -13,9 +13,9 @@ tags: ["code", "people"]
 
 ![Darth Vader with his arms crossed, caption reads, "Come to the dark side, we have cookies."](./dark-side-cookies.png)
 
-The dark side of ownership is when someone becomes the only path to action. It might feel as if they are the only one who can get anything done. It might feel like they're a hero. It may feel like they're the only path to success. Worse, they may start to believe it. They don't want anyone else to touch the code, their code.
+The dark side of ownership is when someone becomes the only path to action. It might feel as if they are the only one who can get anything done. It might feel like they're a hero. It may feel like they're the only path to success. Worse, they may start to believe it. They don't want anyone else to touch the code, _their_ code.
 
-Actually, let me back up. This all sounds very nefarious, intentional, and dark. That's not always the case. Sometimes this person truly means well. Sometimes they may not even realize they're a problem. If you've read [The Phoenix Project](FIXME), this is Brent. He wasn't trying to be a bad guy. He wasn't trying to be a bottleneck. He meant well, but there he was. It took a fair bit of effort to unstick him and the team.
+Actually, let me back up. This all sounds very nefarious, intentional, and dark. That's not always the case. Sometimes, like Anakin once did, this person truly means well. Sometimes they may not even realize they're a problem. If you've read [The Phoenix Project](https://www.goodreads.com/book/show/17255186-the-phoenix-project), this is Brent. He wasn't trying to be a bad guy. He wasn't trying to be a bottleneck. He meant well, but there he was. It took a fair bit of effort to unstick him and the team.
 
 ## The Other Side
 
@@ -32,4 +32,4 @@ Words have power. As I was thinking about how to best summarize these two kinds 
 
 A territorial creature will lash out at perceived competitors. In the wild, this can mean the difference between life and death, but in software this is rarely the case. (I feel compelled to acknowledge some work environments are more like the wild than not, but that's for another post.) Often we can benefit from the presence of others, fresh perspectives, well intentioned critiques. Having more hands working the problems and eyes on the solutions can lead to greater investment.
 
-Investors are interested in seeing returns. They don't have to be selfless, but they are
+Investors are interested in seeing returns. They are more interested in positive outcomes than in the pure act of owning a thing. If someone has a better idea, investors are shameless in adopting it.
