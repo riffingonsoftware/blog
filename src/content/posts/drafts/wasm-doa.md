@@ -6,5 +6,5 @@ pubDate: "2024.11.03"
 tags: ["wasm"]
 ---
 
-Smart folks at Cosmonic, Fermyon, and elsewhere have done amazing work to make adoption WebAssembly (Wasm) on the server-side easy. I know some household names have successfully deployed it, but...
+Smart folks at Cosmonic, Fermyon, and elsewhere have done amazing work to make adopting WebAssembly (Wasm) on the server-side easy. I know some household names have successfully deployed it, but...
 
