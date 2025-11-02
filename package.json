@@ -5,13 +5,13 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && node scripts/generate-og.mjs && astro build",
+    "build": "astro check && bun scripts/generate-og.mjs && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "typecheck": "astro check",
-    "generate:og": "node scripts/generate-og.mjs"
+    "generate:og": "bun scripts/generate-og.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
@@ -29,5 +29,5 @@
     "tailwindcss": "^4.1.12",
     "typescript": "^5.9.2"
   },
-  "packageManager": "pnpm@10.18.3"
+  "packageManager": "bun@1.1.43"
 }
