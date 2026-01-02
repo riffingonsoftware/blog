@@ -89,6 +89,7 @@
   --tw-prose-headings: theme(colors.gray.100);
   --tw-prose-links: theme(colors.blue.300);
   --tw-prose-quotes: theme(colors.gray.300);
+  --tw-prose-bold: theme(colors.gray.100);
   --tw-prose-pre-bg: color-mix(in oklab, var(--color-page), white 24%);
 }
 
