@@ -1,0 +1,39 @@
+---
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+---
+
+<DefaultLayout title="Privacy Policy for Kitted" description="Privacy Policy for the Kitted iOS app" robots="noindex, nofollow">
+  <div class="prose prose-lg max-w-none">
+    <h1>Privacy Policy for Kitted</h1>
+
+    <h2>Data Storage</h2>
+    <p>
+      Your data (trips, packing lists, items) is stored on your device and synced to your personal
+      iCloud account via Apple's CloudKit. The developer cannot access your data.
+    </p>
+
+    <h2>Third-Party Services</h2>
+    <ul>
+      <li>
+        <strong>Open-Meteo</strong> (<a href="https://open-meteo.com">open-meteo.com</a>) — Receives
+        destination coordinates to provide weather forecasts
+      </li>
+      <li>
+        <strong>Photon by Komoot</strong> (<a href="https://photon.komoot.io">photon.komoot.io</a>)
+        — Receives destination search text to provide geocoding
+      </li>
+    </ul>
+    <p>These services have their own privacy policies.</p>
+
+    <h2>Data Deletion</h2>
+    <p>
+      Delete the app to remove local data. Manage iCloud data in your device's Settings → [Your
+      Name] → iCloud → Manage Storage.
+    </p>
+
+    <h2>Analytics & Tracking</h2>
+    <p>Kitted does not use analytics, advertising, or tracking.</p>
+
+    <p class="text-sm text-gray-500 mt-8">Last updated: January 2026</p>
+  </div>
+</DefaultLayout>

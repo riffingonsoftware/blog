@@ -16,6 +16,7 @@ const {
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
   includeSidebar = true,
+  robots,
 } = Astro.props;
 ---
 
@@ -31,6 +32,7 @@ const {
     isArticle={isArticle}
     updatedDate={updatedDate}
     tags={tags}
+    robots={robots}
   />
   <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
