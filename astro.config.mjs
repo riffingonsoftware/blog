@@ -11,12 +11,7 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [codeTitle],
   },
-  integrations: [
-    sitemap({
-      filter: (page) => !page.includes("kitted-privacy"),
-    }),
-    compress(),
-  ],
+  integrations: [sitemap(), compress()],
   vite: {
     plugins: [tailwindcss()],
   },

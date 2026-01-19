@@ -12,7 +12,6 @@ export interface Props {
   isArticle?: boolean;
   updatedDate?: string | Date;
   tags?: string[];
-  robots?: string;
 }
 
 const {
@@ -25,7 +24,6 @@ const {
   isArticle = false,
   updatedDate,
   tags = [],
-  robots,
 } = Astro.props;
 const pubIso = pubDate ? (typeof pubDate === "string" ? pubDate : pubDate.toISOString()) : undefined;
 const updIso = updatedDate ? (typeof updatedDate === "string" ? updatedDate : updatedDate.toISOString()) : undefined;
@@ -42,7 +40,6 @@ const ogImageAbs = new URL(image || "/og/default.jpg", Astro.url).toString();
   <meta name="generator" content={Astro.generator} />
   <meta name="title" content={title} />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  {robots && <meta name="robots" content={robots} />}
   <title>{title}</title>
 
   <!-- Canonical URL -->
