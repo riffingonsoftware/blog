@@ -1,6 +1,6 @@
-import { z, defineCollection } from "astro:content";
+import { z, defineCollection, type SchemaContext } from "astro:content";
 
-const postSchema = ({ image }: { image: () => any }) =>
+const postSchema = ({ image }: SchemaContext) =>
   z
     .object({
       author: z.string().optional(),
@@ -27,7 +27,7 @@ const postSchema = ({ image }: { image: () => any }) =>
 export type PostSchema = z.infer<ReturnType<typeof postSchema>>;
 
 const postCollection = defineCollection({
-  schema: postSchema as any,
+  schema: postSchema,
   type: "content",
 });
 

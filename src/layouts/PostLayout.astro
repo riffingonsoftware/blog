@@ -30,7 +30,7 @@ const authorName = author ?? "Ricardo Torres";
 const displayPubDate = formatDate(pubDate);
 const displayUpdatedDate = formatDate(updatedDate);
 // Build absolute image URL for JSON-LD using configured site
-const jsonLdImage = new URL(ogImage || heroImage || "/og/default.jpg", Astro.url).toString();
+const jsonLdImage = new URL(ogImage || "/og/default.jpg", Astro.url).toString();
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
@@ -79,13 +79,20 @@ const jsonLd = {
           {title}
         </h1>
         <div class="flex flex-wrap items-center gap-2 text-sm text-gray-400">
-          {displayPubDate && <time>{displayPubDate}</time>}
+          {
+            displayPubDate && (
+              <time datetime={pubDate instanceof Date ? pubDate.toISOString() : pubDate}>{displayPubDate}</time>
+            )
+          }
           {readingTime && <span aria-label="Estimated reading time">• {readingTime}</span>}
         </div>
         {
           displayUpdatedDate && (
             <div>
-              Last updated on <time>{displayUpdatedDate}</time>
+              Last updated on{" "}
+              <time datetime={updatedDate instanceof Date ? updatedDate.toISOString() : updatedDate}>
+                {displayUpdatedDate}
+              </time>
             </div>
           )
         }
