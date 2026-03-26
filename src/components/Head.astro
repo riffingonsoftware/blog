@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 
 export interface Props {
@@ -71,5 +71,5 @@ const ogImageAbs = new URL(image || "/og/default.jpg", Astro.url).toString();
   <meta name="twitter:url" content={Astro.url} />
   <meta name="twitter:site" content="@riffingonsw" />
   <meta name="twitter:creator" content="@riffingonsw" />
-  <ViewTransitions />
+  <ClientRouter />
 </head>

@@ -33,7 +33,7 @@ const last_posts = posts.slice(0, 3);
               img={post.data.heroImage}
               imgAlt={post.data.heroImageAlt}
               desc={post.data.description}
-              url={"/posts/" + getSlug(post.slug)}
+              url={"/posts/" + getSlug(post.id)}
               tags={post.data.tags}
               target="_self"
             />

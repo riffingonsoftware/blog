@@ -1,4 +1,6 @@
-import { z, defineCollection, type SchemaContext } from "astro:content";
+import { defineCollection, type SchemaContext } from "astro:content";
+import { glob } from "astro/loaders";
+import { z } from "astro/zod";
 
 const postSchema = ({ image }: SchemaContext) =>
   z
@@ -12,25 +14,26 @@ const postSchema = ({ image }: SchemaContext) =>
       tags: z.array(z.string()),
       title: z.string(),
       updatedDate: z.coerce.date().optional(),
-      canonicalUrl: z.string().url().optional(),
+      canonicalUrl: z.url().optional(),
     })
     .superRefine((data, ctx) => {
       if (data.heroImage && (!data.heroImageAlt || data.heroImageAlt.trim().length === 0)) {
         ctx.addIssue({
-          code: z.ZodIssueCode.custom,
+          code: "custom",
           message: "heroImageAlt is required when heroImage is set",
           path: ["heroImageAlt"],
         });
       }
     });
 
-export type PostSchema = z.infer<ReturnType<typeof postSchema>>;
-
 const postCollection = defineCollection({
+  loader: glob({
+    base: "./src/content/posts",
+    pattern: "**/[^_]*.{md,mdx}",
+  }),
   schema: postSchema,
-  type: "content",
 });
 
 export const collections = {
-    posts: postCollection,
+  posts: postCollection,
 };

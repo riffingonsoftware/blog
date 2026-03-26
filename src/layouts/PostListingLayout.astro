@@ -39,7 +39,7 @@ const { page, tag, title } = Astro.props;
               img={img}
               imgAlt={post.data.heroImageAlt}
               desc={post.data.description}
-              url={"/posts/" + getSlug(post.slug)}
+              url={"/posts/" + getSlug(post.id)}
               tags={post.data.tags}
               target="_self"
             />

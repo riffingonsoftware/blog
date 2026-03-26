@@ -1,7 +1,6 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import type { PostSchema } from "../../content/posts/config";
 import PostLayout from "../../layouts/PostLayout.astro";
 import { readingTime } from "../../lib/readingTime";
 import { excerptFromMarkdown } from "../../lib/excerpt";
@@ -12,7 +11,7 @@ export async function getStaticPaths() {
   const postEntries = await getCollection("posts", includeVisiblePosts);
   return postEntries.map((entry) => {
     return {
-      params: { slug: getSlug(entry.slug) },
+      params: { slug: getSlug(entry.id) },
       props: { entry },
     };
   });
@@ -23,14 +22,14 @@ export interface Props {
 }
 
 const { entry } = Astro.props;
-const post: PostSchema = entry.data;
-const { Content } = await entry.render();
+const post = entry.data;
+const { Content } = await render(entry);
 let rt: string | undefined;
 // Compute reading time from raw markdown/body if available
 if ("body" in entry && typeof entry.body === "string") {
   rt = readingTime(entry.body);
 }
-const ogImage = `/og/${getSlug(entry.slug)}.jpg`;
+const ogImage = `/og/${getSlug(entry.id)}.jpg`;
 // Use frontmatter description if present; fallback to content excerpt
 let description = post.description;
 if (!description) {
@@ -53,7 +52,7 @@ if (!description) {
   canonicalUrl={post.canonicalUrl}
   readingTime={rt}
   ogImage={ogImage}
-  slug={entry.slug}
+  slug={entry.id}
 >
   <Content />
 </PostLayout>
