@@ -4,12 +4,12 @@ An Astro-based static blog deployed to Cloudflare Pages.
 
 ## Quick Reference
 
-- **Package Manager**: Bun
+- **Package Manager**: Aube
 - **Main Branch**: `trunk`
-- **Development**: `bun run dev`
-- **Build**: `bun run build`
-- **Format**: `bun run format`
-- **Typecheck**: `bun run typecheck`
+- **Development**: `aubr dev`
+- **Build**: `aubr build`
+- **Format**: `aubr format`
+- **Typecheck**: `aubr typecheck`
 
 ## Guidelines
 
@@ -22,4 +22,5 @@ Detailed guidelines are organized by topic to support progressive disclosure:
 - [Content Authoring](docs/agents/content-authoring.md) — Blog post structure and frontmatter schema.
 
 ---
+
 **Version**: 2026-02-22 | **Agent**: Gemini CLI (Gemini 2.0 Flash)

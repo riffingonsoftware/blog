@@ -41,4 +41,4 @@ Enforced via Zod in `src/content/posts/config.ts`.
 ## Drafts
 
 - Place draft posts in `src/content/posts/drafts/` or set `draft: true` in frontmatter
-- Drafts are visible during `bun run dev` but excluded from production builds
+- Drafts are visible during `aubr dev` but excluded from production builds

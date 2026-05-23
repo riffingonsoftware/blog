@@ -11,7 +11,7 @@ Configured in `.prettierrc`:
 - Indentation: 2 spaces
 - Plugins: prettier-plugin-astro, prettier-plugin-tailwindcss
 
-Run `bun run format` to auto-format. Run `bun run format:check` to verify.
+Run `aubr format` to auto-format. Run `aubr format:check` to verify.
 
 ## TypeScript
 
