@@ -6,6 +6,11 @@ pubDate: "2026.04.18"
 tags: ["ai", "leadership"]
 ---
 
+I've started writing this post a few different times now, and I've tossed it out each time.
+
+
+
+
 I've been a director of engineering once and an architect a few times. In those roles, I was not hands-on on a regular basis, but I was still responsible for the technical outcomes of my teams. I would provide direction, allow them to make a great many decisions, and, sometimes, redirect. My teams got things done. (Thank you, teams!) I set direction, worked to ensure alignment, and then I waited to see if the agents had produced what I wanted.
 
 Guess what. It was always vibe coding, or maybe agentic engineering. I got the very best agents I could, provided direction, sometimes correction, and adjusted outcomes as needed. Then it was people, today LLMs and agent harnesses.
