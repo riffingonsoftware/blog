@@ -1,26 +1,51 @@
 # Riffing on Software
 
-An Astro-based static blog deployed to Cloudflare Pages.
+Astro static blog deployed to Cloudflare Pages.
 
-## Quick Reference
+## Commands
 
-- **Package Manager**: Aube
-- **Main Branch**: `trunk`
-- **Development**: `aubr dev`
-- **Build**: `aubr build`
-- **Format**: `aubr format`
-- **Typecheck**: `aubr typecheck`
+- Dev: `aubr dev`
+- Build: `aubr build`
+- Format: `aubr format`
+- Format check: `aubr format:check`
+- Typecheck: `aubr typecheck`
 
-## Guidelines
+## Git Workflow
 
-Detailed guidelines are organized by topic to support progressive disclosure:
+- Use trunk-based development on `trunk`.
+- Commit and push early and often in logical chunks.
+- Keep each commit scoped to one coherent behavior, policy, or cleanup.
+- Do not force-push or rewrite shared history unless explicitly asked.
 
-- [Test-Driven Development](docs/agents/test-driven-development.md) — Mandatory Red-Green-Refactor protocol.
-- [Architecture](docs/agents/architecture.md) — Dependency philosophy and structural decisions.
-- [Skill Creation](docs/agents/skill-creation.md) — Protocol for capturing procedural knowledge.
-- [Code Conventions](docs/agents/code-conventions.md) — TypeScript, Astro, and CSS patterns.
-- [Content Authoring](docs/agents/content-authoring.md) — Blog post structure and frontmatter schema.
+## Agent skills
 
----
+### Issue tracker
 
-**Version**: 2026-02-22 | **Agent**: Gemini CLI (Gemini 2.0 Flash)
+Issues and PRDs live as local markdown under `.scratch/<feature>/`. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Use the default canonical triage labels. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context repo: read root `CONTEXT.md` and `docs/adr/` when present. See `docs/agents/domain.md`.
+
+## Rules
+
+- For confirmed bugs, capture the failure with a behavior-level repro test when practical, then fix it and keep the test as regression coverage.
+- Do not write speculative tests for planned behavior, predicted risk, implementation details, coverage targets, or test-count goals.
+- Delete low-signal tests when they obscure behavior, lock in implementation details, or no longer protect a real failure.
+- For non-bug changes, use existing checks and focused manual verification unless the user explicitly asks for tests.
+- Test only observable behavior through public interfaces; never private internals.
+- Mock only system boundaries.
+- Refactor after behavior is verified; simplify touched code without changing behavior.
+- Ask before adding dependencies.
+- Rob Pike: "A little copying is better than a little dependency."
+- Prefer stdlib, existing helpers, or small local code over new packages.
+- Before proposing a dependency, check maintenance, license, docs, security, and transitive deps.
+- Follow existing patterns only when they are sound and intentional.
+- Challenge unsound, accidental, or undocumented local patterns.
+- Prefer the correct fix over the smallest patch; perform rewrites when local structure is the problem.
+- Ask before risky or destructive changes.
+- Run relevant checks before finishing.
