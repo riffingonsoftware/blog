@@ -14,20 +14,20 @@
     "generate:og": "node scripts/generate-og.mjs"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.8",
+    "@astrojs/check": "^0.9.9",
     "@astrojs/rss": "^4.0.18",
-    "@astrojs/sitemap": "^3.7.2",
-    "@tailwindcss/typography": "^0.5.19",
-    "@tailwindcss/vite": "^4.2.2",
-    "astro": "^6.1.1",
-    "astro-compress": "^2.4.0",
-    "prettier": "^3.8.1",
+    "@astrojs/sitemap": "^3.7.3",
+    "@tailwindcss/typography": "^0.5.20",
+    "@tailwindcss/vite": "^4.3.1",
+    "astro": "^6.4.8",
+    "astro-compress": "^2.4.1",
+    "prettier": "^3.8.4",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.8.0",
     "remark-code-title": "^0.2.5",
-    "sharp": "^0.35.0",
-    "tailwindcss": "^4.2.2",
-    "typescript": "^6.0.2"
+    "sharp": "^0.35.2",
+    "tailwindcss": "^4.3.1",
+    "typescript": "^6.0.3"
   },
   "packageManager": "pnpm@10.11.1",
   "aube": {

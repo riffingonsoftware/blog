@@ -8,6 +8,9 @@ import codeTitle from "remark-code-title";
 // https://astro.build/config
 export default defineConfig({
   site: "https://riffingonsoftware.com",
+  image: {
+    dangerouslyProcessSVG: true,
+  },
   markdown: {
     remarkPlugins: [codeTitle],
   },
