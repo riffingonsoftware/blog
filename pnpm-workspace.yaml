@@ -1,0 +1,6 @@
+# pnpm 11 requires explicit dependency build-script decisions.
+# These packages use committed optional platform packages, so their install scripts
+# are not needed for this static Pages build.
+allowBuilds:
+  esbuild: false
+  sharp: false
