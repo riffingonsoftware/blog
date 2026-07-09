@@ -17,19 +17,14 @@ Astro static blog deployed to Cloudflare Pages.
 - Keep each commit scoped to one coherent behavior, policy, or cleanup.
 - Do not force-push or rewrite shared history unless explicitly asked.
 
-## Agent skills
+## Issue Tracker
 
-### Issue tracker
-
-Issues and PRDs live as local markdown under `.scratch/<feature>/`. See `docs/agents/issue-tracker.md`.
-
-### Triage labels
-
-Use the default canonical triage labels. See `docs/agents/triage-labels.md`.
-
-### Domain docs
-
-Single-context repo: read root `CONTEXT.md` and `docs/adr/` when present. See `docs/agents/domain.md`.
+- Issues live in `.issues/<feature-slug>/NN-<slug>.md`, numbered from `01`,
+  committed and pushed.
+- First line of each issue: `Status: backlog`, `Status: claimed`, or `Status: ready`.
+- An issue is blocked while any file listed under its `## Blocked by` still exists.
+- Done is a deletion: delete the issue file in the commit that completes the work.
+  Git history is the archive.
 
 ## Rules
 
