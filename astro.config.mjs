@@ -14,7 +14,13 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [codeTitle],
   },
-  integrations: [sitemap(), compress()],
+  integrations: [
+    sitemap(),
+    compress({
+      // CSSO drops Tailwind's range media queries; Vite already minifies CSS.
+      CSS: false,
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },
