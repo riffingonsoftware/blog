@@ -5,8 +5,9 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && node scripts/generate-og.mjs && astro build",
+    "build": "playwright install chromium --only-shell && astro check && node scripts/generate-og.mjs && astro build && playwright test",
     "preview": "astro preview",
+    "test:deploy": "playwright test",
     "astro": "astro",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -17,6 +18,7 @@
     "@astrojs/check": "^0.9.9",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.3",
+    "@playwright/test": "^1.61.1",
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.1",
     "astro": "^7.0.0",
