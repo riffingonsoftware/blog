@@ -1,4 +1,3 @@
-
 ---
 title: "Writing in the age of AI."
 description: "Deep work, context switching, and my worst habits."
