@@ -1,4 +1,6 @@
 {
+  // Revisit the TypeScript 6 compatibility alias when @astrojs/check supports
+  // TypeScript 7's programmatic API: https://github.com/withastro/roadmap/discussions/1321
   "extends": "astro/tsconfigs/strict",
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"]
