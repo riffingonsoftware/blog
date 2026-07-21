@@ -21,6 +21,7 @@
     "@playwright/test": "^1.61.1",
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.1",
+    "@typescript/native": "npm:typescript@^7.0.2",
     "astro": "^7.0.0",
     "astro-compress": "^2.4.1",
     "prettier": "^3.8.4",
@@ -28,9 +29,9 @@
     "prettier-plugin-tailwindcss": "^0.8.0",
     "sharp": "^0.35.2",
     "tailwindcss": "^4.3.1",
-    "typescript": "^6.0.3"
+    "typescript": "npm:@typescript/typescript6@^6.0.2"
   },
-  "packageManager": "pnpm@11.10.0",
+  "packageManager": "pnpm@11.11.0",
   "aube": {
     "allowBuilds": {
       "esbuild": true,
