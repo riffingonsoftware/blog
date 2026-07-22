@@ -4,3 +4,6 @@
 allowBuilds:
   esbuild: false
   sharp: false
+overrides:
+  sharp: ^0.35.3
+  svgo: ^4.0.2
