@@ -16,7 +16,7 @@ But, but, AI makes it worse! They're only producing average code. Maybe, but tha
 
 Listen, I'm a big Mitchell Hashimoto fan. He recently [posted on X](https://x.com/mitchellh/status/2060088112257372610) about an agent optimizing some code from 88ms to 2ms and allocations from ~150k to 500. To paraphrase, he said it wasn't very good because he then did similar, with hand-rolled code, in 0.02 ms and 0 allocations. Listen, I'll fanboy for a moment. Mitchell, you're not average. You're an amazing developer. Ghostty is beautiful. So, maybe you, John Carmack, and Chris Sawyer (the guy who wrote [Roller Coaster Tycoon](https://en.wikipedia.org/wiki/RollerCoaster_Tycoon_(video_game)) in assembly) should just carry on. (Yes, I know Carmack is now working on [AGI](https://keenagi.com/).) For the rest of us, 88ms to 2 is pretty damn good. Now listen, I don't want to paper over it. Mitchell also shared it took 4 hours and $350 to get the suboptimal results. So, yeah, we'd like better performance faster and cheaper. The most AI-pilled amongst us will tell you, the models will get better, faster, and cheaper. I _want_ that to be true. I also want it to be true that I could have bested the AI's results, but 🤷, dunno.
 
-![The Swedish Chef from The Muppets makes a “chef’s kiss” gesture while holding a whisk.](../chef_kiss.jpg)
+![The Swedish Chef from The Muppets makes a “chef’s kiss” gesture while holding a whisk.](./chef_kiss.jpg)
 In appreciation of [Ghostty](https://ghostty.org/).
 
 So, if the AI code is good enough, why is there so much shitty software in circulation? Why have we all become used to things crashing, running slowly, and generally misbehaving? Well, I think I know one big reason. The people writing the code don't use the product.
@@ -25,4 +25,4 @@ In my last two roles, amongst the first things I did was ask to be onboarded lik
 
 I'll give a personal example. I used to buy Madden every freaking year. It's terrible. It's horrendously bad, laughably bad. The best offensive linemen in the league block absolutely nothing. The game would crash... would crash a console. There were years they didn't even update the rules to match the NFL's rules. I'm convinced most of that team did NOT play that damn game. It was that damn bad. So, you don't care about your software, don't use it at all? Yeah... slop. I'll pass, thanks.
 
-![FIXME](../madden.jpg)
+![FIXME](./madden.jpg)
