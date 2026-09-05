@@ -4,11 +4,11 @@ Astro static blog deployed to Cloudflare Pages.
 
 ## Commands
 
-- Dev: `aubr dev`
-- Build: `aubr build`
-- Format: `aubr format`
-- Format check: `aubr format:check`
-- Typecheck: `aubr typecheck`
+- Dev: `pnpm run dev`
+- Build: `pnpm run build`
+- Format: `pnpm run format`
+- Format check: `pnpm run format:check`
+- Typecheck: `pnpm run typecheck`
 
 ## Git Workflow
 

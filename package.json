@@ -31,11 +31,5 @@
     "tailwindcss": "^4.3.3",
     "typescript": "npm:@typescript/typescript6@^6.0.2"
   },
-  "packageManager": "pnpm@11.24.0",
-  "aube": {
-    "allowBuilds": {
-      "esbuild": true,
-      "sharp": true
-    }
-  }
+  "packageManager": "pnpm@11.24.0"
 }
