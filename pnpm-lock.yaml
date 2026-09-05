@@ -5,6 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
+  deepmerge-ts: ^8.0.2
   sharp: ^0.35.3
   svgo: ^4.0.2
 
@@ -1268,9 +1269,9 @@ packages:
     resolution: {integrity: sha512-0LrrStPOdJj+SPCCrGhzryycLjwcgUSHBtxNA8aIDxf0GLsRh1cKYhB00Gd1lDOS4yGH69+SNn13+TWbVHETFQ==}
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0, npm: '>=7.0.0'}
 
-  deepmerge-ts@7.1.5:
-    resolution: {integrity: sha512-HOJkrhaYsweh+W+e74Yn7YStZOilkoPb6fycpwNLKzSPtruFs48nYis0zy5yJz1+ktUhHxoRDJ27RQAWLIJVJw==}
-    engines: {node: '>=16.0.0'}
+  deepmerge-ts@8.0.2:
+    resolution: {integrity: sha512-uqbvqLUMrc6p0MO+WBRtTxY55hmyh94WRwI5a++PZe54X+bfVh59FSN7uWCBCW1CCVjzjnrwzfI8zidE2obMMw==}
+    engines: {node: '>=16.9.0'}
 
   defu@6.1.7:
     resolution: {integrity: sha512-7z22QmUWiQ/2d0KkdYmANbRUVABpZ9SNYyH5vx6PZ+nE5bcC0l7uFvEfHlyld/HcGBFTL536ClDt3DEcSlEJAQ==}
@@ -2905,7 +2906,7 @@ snapshots:
   '@playform/pipe@0.1.6':
     dependencies:
       '@types/node': 26.1.2
-      deepmerge-ts: 7.1.5
+      deepmerge-ts: 8.0.2
       fast-glob: 3.3.3
 
   '@playwright/test@1.62.1':
@@ -3285,7 +3286,7 @@ snapshots:
       astro: 7.2.9(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.1.2)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.0)
       commander: 15.0.0
       csso: 5.0.5
-      deepmerge-ts: 7.1.5
+      deepmerge-ts: 8.0.2
       fast-glob: 3.3.3
       html-minifier-terser: 7.2.0
       kleur: 4.1.5
@@ -3610,7 +3611,7 @@ snapshots:
     dependencies:
       css-tree: 2.2.1
 
-  deepmerge-ts@7.1.5: {}
+  deepmerge-ts@8.0.2: {}
 
   defu@6.1.7: {}
 
