@@ -23,6 +23,8 @@ So, if the AI code is good enough, why is there so much shitty software in circu
 
 In my last two roles, amongst the first things I did was ask to be onboarded like a customer. If you work in B2C, consumer facing software, hopefully you use your product. I envy the folks at companies like 1Password, Uber, or Netflix. Don't get me wrong, it's not necessarily _easy_ to have complete customer sympathy. Plenty of engineers aren't going to try their apps on slow internet connections or on ancient hardware, but at least they can experience the happier paths. What happens if you work on a enterprise doohickey? Good luck testing it in anything approaching a real scenario. It's not impossible to make good software in those circumstances, but it's a damn sight harder.
 
-I'll give a personal example. I used to buy Madden every freaking year. It's terrible. It's horrendously bad, laughably bad. The best offensive linemen in the league block absolutely nothing. The game would crash... would crash a console. There were years they didn't even update the rules to match the NFL's rules. I'm convinced most of that team did NOT play that damn game. It was that damn bad. So, you don't care about your software, don't use it at all? Yeah... slop. I'll pass, thanks.
+I'll give a personal example. I used to buy Madden every freaking year. It's terrible. It's horrendously bad, laughably bad. The best offensive linemen in the league block absolutely nothing. The game would crash... would crash a console, hard crash, boot cycle. There were years they didn't even update the rules to match the NFL's rules. I'm convinced most of that team did NOT play that damn game. It was that damn bad. So, you don't care about your software, don't use it at all? Yeah... slop. I'll pass, thanks.
 
 ![FIXME](./madden.jpg)
+
+But if you do care about your software, and if you _use_ your software, does it matter it was written by an LLM? I'm going to argue no, it doesn't. Instead 
