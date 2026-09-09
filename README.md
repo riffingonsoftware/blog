@@ -1,5 +1,24 @@
 # Riffing on Software
 
+## Development
+
+Use the Bun and Node versions pinned in `mise.toml`. Bun manages dependencies
+and runs scripts; Astro, Playwright, and image generation use Node.
+
+```sh
+bun install --frozen-lockfile
+bun run dev
+bun run build
+bun run format:check
+```
+
+The build checks Astro, generates social images, builds the site, and runs
+desktop and mobile browser tests.
+
+Cloudflare Pages needs `BUN_VERSION=1.4.0`, `SKIP_DEPENDENCY_INSTALL=true`,
+build command `bun install --frozen-lockfile && bun run build`, and output
+directory `dist`. Node is pinned in `.node-version`.
+
 ## The Blog
 
 Welcome to the home of my blog. We'll see if I do anything with it or even stick to it, but I've been thinking about doing this long enough.

@@ -3,7 +3,6 @@ dist
 .astro
 .vercel
 .netlify
-pnpm-lock.yaml
+bun.lock
 public/**/*.min.*
 src/content/posts/**
-

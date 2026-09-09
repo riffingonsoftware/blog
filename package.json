@@ -31,5 +31,11 @@
     "tailwindcss": "^4.3.3",
     "typescript": "npm:@typescript/typescript6@^6.0.2"
   },
-  "packageManager": "pnpm@11.25.0"
+  "packageManager": "bun@1.4.0",
+  "trustedDependencies": [],
+  "overrides": {
+    "deepmerge-ts": "^8.0.2",
+    "sharp": "^0.35.3",
+    "svgo": "^4.0.2"
+  }
 }

@@ -4,10 +4,10 @@ Astro static blog deployed to Cloudflare Pages.
 
 ## Commands
 
-- `pnpm run build`: installs Chromium headless shell, checks Astro,
+- `bun run build`: installs Chromium headless shell, checks Astro,
   generates OG images, builds, and runs Playwright tests.
-- `pnpm run format:check`: checks formatting.
-- `pnpm run typecheck`: checks Astro without building.
+- `bun run format:check`: checks formatting.
+- `bun run typecheck`: checks Astro without building.
 
 ## Git
 
