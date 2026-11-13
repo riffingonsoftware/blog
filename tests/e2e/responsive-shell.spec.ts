@@ -36,9 +36,9 @@ test("keeps the sidebar off-canvas until opened on mobile", async ({ page }) => 
   await expect(header).toBeVisible();
   await expect(menuButton).toHaveAttribute("aria-expanded", "false");
 
-  const closedSidebarBox = await boundingBox(sidebar);
+  // Hidden, not just off-canvas, so keyboard and screen reader users can't reach it.
+  await expect(sidebar).toBeHidden();
   const contentBox = await boundingBox(pageContent);
-  expect(closedSidebarBox.x + closedSidebarBox.width).toBeLessThanOrEqual(1);
   expect(contentBox.x).toBeLessThanOrEqual(1);
   expect(contentBox.width).toBeGreaterThanOrEqual(389);
 
@@ -50,10 +50,6 @@ test("keeps the sidebar off-canvas until opened on mobile", async ({ page }) => 
   await page.keyboard.press("Escape");
   await expect(menuButton).toHaveAttribute("aria-expanded", "false");
   await expect(sidebar).not.toHaveAttribute("role", "dialog");
-  await expect
-    .poll(async () => {
-      const box = await boundingBox(sidebar);
-      return box.x + box.width;
-    })
-    .toBeLessThanOrEqual(1);
+  await expect(sidebar).toBeHidden();
+  await expect(menuButton).toBeFocused();
 });

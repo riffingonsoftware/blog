@@ -50,9 +50,4 @@
     document.addEventListener("astro:page-load", scheduleMount);
     document.addEventListener("astro:after-swap", scheduleMount);
   })();
-  // Avoid polluting the global type
-  // @ts-ignore
-  window.__giscusLoaderInitialized = window.__giscusLoaderInitialized || false;
-  // @ts-ignore
-  window.__giscusLastPathname = window.__giscusLastPathname || undefined;
 </script>
