@@ -15,10 +15,10 @@ bun run format:check
 The build checks formatting and Astro, generates social images, builds the
 site, and runs browser tests at desktop and mobile widths.
 
-Cloudflare Pages needs `BUN_VERSION` set to the `packageManager` version in
-`package.json`, `SKIP_DEPENDENCY_INSTALL=true`,
-build command `bun install --frozen-lockfile && bun run build`, and output
-directory `dist`. Node is pinned in `.node-version`.
+Cloudflare Pages needs `SKIP_DEPENDENCY_INSTALL=true`, build command
+`sh scripts/cloudflare-build.sh`, and output directory `dist`. The script runs
+the Bun pinned by `packageManager` in `package.json`; Node is pinned in
+`.node-version`.
 
 ## The Blog
 
