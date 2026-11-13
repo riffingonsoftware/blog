@@ -20,29 +20,30 @@ const displayPubDate = formatDate(pubDate);
 // Using ImageMetadata from content schema; no runtime inference needed
 ---
 
-<div
-  class="card bg-page relative rounded-lg p-4 transition ease-in-out hover:scale-[102%] hover:bg-white/5 hover:shadow-xl"
->
-  <a href={url} target={target} tabindex="-1" class="absolute inset-0 z-10 rounded-lg outline-none" role="presentation"
+<div class="card bg-page relative rounded-lg p-4 transition ease-in-out hover:scale-[102%] hover:bg-white/5 hover:shadow-xl">
+  <a
+    href={url}
+    target={target}
+    tabindex="-1"
+    class="absolute inset-0 z-10 rounded-lg outline-none"
+    role="presentation"
   ></a>
 
   <div class="pointer-events-none relative z-20 flex flex-col gap-4 md:flex-row md:items-center">
-    {
-      img && (
-        <a href={url} target={target} class="pointer-events-auto relative z-20 shrink-0">
-          <Picture
-            src={img}
-            alt={imgAlt || title}
-            class="max-w-full rounded-lg md:max-w-[15rem]"
-            widths={[200, 320]}
-            sizes="(min-width: 768px) 240px, 100vw"
-            formats={["avif", "webp"]}
-            fit="contain"
-            transition:name={title}
-          />
-        </a>
-      )
-    }
+    {img && (
+      <a href={url} target={target} class="pointer-events-auto relative z-20 shrink-0">
+        <Picture
+          src={img}
+          alt={imgAlt || title}
+          class="max-w-full rounded-lg md:max-w-[15rem]"
+          widths={[200, 320]}
+          sizes="(min-width: 768px) 240px, 100vw"
+          formats={["avif", "webp"]}
+          fit="contain"
+          transition:name={title}
+        />
+      </a>
+    )}
     <div class="flex-1">
       <div class="flex gap-2 md:items-start">
         <div class="text-xl font-bold">
@@ -54,29 +55,25 @@ const displayPubDate = formatDate(pubDate);
             {title}
           </a>
         </div>
-        {
-          displayPubDate && (
-            <div class="hidden text-sm whitespace-nowrap text-gray-400 md:ml-auto md:block">{displayPubDate}</div>
-          )
-        }
+        {displayPubDate && (
+          <div class="hidden text-sm whitespace-nowrap text-gray-400 md:ml-auto md:block">{displayPubDate}</div>
+        )}
       </div>
       {desc && <p class="mt-1 text-base text-gray-300">{desc}</p>}
       {displayPubDate && <div class="mt-1 text-sm text-gray-400 md:hidden">{displayPubDate}</div>}
     </div>
   </div>
 
-  {
-    tags.length > 0 && (
-      <div class="pointer-events-auto relative z-30 flex flex-wrap justify-end gap-1">
-        {tags.map((t) => (
-          <a
-            href={`/posts/${t}/1`}
-            class="badge badge-outline mt-1 border-gray-500 bg-transparent text-xs text-gray-300 transition ease-in-out hover:scale-[105%] hover:bg-white/10 hover:text-white hover:shadow-xl"
-          >
-            {t}
-          </a>
-        ))}
-      </div>
-    )
-  }
+  {tags.length > 0 && (
+    <div class="pointer-events-auto relative z-30 flex flex-wrap justify-end gap-1">
+      {tags.map((t) => (
+        <a
+          href={`/posts/${t}/1`}
+          class="badge badge-outline mt-1 border-gray-500 bg-transparent text-xs text-gray-300 transition ease-in-out hover:scale-[105%] hover:bg-white/10 hover:text-white hover:shadow-xl"
+        >
+          {t}
+        </a>
+      ))}
+    </div>
+  )}
 </div>

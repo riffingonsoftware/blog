@@ -61,67 +61,59 @@ const jsonLd = {
   <main class="md:flex md:justify-center">
     <div class="w-full max-w-[750px]">
       <article class="prose prose-lg prose-img:mx-auto">
-        {
-          heroImage && (
-            <Picture
-              src={heroImage}
-              alt={heroImageAlt ?? title}
-              class="max-w-full rounded-lg"
-              widths={[480, 768, 1024, 1280]}
-              sizes="(min-width: 800px) 750px, 100vw"
-              formats={["avif", "webp"]}
-              fit="contain"
-              loading="eager"
-              fetchpriority="high"
-              transition:name={slug ?? title}
-            />
-          )
-        }
+        {heroImage && (
+          <Picture
+            src={heroImage}
+            alt={heroImageAlt ?? title}
+            class="max-w-full rounded-lg"
+            widths={[480, 768, 1024, 1280]}
+            sizes="(min-width: 800px) 750px, 100vw"
+            formats={["avif", "webp"]}
+            fit="contain"
+            loading="eager"
+            fetchpriority="high"
+            transition:name={slug ?? title}
+          />
+        )}
         <h1 class="title my-2 text-4xl font-bold" transition:name={title}>
           {title}
         </h1>
         <div class="flex flex-wrap items-center gap-2 text-sm text-gray-400">
-          {
-            displayPubDate && (
-              <time datetime={pubDate instanceof Date ? pubDate.toISOString() : pubDate}>{displayPubDate}</time>
-            )
-          }
+          {displayPubDate && (
+            <time datetime={pubDate instanceof Date ? pubDate.toISOString() : pubDate}>{displayPubDate}</time>
+          )}
           {readingTime && <span aria-label="Estimated reading time">• {readingTime}</span>}
         </div>
-        {
-          displayUpdatedDate && (
-            <div>
-              Last updated on{" "}
-              <time datetime={updatedDate instanceof Date ? updatedDate.toISOString() : updatedDate}>
-                {displayUpdatedDate}
-              </time>
-            </div>
-          )
-        }
+        {displayUpdatedDate && (
+          <div>
+            Last updated on{" "}
+            <time datetime={updatedDate instanceof Date ? updatedDate.toISOString() : updatedDate}>
+              {displayUpdatedDate}
+            </time>
+          </div>
+        )}
         <div class="divider my-4"></div>
         <slot />
       </article>
 
-      {
-        tags && (
-          <div class="not-prose mt-8 flex flex-wrap items-center gap-1">
-            <span class="mr-2">Tags:</span>
-            {tags.map((tag: string) => (
-              <a
-                href={`/posts/${tag}/1`}
-                class="badge badge-outline mt-1 border-gray-500 bg-transparent text-gray-300 transition ease-in-out hover:scale-[105%] hover:bg-white/10 hover:text-white hover:shadow-xl"
-              >
-                {tag}
-              </a>
-            ))}
-          </div>
-        )
-      }
+      {tags && (
+        <div class="not-prose mt-8 flex flex-wrap items-center gap-1">
+          <span class="mr-2">Tags:</span>
+          {tags.map((tag: string) => (
+            <a
+              href={`/posts/${tag}/1`}
+              class="badge badge-outline mt-1 border-gray-500 bg-transparent text-gray-300 transition ease-in-out hover:scale-[105%] hover:bg-white/10 hover:text-white hover:shadow-xl"
+            >
+              {tag}
+            </a>
+          ))}
+        </div>
+      )}
 
       <div class="not-prose mt-8">
         <Comments />
       </div>
     </div>
   </main>
-  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)}></script>
 </DefaultLayout>

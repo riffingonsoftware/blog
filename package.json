@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "playwright install chromium --only-shell && astro check && node scripts/generate-og.mjs && astro build && playwright test",
+    "build": "prettier --check . && playwright install chromium --only-shell && astro check && node scripts/generate-og.mjs && astro build && playwright test",
     "preview": "astro preview",
     "test:deploy": "playwright test",
     "astro": "astro",

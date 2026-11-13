@@ -8,15 +8,19 @@ const { sideBarActiveItemID } = Astro.props;
       id="home"
       href="/"
       class="rounded-lg hover:bg-white/10"
-      aria-current={sideBarActiveItemID === "home" ? "page" : undefined}>Home</a
+      aria-current={sideBarActiveItemID === "home" ? "page" : undefined}
     >
+      Home
+    </a>
   </li>
   <li>
     <a
       id="posts"
       href="/posts/"
       class="rounded-lg hover:bg-white/10"
-      aria-current={sideBarActiveItemID === "posts" ? "page" : undefined}>Posts</a
+      aria-current={sideBarActiveItemID === "posts" ? "page" : undefined}
     >
+      Posts
+    </a>
   </li>
 </ul>

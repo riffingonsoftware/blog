@@ -4,7 +4,7 @@ Astro static blog deployed to Cloudflare Pages.
 
 ## Commands
 
-- `bun run build`: installs Chromium headless shell, checks Astro,
+- `bun run build`: checks formatting, installs Chromium headless shell, checks Astro,
   generates OG images, builds, and runs Playwright tests.
 - `bun run format:check`: checks formatting.
 - `bun run typecheck`: checks Astro without building.
