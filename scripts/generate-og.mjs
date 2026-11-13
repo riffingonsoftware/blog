@@ -18,10 +18,6 @@ const DOMAIN = "riffingonsoftware.com";
 const WIDTH = 1200;
 const HEIGHT = 627; // 1.91:1
 
-function ensureDir(dir) {
-  fs.mkdirSync(dir, { recursive: true });
-}
-
 function readPostsDir() {
   const out = [];
   /** @param {string} dir */
@@ -47,6 +43,7 @@ function parseFrontmatter(content) {
     description: undefined,
     tags: [],
     heroImage: undefined,
+    draft: false,
   };
   if (!content.startsWith("---")) return result;
   const end = content.indexOf("\n---", 3);
@@ -62,6 +59,8 @@ function parseFrontmatter(content) {
         result.title = strVal(l.replace(/^title:\s*/, ""));
       } else if (l.startsWith("description:")) {
         result.description = strVal(l.replace(/^description:\s*/, ""));
+      } else if (l.startsWith("draft:")) {
+        result.draft = l.replace(/^draft:\s*/, "") === "true";
       } else if (l.startsWith("heroImage:")) {
         result.heroImage = strVal(l.replace(/^heroImage:\s*/, ""));
       } else if (l.startsWith("tags:")) {
@@ -87,12 +86,15 @@ function parseFrontmatter(content) {
   return result;
 }
 
+// Approximates the github-slugger id Astro's glob loader gives each entry.
+// The build-output test fails if a published post's image name drifts from its page.
 function slugFromFilename(file) {
   const base = path.basename(file);
-  if (base.toLowerCase() === "index.md") {
-    return path.basename(path.dirname(file));
-  }
-  return path.basename(file, ".md");
+  const name = base.toLowerCase() === "index.md" ? path.basename(path.dirname(file)) : path.basename(file, ".md");
+  return name
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}\s_-]/gu, "")
+    .replace(/\s/g, "-");
 }
 
 function escapeXML(s) {
@@ -105,21 +107,19 @@ function escapeXML(s) {
 }
 
 function wrapText(text, maxChars, maxLines) {
-  const words = (text || "").split(/\s+/);
   const lines = [];
-  let line = "";
-  for (const w of words) {
-    const next = line ? line + " " + w : w;
-    if (next.length > maxChars && line) {
-      lines.push(line);
-      line = w;
-      if (lines.length >= maxLines - 1) break;
+  for (const w of (text || "").split(/\s+/).filter(Boolean)) {
+    const last = lines.at(-1);
+    if (last !== undefined && (last + " " + w).length <= maxChars) {
+      lines[lines.length - 1] = last + " " + w;
     } else {
-      line = next;
+      lines.push(w);
     }
   }
-  if (lines.length < maxLines && line) lines.push(line);
-  if (lines.length > maxLines) return lines.slice(0, maxLines);
+  if (lines.length > maxLines) {
+    lines.length = maxLines;
+    lines[maxLines - 1] += "…";
+  }
   return lines;
 }
 
@@ -134,14 +134,19 @@ function svgTemplate({ title, description, tags = [], hasHero = false }) {
   const titleLines = wrapText(title || SITE_TITLE, 30, 2).map(escapeXML);
   const descLines = description ? wrapText(description, 55, 2).map(escapeXML) : [];
 
+  // Stack text upward from the tag row (y 505-537) so nothing overlaps.
+  const lastDescY = tags.length ? 480 : 530;
+  const descY = lastDescY - (descLines.length - 1) * 28;
+  const lastTitleY = descLines.length ? descY - 40 : lastDescY;
+  const titleY = lastTitleY - (titleLines.length - 1) * 60;
+
   const titleSVG = titleLines
     .map(
       (t, i) =>
-        `<text x="60" y="${395 + i * 60}" font-size="52" font-weight="800" font-family="sans-serif" fill="#ffffff" letter-spacing="-1">${t}</text>`,
+        `<text x="60" y="${titleY + i * 60}" font-size="52" font-weight="800" font-family="sans-serif" fill="#ffffff" letter-spacing="-1">${t}</text>`,
     )
     .join("\n");
 
-  const descY = 395 + titleLines.length * 60 + 10;
   const descSVG = descLines
     .map(
       (t, i) =>
@@ -149,15 +154,16 @@ function svgTemplate({ title, description, tags = [], hasHero = false }) {
     )
     .join("\n");
 
-  const tagSVG = tags
-    .map((t, i) => {
-      const x = 60 + i * 120;
-      const w = t.length * 12 + 24;
-      return `
-        <rect x="${x}" y="505" width="${w}" height="32" rx="16" fill="rgba(147,197,253,0.2)" stroke="${accent}" stroke-width="1"/>
-        <text x="${x + w / 2}" y="526" font-size="16" font-family="sans-serif" fill="${accent}" text-anchor="middle">${escapeXML(t)}</text>`;
-    })
-    .join("");
+  let tagX = 60;
+  let tagSVG = "";
+  for (const t of tags) {
+    const w = t.length * 10 + 24;
+    if (tagX + w > WIDTH - 60) break;
+    tagSVG += `
+        <rect x="${tagX}" y="505" width="${w}" height="32" rx="16" fill="rgba(147,197,253,0.2)" stroke="${accent}" stroke-width="1"/>
+        <text x="${tagX + w / 2}" y="526" font-size="16" font-family="sans-serif" fill="${accent}" text-anchor="middle">${escapeXML(t)}</text>`;
+    tagX += w + 12;
+  }
 
   const fallbackBg = hasHero
     ? ""
@@ -205,7 +211,8 @@ function resolveHeroPath(hero, baseDir) {
 
 async function generate(postFile) {
   const src = fs.readFileSync(postFile, "utf8");
-  const { title, description, tags, heroImage } = parseFrontmatter(src);
+  const { title, description, tags, heroImage, draft } = parseFrontmatter(src);
+  if (draft) return;
   const slug = slugFromFilename(postFile);
   const heroAbs = resolveHeroPath(heroImage, path.dirname(postFile));
   const hasHero = heroAbs && fs.existsSync(heroAbs);
@@ -215,47 +222,27 @@ async function generate(postFile) {
 
   if (hasHero) {
     // Hero as full-bleed background, SVG overlay on top
-    try {
-      const heroBg = await sharp(heroAbs).resize({ width: WIDTH, height: HEIGHT, fit: "cover" }).png().toBuffer();
-      await sharp(heroBg)
-        .composite([{ input: overlaySvg, left: 0, top: 0 }])
-        .jpeg({ quality: 85 })
-        .toFile(outPath);
-    } catch (e) {
-      console.warn("OG: hero failed for", slug, e?.message || e);
-      // Fall back to overlay-only (has its own dark background)
-      const fallbackSvg = svgTemplate({ title, description, tags, hasHero: false });
-      await sharp(Buffer.from(fallbackSvg)).jpeg({ quality: 85 }).toFile(outPath);
-    }
+    const heroBg = await sharp(heroAbs).resize({ width: WIDTH, height: HEIGHT, fit: "cover" }).png().toBuffer();
+    await sharp(heroBg)
+      .composite([{ input: overlaySvg, left: 0, top: 0 }])
+      .jpeg({ quality: 85 })
+      .toFile(outPath);
   } else {
     // No hero — SVG includes its own dark gradient background
     await sharp(overlaySvg).jpeg({ quality: 85 }).toFile(outPath);
   }
-  return { slug, outPath };
+  process.stdout.write(`OG: ${path.basename(outPath)}\n`);
 }
 
 async function main() {
-  ensureDir(OUT_DIR);
-  const files = readPostsDir();
-  const results = [];
-  // Default site OG image
-  try {
-    const svg = svgTemplate({ title: SITE_TITLE, hasHero: false });
-    const outPath = path.join(OUT_DIR, `default.jpg`);
-    await sharp(Buffer.from(svg)).jpeg({ quality: 85 }).toFile(outPath);
-    process.stdout.write(`OG: ${path.basename(outPath)}\n`);
-  } catch (e) {
-    console.error("OG generation failed for default image", e);
-  }
-  for (const f of files) {
-    try {
-      const r = await generate(f);
-      results.push(r);
-      process.stdout.write(`OG: ${path.basename(r.outPath)}\n`);
-    } catch (e) {
-      console.error("OG generation failed for", f, e);
-    }
+  // Start clean so images for deleted, renamed, or re-drafted posts don't ship.
+  fs.rmSync(OUT_DIR, { recursive: true, force: true });
+  fs.mkdirSync(OUT_DIR, { recursive: true });
+  const svg = svgTemplate({ title: SITE_TITLE, hasHero: false });
+  await sharp(Buffer.from(svg)).jpeg({ quality: 85 }).toFile(path.join(OUT_DIR, "default.jpg"));
+  for (const f of readPostsDir()) {
+    await generate(f);
   }
 }
 
-main();
+await main();
