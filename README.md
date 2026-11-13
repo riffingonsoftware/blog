@@ -12,10 +12,11 @@ bun run build
 bun run format:check
 ```
 
-The build checks Astro, generates social images, builds the site, and runs
-desktop and mobile browser tests.
+The build checks formatting and Astro, generates social images, builds the
+site, and runs browser tests at desktop and mobile widths.
 
-Cloudflare Pages needs `BUN_VERSION=1.4.0`, `SKIP_DEPENDENCY_INSTALL=true`,
+Cloudflare Pages needs `BUN_VERSION` set to the `packageManager` version in
+`package.json`, `SKIP_DEPENDENCY_INSTALL=true`,
 build command `bun install --frozen-lockfile && bun run build`, and output
 directory `dist`. Node is pinned in `.node-version`.
 
@@ -33,14 +34,3 @@ They can be found [here](https://www.linkedin.com/help/linkedin/answer/a521928/m
 - Minimum image dimensions: 1200 (w) x 627 (h) pixels
 - Recommended ratio: 1.91:1
 - File types: JPG, PNG, or GIF
-
-#### Blog Ideas
-
-1. Standardize to Innovate (Disclaimer, The Uniform/Congnitive Load, Revisit Standards)
-2. Every Company Is A Software Company; Every Software Company Is A Security Company
-3. Open Source Givers & Takers
-4. Computer Science vs Software Engineering
-5. Reading Technical Books
-6. The 2 Kinds of Ownership
-7. I am left only with uncertainty.
-8. https://en.wikipedia.org/wiki/Diffusion_of_innovations?wprov=sfti1
