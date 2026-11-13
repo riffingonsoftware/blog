@@ -130,5 +130,9 @@ const computedActiveId = pathname.startsWith("/posts") ? "posts" : pathname === 
       if (e.target?.closest?.("#sidebar-overlay")) toggle();
     });
     window.addEventListener("toggleSidebar", toggle);
+    // The close button is mobile-only, so close an open menu when the viewport grows past md.
+    matchMedia("(min-width: 48rem)").addEventListener("change", (e) => {
+      if (e.matches && !document.getElementById("sidebar-panel")?.classList.contains("-translate-x-full")) toggle();
+    });
   })();
 </script>
