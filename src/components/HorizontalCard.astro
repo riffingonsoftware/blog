@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  pubDate?: string | Date;
+  pubDate?: Date;
   title: string;
   img?: ImageMetadata;
   imgAlt?: string;
@@ -13,11 +13,10 @@ export interface Props {
 import { Picture } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import { formatDate } from "../lib/date";
+import { tagPath } from "../lib/slug";
 
 const { pubDate, title, img, imgAlt, desc, url, tags = [], target = "_self" } = Astro.props;
 const displayPubDate = formatDate(pubDate);
-
-// Using ImageMetadata from content schema; no runtime inference needed
 ---
 
 <div class="card bg-page relative rounded-lg p-4 transition ease-in-out hover:scale-[102%] hover:bg-white/5 hover:shadow-xl">
@@ -68,7 +67,7 @@ const displayPubDate = formatDate(pubDate);
     <div class="pointer-events-auto relative z-30 flex flex-wrap justify-end gap-1">
       {tags.map((t) => (
         <a
-          href={`/posts/${t}/1`}
+          href={tagPath(t)}
           class="badge badge-outline mt-1 border-gray-500 bg-transparent text-xs text-gray-300 transition ease-in-out hover:scale-[105%] hover:bg-white/10 hover:text-white hover:shadow-xl"
         >
           {t}

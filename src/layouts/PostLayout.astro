@@ -3,14 +3,14 @@ import { Picture } from "astro:assets";
 import Comments from "../components/Comments.astro";
 import type { CollectionEntry } from "astro:content";
 import { formatDate } from "../lib/date";
+import { tagPath } from "../lib/slug";
 import DefaultLayout from "./DefaultLayout.astro";
-// No runtime image metadata inference needed when using content image()
 
 type PostData = CollectionEntry<"posts">["data"];
 
 export interface Props extends PostData {
   readonly readingTime?: string;
-  ogImage?: string;
+  ogImage: string;
   slug?: string;
 }
 
@@ -31,19 +31,17 @@ const {
 const authorName = author ?? "Ricardo Torres";
 const displayPubDate = formatDate(pubDate);
 const displayUpdatedDate = formatDate(updatedDate);
-// Build absolute image URL for JSON-LD using configured site
-const jsonLdImage = new URL(ogImage || "/og/default.jpg", Astro.url).toString();
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   headline: title,
   description,
-  datePublished: pubDate?.toString?.() ?? pubDate,
-  dateModified: updatedDate?.toString?.() ?? updatedDate,
+  datePublished: pubDate.toISOString(),
+  dateModified: updatedDate?.toISOString(),
   url: canonicalUrl ?? Astro.url,
-  author: authorName ? { "@type": "Person", name: authorName } : undefined,
-  image: jsonLdImage,
-  keywords: Array.isArray(tags) ? tags.join(", ") : undefined,
+  author: { "@type": "Person", name: authorName },
+  image: new URL(ogImage, Astro.url).toString(),
+  keywords: tags.join(", "),
 };
 ---
 
@@ -51,14 +49,14 @@ const jsonLd = {
   author={authorName}
   title={title}
   description={description}
-  image={ogImage ?? heroImage}
+  image={ogImage}
   pubDate={pubDate}
   canonicalUrl={canonicalUrl}
   isArticle={true}
   updatedDate={updatedDate}
   tags={tags}
 >
-  <main class="md:flex md:justify-center">
+  <div class="md:flex md:justify-center">
     <div class="w-full max-w-[750px]">
       <article class="prose prose-lg prose-img:mx-auto">
         {heroImage && (
@@ -79,29 +77,24 @@ const jsonLd = {
           {title}
         </h1>
         <div class="flex flex-wrap items-center gap-2 text-sm text-gray-400">
-          {displayPubDate && (
-            <time datetime={pubDate instanceof Date ? pubDate.toISOString() : pubDate}>{displayPubDate}</time>
-          )}
+          {displayPubDate && <time datetime={pubDate.toISOString()}>{displayPubDate}</time>}
           {readingTime && <span aria-label="Estimated reading time">• {readingTime}</span>}
         </div>
         {displayUpdatedDate && (
           <div>
-            Last updated on{" "}
-            <time datetime={updatedDate instanceof Date ? updatedDate.toISOString() : updatedDate}>
-              {displayUpdatedDate}
-            </time>
+            Last updated on <time datetime={updatedDate?.toISOString()}>{displayUpdatedDate}</time>
           </div>
         )}
         <div class="divider my-4"></div>
         <slot />
       </article>
 
-      {tags && (
+      {tags.length > 0 && (
         <div class="not-prose mt-8 flex flex-wrap items-center gap-1">
           <span class="mr-2">Tags:</span>
-          {tags.map((tag: string) => (
+          {tags.map((tag) => (
             <a
-              href={`/posts/${tag}/1`}
+              href={tagPath(tag)}
               class="badge badge-outline mt-1 border-gray-500 bg-transparent text-gray-300 transition ease-in-out hover:scale-[105%] hover:bg-white/10 hover:text-white hover:shadow-xl"
             >
               {tag}
@@ -114,6 +107,6 @@ const jsonLd = {
         <Comments />
       </div>
     </div>
-  </main>
+  </div>
   <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)}></script>
 </DefaultLayout>

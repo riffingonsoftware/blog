@@ -2,6 +2,9 @@ import { defineCollection, type SchemaContext } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
+// Dates are written "YYYY.MM.DD"; dashes make them parse as UTC, not build-machine local time.
+const postDate = z.preprocess((value) => (typeof value === "string" ? value.replaceAll(".", "-") : value), z.coerce.date());
+
 const postSchema = ({ image }: SchemaContext) =>
   z
     .object({
@@ -10,10 +13,10 @@ const postSchema = ({ image }: SchemaContext) =>
       draft: z.boolean().optional(),
       heroImage: image().optional(),
       heroImageAlt: z.string().optional(),
-      pubDate: z.coerce.date(),
+      pubDate: postDate,
       tags: z.array(z.string()),
       title: z.string(),
-      updatedDate: z.coerce.date().optional(),
+      updatedDate: postDate.optional(),
       canonicalUrl: z.url().optional(),
     })
     .superRefine((data, ctx) => {

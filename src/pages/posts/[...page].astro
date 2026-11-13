@@ -1,13 +1,10 @@
 ---
 import type { GetStaticPaths } from "astro";
 import PostListingLayout from "../../layouts/PostListingLayout.astro";
-import { getCollection } from "astro:content";
-import { includeVisiblePosts } from "../../lib/postFilters";
+import { getVisiblePosts } from "../../lib/postFilters";
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const posts = await getCollection("posts", includeVisiblePosts);
-  posts.sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
-  return paginate(posts, { pageSize: 10 });
+  return paginate(await getVisiblePosts(), { pageSize: 10 });
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props;

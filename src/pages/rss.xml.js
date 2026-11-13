@@ -1,11 +1,10 @@
 import rss from "@astrojs/rss";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
-import { getCollection } from "astro:content";
-import { includeVisiblePosts } from "../lib/postFilters";
-import { getSlug } from "../lib/slug";
+import { getVisiblePosts } from "../lib/postFilters";
+import { postPath } from "../lib/slug";
 
 export async function GET(context) {
-  const publishedPosts = await getCollection("posts", includeVisiblePosts);
+  const publishedPosts = await getVisiblePosts();
   return rss({
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
@@ -14,7 +13,7 @@ export async function GET(context) {
       title: post.data.title,
       pubDate: post.data.pubDate,
       description: post.data.description,
-      link: `/posts/${getSlug(post.id)}`,
+      link: postPath(post.id),
     })),
   });
 }

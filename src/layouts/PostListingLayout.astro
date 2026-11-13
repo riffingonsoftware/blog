@@ -2,7 +2,7 @@
 import DefaultLayout from "./DefaultLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 import type { CollectionEntry } from "astro:content";
-import { getSlug } from "../lib/slug";
+import { postPath } from "../lib/slug";
 
 type Page<T> = { data: T[]; url: { prev?: string; next?: string } };
 export interface Props {
@@ -36,7 +36,7 @@ const { page, tag, title } = Astro.props;
             img={img}
             imgAlt={post.data.heroImageAlt}
             desc={post.data.description}
-            url={"/posts/" + getSlug(post.id)}
+            url={postPath(post.id)}
             tags={post.data.tags}
             target="_self"
           />
