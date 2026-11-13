@@ -32,7 +32,8 @@ const postSchema = ({ image }: SchemaContext) =>
 const postCollection = defineCollection({
   loader: glob({
     base: "./src/content/posts",
-    pattern: "**/[^_]*.{md,mdx}",
+    // Leave drafts/ out of production builds so its images aren't emitted to dist/_astro.
+    pattern: import.meta.env.DEV ? "**/[^_]*.{md,mdx}" : ["**/[^_]*.{md,mdx}", "!drafts/**"],
   }),
   schema: postSchema,
 });
