@@ -40,10 +40,10 @@ const ogImageAbs = new URL(image || "/og/default.jpg", Astro.url).toString();
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>{title}</title>
 
-  <!-- Canonical URL -->
+  {/* Canonical URL */}
   <link rel="canonical" href={pageUrl} />
 
-  <!-- Open Graph -->
+  {/* Open Graph */}
   <meta property="og:type" content={isArticle ? "article" : "website"} />
   <meta property="og:url" content={pageUrl} />
   <meta property="og:site_name" content="Riffing on Software" />
@@ -60,7 +60,7 @@ const ogImageAbs = new URL(image || "/og/default.jpg", Astro.url).toString();
   {isArticle && updIso && <meta property="article:modified_time" content={updIso} />}
   {isArticle && tags.map((t) => <meta property="article:tag" content={t} />)}
 
-  <!-- Twitter Cards -->
+  {/* Twitter Cards */}
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />

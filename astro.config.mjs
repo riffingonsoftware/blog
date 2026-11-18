@@ -1,7 +1,6 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig, sharpImageService } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
-import compress from "astro-compress";
 import fs from "node:fs";
 
 /** @type {URL} */
@@ -15,6 +14,7 @@ export default defineConfig({
   trailingSlash: "always",
   image: {
     dangerouslyProcessSVG: true,
+    service: sharpImageService({ png: { compressionLevel: 9, palette: true } }),
   },
   integrations: [
     {
@@ -44,10 +44,6 @@ export default defineConfig({
         },
       },
     },
-    compress({
-      // CSSO drops Tailwind's range media queries; Vite already minifies CSS.
-      CSS: false,
-    }),
   ],
   vite: {
     plugins: [tailwindcss()],
