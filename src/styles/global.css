@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
 
 @theme {
   --color-page: #0c1425;
@@ -83,44 +82,268 @@
   }
 }
 
-/* Ensure prose looks good on dark background */
-.prose {
-  --tw-prose-body: theme(colors.gray.200);
-  --tw-prose-headings: theme(colors.gray.100);
-  --tw-prose-links: theme(colors.blue.300);
-  --tw-prose-quotes: theme(colors.gray.300);
-  --tw-prose-bold: theme(colors.gray.100);
-  --tw-prose-pre-bg: color-mix(in oklab, var(--color-page), white 24%);
-}
+/* Post typography adapted from @tailwindcss/typography's prose and prose-lg styles.
 
-.prose pre {
-  background: var(--tw-prose-pre-bg);
-  border: 1px solid color-mix(in oklab, var(--color-border), white 35%);
-  border-radius: var(--radius);
-  color: var(--color-text-strong);
-  overflow-x: auto;
-  padding: 1rem;
-}
+MIT License
 
-.prose code {
-  color: var(--color-text-strong);
-  background: color-mix(in oklab, var(--color-page), white 18%);
-  border: 1px solid color-mix(in oklab, var(--color-border), white 40%);
-  border-radius: calc(var(--radius) - 2px);
-  padding: 0.1rem 0.35rem;
-}
+Copyright (c) Tailwind Labs, Inc.
 
-.prose :not(pre) > code::before,
-.prose :not(pre) > code::after {
-  content: "";
-}
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-.prose pre code {
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  color: inherit;
-  padding: 0;
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+@layer components {
+  .prose {
+    color: var(--color-gray-200);
+    max-width: 65ch;
+    font-size: 1.125rem;
+    line-height: 1.77778;
+  }
+  .prose :where(p) {
+    margin-top: 1.33333em;
+    margin-bottom: 1.33333em;
+  }
+  .prose :where(a) {
+    color: var(--color-blue-300);
+    font-weight: 500;
+    text-decoration: underline;
+  }
+  .prose :where(strong) {
+    color: var(--color-gray-100);
+    font-weight: 600;
+  }
+  .prose :where(a strong, blockquote strong, thead th strong) {
+    color: inherit;
+  }
+  .prose :where(ol, ul) {
+    margin-top: 1.33333em;
+    margin-bottom: 1.33333em;
+    padding-inline-start: 1.55556em;
+  }
+  .prose :where(ol) {
+    list-style-type: decimal;
+  }
+  .prose :where(ul) {
+    list-style-type: disc;
+  }
+  .prose :where(ol > li)::marker {
+    color: var(--color-gray-500);
+    font-weight: 400;
+  }
+  .prose :where(ul > li)::marker {
+    color: var(--color-gray-300);
+  }
+  .prose :where(hr) {
+    border-color: var(--color-gray-200);
+    border-top-width: 1px;
+    margin-top: 3.11111em;
+    margin-bottom: 3.11111em;
+  }
+  .prose :where(blockquote) {
+    color: var(--color-gray-300);
+    border-inline-start: 0.25rem solid var(--color-gray-200);
+    quotes: "\201C" "\201D" "\2018" "\2019";
+    margin-top: 1.66667em;
+    margin-bottom: 1.66667em;
+    padding-inline-start: 1em;
+    font-style: italic;
+    font-weight: 500;
+  }
+  .prose :where(blockquote p:first-of-type)::before {
+    content: open-quote;
+  }
+  .prose :where(blockquote p:last-of-type)::after {
+    content: close-quote;
+  }
+  .prose :where(h1, h2, h3, h4) {
+    color: var(--color-gray-100);
+  }
+  .prose :where(h1) {
+    margin-top: 0;
+    margin-bottom: 0.833333em;
+    font-size: 2.66667em;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .prose :where(h2) {
+    margin-top: 1.86667em;
+    margin-bottom: 1.06667em;
+    font-size: 1.66667em;
+    font-weight: 700;
+    line-height: 1.33333;
+  }
+  .prose :where(h3) {
+    margin-top: 1.66667em;
+    margin-bottom: 0.666667em;
+    font-size: 1.33333em;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+  .prose :where(h4) {
+    margin-top: 1.77778em;
+    margin-bottom: 0.444444em;
+    font-weight: 600;
+    line-height: 1.55556;
+  }
+  .prose :where(h1 strong, h2 strong, h3 strong, h4 strong) {
+    color: inherit;
+  }
+  .prose :where(h1 strong) {
+    font-weight: 900;
+  }
+  .prose :where(h2 strong) {
+    font-weight: 800;
+  }
+  .prose :where(h3 strong, h4 strong) {
+    font-weight: 700;
+  }
+  .prose :where(img, picture) {
+    margin-top: 1.77778em;
+    margin-bottom: 1.77778em;
+  }
+  .prose :where(img) {
+    margin-inline: auto;
+  }
+  .prose :where(picture) {
+    display: block;
+  }
+  .prose :where(picture > img) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .prose :where(code) {
+    color: var(--color-text-strong);
+    background: color-mix(in oklab, var(--color-page), white 18%);
+    border: 1px solid color-mix(in oklab, var(--color-border), white 40%);
+    border-radius: calc(var(--radius) - 2px);
+    padding: 0.1rem 0.35rem;
+    font-size: 0.888889em;
+    font-weight: 600;
+  }
+  .prose :where(h2 code) {
+    font-size: 0.866667em;
+  }
+  .prose :where(h3 code) {
+    font-size: 0.875em;
+  }
+  .prose :where(pre) {
+    color: var(--color-text-strong);
+    background: color-mix(in oklab, var(--color-page), white 24%);
+    border: 1px solid color-mix(in oklab, var(--color-border), white 35%);
+    border-radius: var(--radius);
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding: 1rem;
+    font-size: 0.888889em;
+    font-weight: 400;
+    line-height: 1.75;
+    overflow-x: auto;
+  }
+  .prose :where(pre code) {
+    color: inherit;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+  }
+  .prose :where(table) {
+    table-layout: auto;
+    width: 100%;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    font-size: 0.888889em;
+    line-height: 1.5;
+  }
+  .prose :where(thead) {
+    border-bottom: 1px solid var(--color-gray-300);
+  }
+  .prose :where(thead th) {
+    color: var(--color-gray-100);
+    vertical-align: bottom;
+    padding-inline: 0.75em;
+    padding-bottom: 0.75em;
+    font-weight: 600;
+  }
+  .prose :where(tbody tr) {
+    border-bottom: 1px solid var(--color-gray-200);
+  }
+  .prose :where(tbody tr:last-child) {
+    border-bottom-width: 0;
+  }
+  .prose :where(tbody td) {
+    vertical-align: baseline;
+  }
+  .prose :where(tfoot) {
+    border-top: 1px solid var(--color-gray-300);
+  }
+  .prose :where(tfoot td) {
+    vertical-align: top;
+  }
+  .prose :where(th, td) {
+    text-align: start;
+  }
+  .prose :where(li) {
+    margin-top: 0.666667em;
+    margin-bottom: 0.666667em;
+  }
+  .prose :where(ol > li, ul > li) {
+    padding-inline-start: 0.444444em;
+  }
+  .prose :where(.prose > ul > li p) {
+    margin-top: 0.888889em;
+    margin-bottom: 0.888889em;
+  }
+  .prose :where(.prose > ul > li > p:first-child, .prose > ol > li > p:first-child) {
+    margin-top: 1.33333em;
+  }
+  .prose :where(.prose > ul > li > p:last-child, .prose > ol > li > p:last-child) {
+    margin-bottom: 1.33333em;
+  }
+  .prose :where(ul ul, ul ol, ol ul, ol ol) {
+    margin-top: 0.888889em;
+    margin-bottom: 0.888889em;
+  }
+  .prose :where(hr + *, h2 + *, h3 + *, h4 + *) {
+    margin-top: 0;
+  }
+  .prose :where(thead th:first-child) {
+    padding-inline-start: 0;
+  }
+  .prose :where(thead th:last-child) {
+    padding-inline-end: 0;
+  }
+  .prose :where(tbody td, tfoot td) {
+    padding: 0.75em;
+  }
+  .prose :where(tbody td:first-child, tfoot td:first-child) {
+    padding-inline-start: 0;
+  }
+  .prose :where(tbody td:last-child, tfoot td:last-child) {
+    padding-inline-end: 0;
+  }
+  .prose :where(.prose > :first-child) {
+    margin-top: 0;
+  }
+  .prose :where(.prose > :last-child) {
+    margin-bottom: 0;
+  }
 }
 
 /* Skip link */

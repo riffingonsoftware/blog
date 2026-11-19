@@ -58,7 +58,7 @@ const jsonLd = {
 >
   <div class="md:flex md:justify-center">
     <div class="w-full max-w-[750px]">
-      <article class="prose prose-lg prose-img:mx-auto">
+      <article class="prose">
         {heroImage && (
           <Picture
             src={heroImage}
@@ -73,7 +73,7 @@ const jsonLd = {
             transition:name={slug ?? title}
           />
         )}
-        <h1 class="title my-2 text-4xl font-bold" transition:name={title}>
+        <h1 class="title text-4xl font-bold" transition:name={title}>
           {title}
         </h1>
         <div class="flex flex-wrap items-center gap-2 text-sm text-gray-400">
@@ -90,7 +90,7 @@ const jsonLd = {
       </article>
 
       {tags.length > 0 && (
-        <div class="not-prose mt-8 flex flex-wrap items-center gap-1">
+        <div class="mt-8 flex flex-wrap items-center gap-1">
           <span class="mr-2">Tags:</span>
           {tags.map((tag) => (
             <a
@@ -103,7 +103,7 @@ const jsonLd = {
         </div>
       )}
 
-      <div class="not-prose mt-8">
+      <div class="mt-8">
         <Comments />
       </div>
     </div>
